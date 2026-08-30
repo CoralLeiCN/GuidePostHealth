@@ -1,0 +1,107 @@
+{
+  "licence": "Open Government Licence v3.0",
+  "discovery_source": "https://www.nhs.uk/symptoms/",
+  "scope": "Curated common symptom guidance for England",
+  "sources": [
+    {
+      "title": "Back pain",
+      "url": "https://www.nhs.uk/conditions/back-pain/"
+    },
+    {
+      "title": "Bloating",
+      "url": "https://www.nhs.uk/symptoms/bloating/"
+    },
+    {
+      "title": "Chest pain",
+      "url": "https://www.nhs.uk/symptoms/chest-pain/"
+    },
+    {
+      "title": "Constipation",
+      "url": "https://www.nhs.uk/conditions/constipation/"
+    },
+    {
+      "title": "Cough",
+      "url": "https://www.nhs.uk/symptoms/cough/"
+    },
+    {
+      "title": "Dehydration",
+      "url": "https://www.nhs.uk/conditions/dehydration/"
+    },
+    {
+      "title": "Diarrhoea and vomiting",
+      "url": "https://www.nhs.uk/symptoms/diarrhoea-and-vomiting/"
+    },
+    {
+      "title": "Dizziness",
+      "url": "https://www.nhs.uk/symptoms/dizziness/"
+    },
+    {
+      "title": "Earache",
+      "url": "https://www.nhs.uk/symptoms/earache/"
+    },
+    {
+      "title": "Fainting",
+      "url": "https://www.nhs.uk/symptoms/fainting/"
+    },
+    {
+      "title": "Feeling sick (nausea)",
+      "url": "https://www.nhs.uk/symptoms/feeling-sick-nausea/"
+    },
+    {
+      "title": "High temperature (fever) in adults",
+      "url": "https://www.nhs.uk/symptoms/fever-in-adults/"
+    },
+    {
+      "title": "High temperature (fever) in children",
+      "url": "https://www.nhs.uk/symptoms/fever-in-children/"
+    },
+    {
+      "title": "Headaches",
+      "url": "https://www.nhs.uk/symptoms/headaches/"
+    },
+    {
+      "title": "Heart palpitations",
+      "url": "https://www.nhs.uk/symptoms/heart-palpitations/"
+    },
+    {
+      "title": "Heartburn and acid reflux",
+      "url": "https://www.nhs.uk/conditions/heartburn-and-acid-reflux/"
+    },
+    {
+      "title": "Itchy skin",
+      "url": "https://www.nhs.uk/symptoms/itchy-skin/"
+    },
+    {
+      "title": "Night sweats",
+      "url": "https://www.nhs.uk/symptoms/night-sweats/"
+    },
+    {
+      "title": "Red eye",
+      "url": "https://www.nhs.uk/symptoms/red-eye/"
+    },
+    {
+      "title": "Shortness of breath",
+      "url": "https://www.nhs.uk/symptoms/shortness-of-breath/"
+    },
+    {
+      "title": "Sore throat",
+      "url": "https://www.nhs.uk/symptoms/sore-throat/"
+    },
+    {
+      "title": "Stomach ache",
+      "url": "https://www.nhs.uk/symptoms/stomach-ache/"
+    },
+    {
+      "title": "Swollen glands",
+      "url": "https://www.nhs.uk/symptoms/swollen-glands/"
+    },
+    {
+      "title": "Tiredness and fatigue",
+      "url": "https://www.nhs.uk/symptoms/tiredness-and-fatigue/"
+    },
+    {
+      "title": "Unintentional weight loss",
+      "url": "https://www.nhs.uk/symptoms/unintentional-weight-loss/"
+    }
+  ]
+}
