@@ -12,13 +12,15 @@ The repository contains:
 - an extractive retrieval fallback when Codex is unavailable;
 - a responsive React/Vinext chat interface with server-owned NHS citations.
 
+Detailed as-built behaviour, requirements, safety gaps, and production gates are maintained in the [specification set](docs/README.md).
+
 ## Architecture
 
 ```text
 browser chat
     │
     ▼
-FastAPI validation ──► deterministic emergency floor
+FastAPI validation + index readiness ──► deterministic emergency floor
     │
     ▼
 sentence-transformers query embedding
@@ -132,4 +134,5 @@ backend/nhs_rag/
 config/nhs_sources.json      tracked source allowlist
 data/nhs/                    downloaded corpus (ignored)
 tests/                       parser, retrieval, safety, API tests
+docs/                        product, architecture, safety, and operations specifications
 ```
