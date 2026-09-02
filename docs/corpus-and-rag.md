@@ -39,7 +39,7 @@ For each run, ingestion must:
 
 1. Load and validate every source before fetching.
 2. Fetch `https://www.nhs.uk/robots.txt` and check each URL for the identifying user agent.
-3. Use `NextStepNHSRAG/0.1 (+<contact>)` as its user agent.
+3. Use `GuidePostHealthRAG/0.1 (+<contact>)` as its user agent.
 4. Wait 1 second between pages by default.
 5. Use a 30-second timeout with a 10-second connection timeout.
 6. Attempt a request at most 3 times, with exponential delay for request or validation failures.
@@ -93,12 +93,12 @@ Changing canonical URLs, section order, headings, window positions, or text chan
 2. Skips files that do not validate as `GuideDocument`.
 3. Fails readiness when no valid documents remain.
 4. Chunks every valid document and embeds all chunk texts.
-5. Deletes and recreates the named in-memory Qdrant collection.
+5. Deletes and recreates the named standalone Qdrant collection.
 6. Uses cosine distance and the encoder-reported dimension.
 7. Upserts serialized chunk payloads in batches of 128 with `wait=True`.
-8. Marks the process ready only after the complete build succeeds.
+8. Verifies the stored point count and marks the process ready only after the complete build succeeds.
 
-There is no incremental update, persistent index, index version, or atomic blue/green promotion yet.
+The collection persists in a Docker named volume. Its metadata records the schema version, corpus hash, embedding model, vector size, and chunk count so API startup can reject missing or stale data. There is no incremental update or atomic blue/green promotion yet.
 
 ## 8. Retrieval algorithm
 
@@ -137,7 +137,7 @@ The following are required before a public pilot:
 | CR-105 | Remove orphaned JSON when a manifest source is withdrawn; the current glob index would otherwise retain it. | Required |
 | CR-106 | Revalidate canonical and citation URLs during parse, index, and response construction. | Required |
 | CR-107 | Pin and record the exact embedding model revision and evaluate it against a clinically reviewed query set. | Required |
-| CR-108 | Migrate to an authenticated, encrypted, persistent Qdrant service with backup/restore and controlled index promotion. | Required for production |
+| CR-108 | Add Qdrant authentication, encryption, backup/restore, and controlled index promotion. | Required for production |
 | CR-109 | Define a page-level takedown and licence-exclusion process. | Required |
 
 ## 11. NHS content and attribution
@@ -151,4 +151,3 @@ Primary references:
 - [NHS website terms and conditions](https://www.nhs.uk/our-policies/terms-and-conditions/)
 - [NHS content not licensed for re-use](https://www.nhs.uk/our-policies/terms-and-conditions/content-not-licensed-for-re-use/)
 - [Open Government Licence v3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/)
-

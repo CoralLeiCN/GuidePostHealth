@@ -7,14 +7,14 @@
 - Node.js 22.13 or newer.
 - Python 3.11 or newer.
 - `uv`.
+- Docker Compose.
 - Network access for dependency/model download and NHS corpus refresh.
 - A Codex login usable by the local Python SDK when generated mode is enabled.
 
 ### Install
 
 ```bash
-npm install
-uv sync --dev
+make install
 ```
 
 ### Build the ignored corpus
@@ -28,33 +28,30 @@ Use a real monitored contact address or project URL for anything beyond individu
 ### Start the services
 
 ```bash
-# Terminal 1
-npm run dev:api
-
-# Terminal 2
-npm run dev
+make dev
 ```
 
 Open `http://localhost:3000`. OpenAPI documentation is at `http://localhost:8000/docs`.
 
-The API must run with one worker while Qdrant remains in memory.
+`make dev` starts the resource-limited Qdrant container and creates the persistent `health_guidance` collection when it is missing. Use `make frontend` and `make backend` to run the application processes separately.
 
 ### Retrieval-only mode
 
 Set this in `.env`:
 
 ```dotenv
-NEXTSTEP_CODEX_ENABLED=false
+GUIDEPOST_CODEX_ENABLED=false
 ```
 
 Restart the API. Successful chats will report `retrieval_only` and return source extracts.
 
 ## 2. Refresh behaviour
 
-Run ingestion again to refresh the local files, then restart the API so it rebuilds the in-memory index.
+Run ingestion again, explicitly rebuild the persisted index, then restart the API so it validates the new collection.
 
 ```bash
 uv run python -m nhs_rag.ingestion.cli --contact "mailto:you@example.com"
+make qdrant-index
 ```
 
 The current process has no scheduler, live re-index endpoint, corpus promotion environment, or automatic stale-content alarm.
@@ -93,8 +90,8 @@ The initial implementation baseline passed all commands. The Python suite curren
 ## 5. Current operational limits
 
 - No public deployment or approved production environment.
-- No persistent/shared vector index; every API process builds its own copy.
-- Startup downloads/loads the embedding model and indexes the entire corpus.
+- The standalone Qdrant service is local-only and has no authentication, TLS, backup, restore, or controlled index promotion.
+- Indexing is explicit and temporarily replaces the collection rather than performing a zero-downtime swap.
 - No zero-downtime index swap, backup, restore, or rollback.
 - No authentication, rate limiting, queue, user quota, or distributed concurrency control.
 - Only the Codex call has an explicit timeout; there is no full-request deadline or browser cancellation.
@@ -112,7 +109,7 @@ Status: **Implemented**.
 - Git repository and dependency locks.
 - Curated manifest and ignored local corpus.
 - Safe-network ingestion and text parser.
-- Section-aware embeddings and in-memory Qdrant retrieval.
+- Section-aware embeddings and persistent standalone Qdrant retrieval.
 - Constrained Codex adapter and extractive fallback.
 - FastAPI endpoints and responsive browser chat.
 - Initial engineering tests, lint, type checks, and builds.

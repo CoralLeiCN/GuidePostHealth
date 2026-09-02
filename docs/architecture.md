@@ -9,7 +9,7 @@ NHS source manifest ──► polite fetch + text parser ──► ignored guide
 Browser chat ──► FastAPI ──► readiness ──► emergency floor ──► query embedding
                                                                 │
                                                                 ▼
-                                           in-memory Qdrant cosine retrieval
+                                          standalone Qdrant cosine retrieval
                                                                 │
                                              + urgent/emergency guide sections
                                                                 ▼
@@ -22,7 +22,7 @@ Browser chat ──► FastAPI ──► readiness ──► emergency floor ─
                                           evidence validation + NHS citations
 ```
 
-The ingestion path is run manually. The serving path loads and indexes the local corpus at API startup.
+The ingestion and indexing paths are run explicitly. API startup loads the local corpus and validates the existing standalone Qdrant collection.
 
 ## 2. Component responsibilities
 
@@ -41,7 +41,7 @@ The ingestion path is run manually. The serving path loads and indexes the local
 ## 3. Serving sequence
 
 1. FastAPI creates one `RagService`, one lazy sentence-transformer encoder, and one `CodexAnswerAgent`.
-2. During application startup, `RagService.index_corpus()` runs in a worker thread when auto-indexing is enabled.
+2. During application startup, `RagService.load_existing_index()` validates the collection metadata, corpus hash, embedding model, vector size, and point count.
 3. Invalid guide JSON files are skipped. With no valid guides, readiness remains false.
 4. A chat request is validated by Pydantic and rejected with `503` if the index is not ready.
 5. `ChatService` checks the latest message against the emergency phrase floor.
@@ -57,11 +57,11 @@ The ingestion path is run manually. The serving path loads and indexes the local
 | Chat messages | Browser React memory | Current page session; cleared by reload or “New chat”. |
 | Parsed NHS corpus | `data/nhs/*.json` | Local files; ignored by Git. |
 | Embedding model | API process memory and library cache | Loaded lazily; process lifetime. |
-| Qdrant collection | `QdrantClient(":memory:")` | One API process only; rebuilt on startup. |
+| Qdrant collection | Standalone Docker service and named volume | Persists across API restarts; rebuilt only by the explicit index command. |
 | Codex threads | Codex SDK | One ephemeral thread per attempted generated answer. |
 | Codex runtime directory | `.codex-runtime/` | Local ignored directory. |
 
-Because the vector index is process-local, the development server must use one worker. Multiple workers would build independent indexes and do not share state.
+API processes can query the same standalone collection. The local Docker limits and lack of Qdrant authentication still make this a development topology, not a production deployment.
 
 ## 5. Trust boundaries
 
@@ -83,31 +83,32 @@ The indexer trusts locally stored, ignored guide JSON. Production ingestion requ
 
 ## 6. Configuration
 
-Backend settings use the `NEXTSTEP_` prefix and load from the repository `.env` file. Browser-visible settings use `NEXT_PUBLIC_`.
+Backend settings use the `GUIDEPOST_` prefix and load from the repository `.env` file. Browser-visible settings use `NEXT_PUBLIC_` because the frontend uses Next.js-compatible environment variables.
 
 | Setting | Default | Notes |
 | --- | --- | --- |
 | `NEXT_PUBLIC_API_URL` | `http://localhost:8000` | Browser API origin. |
 | `NEXT_PUBLIC_SITE_URL` | `http://localhost:3000` | Metadata base URL. |
-| `NEXTSTEP_CORPUS_DIR` | `data/nhs` | Parsed local corpus. |
-| `NEXTSTEP_SOURCE_MANIFEST` | `config/nhs_sources.json` | Tracked source list. |
-| `NEXTSTEP_COLLECTION_NAME` | `nhs_guidance` | Qdrant collection. |
-| `NEXTSTEP_EMBEDDING_MODEL` | `sentence-transformers/all-MiniLM-L6-v2` | Model name; revision is not pinned yet. |
-| `NEXTSTEP_TOP_K` | `6` | Dense results requested. Range 1–20. |
-| `NEXTSTEP_MAXIMUM_EVIDENCE_CHUNKS` | `9` | Final evidence cap. Range 1–20. |
-| `NEXTSTEP_AUTO_INDEX` | `true` | Index during API startup. |
-| `NEXTSTEP_CODEX_ENABLED` | `true` | Disable for retrieval-only mode. |
-| `NEXTSTEP_CODEX_MODEL` | `gpt-5.6-terra` | Current answer model default. |
-| `NEXTSTEP_CODEX_RUNTIME_DIR` | `.codex-runtime` | Ignored working directory. |
-| `NEXTSTEP_CODEX_TIMEOUT_SECONDS` | `75` | Allowed range 5–300 seconds. |
-| `NEXTSTEP_CODEX_MAX_CONCURRENCY` | `2` | Process-local semaphore, allowed range 1–8. |
-| `NEXTSTEP_CORS_ORIGINS` | localhost port 3000 | Development origins only. |
+| `GUIDEPOST_CORPUS_DIR` | `data/nhs` | Parsed local corpus. |
+| `GUIDEPOST_SOURCE_MANIFEST` | `config/nhs_sources.json` | Tracked source list. |
+| `GUIDEPOST_COLLECTION_NAME` | `health_guidance` | Standalone Qdrant collection. |
+| `GUIDEPOST_QDRANT_URL` | `http://127.0.0.1:6333` | Loopback-only local Qdrant endpoint. |
+| `GUIDEPOST_QDRANT_TIMEOUT_SECONDS` | `5` | Request timeout. Range 1–60 seconds. |
+| `GUIDEPOST_EMBEDDING_MODEL` | `sentence-transformers/all-MiniLM-L6-v2` | Model name; revision is not pinned yet. |
+| `GUIDEPOST_TOP_K` | `6` | Dense results requested. Range 1–20. |
+| `GUIDEPOST_MAXIMUM_EVIDENCE_CHUNKS` | `9` | Final evidence cap. Range 1–20. |
+| `GUIDEPOST_CODEX_ENABLED` | `true` | Disable for retrieval-only mode. |
+| `GUIDEPOST_CODEX_MODEL` | `gpt-5.6-terra` | Current answer model default. |
+| `GUIDEPOST_CODEX_RUNTIME_DIR` | `.codex-runtime` | Ignored working directory. |
+| `GUIDEPOST_CODEX_TIMEOUT_SECONDS` | `75` | Allowed range 5–300 seconds. |
+| `GUIDEPOST_CODEX_MAX_CONCURRENCY` | `2` | Process-local semaphore, allowed range 1–8. |
+| `GUIDEPOST_CORS_ORIGINS` | localhost port 3000 | Development origins only. |
 
 ## 7. Design decisions
 
-### In-memory Qdrant for the MVP
+### Resource-limited standalone Qdrant for local development
 
-This minimises local setup and satisfies the prototype need. It does not provide persistence, shared multi-worker state, backup, access control, or zero-downtime index promotion. A dedicated Qdrant deployment is required later.
+Docker Compose runs Qdrant with 0.5 CPU, 256 MiB RAM, loopback-only port exposure, and persistent storage and snapshot volumes. This supports the small corpus without embedding vector state in the API process. Authentication, encryption, backup/restore, and controlled index promotion are still required for production.
 
 ### Local sentence-transformer embeddings
 
@@ -124,4 +125,3 @@ Git tracks source selection and reproducible ingestion logic, not copied NHS tex
 ## 8. Deployment status
 
 The application is currently intended for local development. `.openai/hosting.json` contains hosting project metadata, but the frontend/backend and corpus have not been published as a public service. No production topology, environment, data region, secret store, domain, TLS policy, or operational owner has been approved.
-
