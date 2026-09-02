@@ -1,13 +1,13 @@
-# NextStep NHS Guide RAG
+# GuidePost Health
 
-NextStep is a local research prototype that retrieves reviewed NHS symptom guidance and uses a constrained Codex agent to explain sensible next steps. It is an information navigator for England, **not** a diagnostic or clinical triage product.
+GuidePost Health is a local research prototype that retrieves reviewed NHS symptom guidance and uses a constrained Codex agent to help people understand relevant guidance and when to seek help. It is an information navigator for England, **not** a diagnostic or clinical triage product.
 
 The repository contains:
 
 - a curated, versioned manifest of 25 common NHS symptom guides;
 - a polite text-only NHS ingestion pipeline;
 - local embeddings from `sentence-transformers/all-MiniLM-L6-v2`;
-- an in-memory Qdrant collection rebuilt at API startup;
+- a persistent standalone Qdrant service with a resource-limited Docker setup;
 - a modern FastAPI backend with a read-only Codex SDK answer harness;
 - an extractive retrieval fallback when Codex is unavailable;
 - a responsive React/Vinext chat interface with server-owned NHS citations.
@@ -26,7 +26,7 @@ FastAPI validation + index readiness ──► deterministic emergency floor
 sentence-transformers query embedding
     │
     ▼
-in-memory Qdrant retrieval
+standalone Qdrant retrieval
     │  + urgent sections from matched guides
     ▼
 read-only Codex synthesis ──► evidence-ID validation
@@ -41,7 +41,7 @@ The [Codex SDK](https://learn.chatgpt.com/docs/codex-sdk) is primarily designed 
 
 ## Local setup
 
-Requirements: Node.js 22+, [`uv`](https://docs.astral.sh/uv/), and a Codex login usable by the local Codex SDK.
+Requirements: Node.js 22+, [`uv`](https://docs.astral.sh/uv/), Docker Compose, and a Codex login usable by the local Codex SDK.
 
 ```bash
 # Install both runtimes
@@ -51,7 +51,13 @@ uv sync --dev
 # Download the reviewed NHS pages into data/nhs/ (gitignored)
 uv run python -m nhs_rag.ingestion.cli --contact "mailto:you@example.com"
 
-# Terminal 1: API (one worker is required for in-memory Qdrant)
+# Start the resource-limited standalone Qdrant service
+npm run qdrant:up
+
+# Explicitly build the persistent Qdrant collection
+npm run qdrant:index
+
+# Terminal 1: API
 npm run dev:api
 
 # Terminal 2: frontend
@@ -60,11 +66,17 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000). API documentation is at [http://localhost:8000/docs](http://localhost:8000/docs).
 
-Copy `.env.example` to `.env` to change models or endpoints. Set `NEXTSTEP_CODEX_ENABLED=false` to test retrieval-only mode. The first API start downloads the compact sentence-transformer model, then indexes the ignored local corpus.
+Copy `.env.example` to `.env` to change models or endpoints. Set `GUIDEPOST_CODEX_ENABLED=false` to test retrieval-only mode. The indexing command downloads the compact sentence-transformer model on first use and rebuilds the collection explicitly.
+
+Qdrant listens only on `127.0.0.1:6333` and persists its collection in a Docker named volume. The container is capped at 0.5 CPU and 256 MiB RAM, which is ample for the small local corpus. API startup validates the existing collection against the local corpus and embedding model; it never silently creates, replaces, or accepts a stale collection. Run `npm run qdrant:index` after refreshing the corpus or changing the embedding model. Stop Qdrant without deleting its data with `npm run qdrant:down`; use `docker compose down --volumes` only when you intentionally want to remove the stored collection and snapshots. If the API later runs in the same Compose network, set `GUIDEPOST_QDRANT_URL=http://qdrant:6333`.
 
 ## Commands
 
 ```bash
+docker compose config                  # validate the Qdrant service definition
+npm run qdrant:up                     # start Qdrant and wait until it is ready
+npm run qdrant:index                  # explicitly rebuild the persistent collection
+npm run qdrant:down                   # stop Qdrant and retain its named volumes
 uv run pytest                         # backend tests
 uv run ruff check backend tests       # Python lint
 uv run mypy                           # Python types

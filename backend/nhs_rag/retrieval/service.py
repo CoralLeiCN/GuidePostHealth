@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import json
 from pathlib import Path
 
@@ -15,8 +16,15 @@ class CorpusUnavailableError(RuntimeError):
     pass
 
 
+class IndexUnavailableError(RuntimeError):
+    pass
+
+
+INDEX_SCHEMA_VERSION = 1
+
+
 class RagService:
-    """Own the process-local embedding model and in-memory Qdrant collection."""
+    """Index and retrieve the local corpus through a standalone Qdrant server."""
 
     def __init__(
         self,
@@ -24,15 +32,20 @@ class RagService:
         corpus_dir: Path,
         collection_name: str,
         encoder: Encoder,
-        client: QdrantClient | None = None,
+        embedding_model: str,
+        client: QdrantClient,
     ) -> None:
         self.corpus_dir = corpus_dir
         self.collection_name = collection_name
         self.encoder = encoder
-        self.client = client or QdrantClient(":memory:")
+        self.embedding_model = embedding_model
+        self.client = client
         self.documents: list[GuideDocument] = []
         self.chunks: list[RetrievedChunk] = []
         self.ready = False
+
+    def close(self) -> None:
+        self.client.close()
 
     @property
     def document_count(self) -> int:
@@ -42,7 +55,7 @@ class RagService:
     def chunk_count(self) -> int:
         return len(self.chunks)
 
-    def index_corpus(self) -> None:
+    def _read_corpus(self) -> tuple[list[GuideDocument], list[RetrievedChunk]]:
         documents: list[GuideDocument] = []
         for path in sorted(self.corpus_dir.glob("*.json")):
             try:
@@ -53,8 +66,56 @@ class RagService:
             raise CorpusUnavailableError(
                 "No parsed NHS guides were found. Run the ingestion command first."
             )
-
         chunks = [chunk for document in documents for chunk in chunk_document(document)]
+        return documents, chunks
+
+    def _index_metadata(self, chunks: list[RetrievedChunk]) -> dict[str, object]:
+        digest = hashlib.sha256()
+        for chunk in chunks:
+            digest.update(chunk.model_dump_json(exclude={"score"}).encode())
+            digest.update(b"\n")
+        return {
+            "guidepost": {
+                "schema_version": INDEX_SCHEMA_VERSION,
+                "corpus_sha256": digest.hexdigest(),
+                "embedding_model": self.embedding_model,
+                "vector_size": self.encoder.dimension,
+                "chunk_count": len(chunks),
+            }
+        }
+
+    def load_existing_index(self) -> None:
+        """Load local safety metadata and validate the persisted Qdrant collection."""
+        self.ready = False
+        documents, chunks = self._read_corpus()
+        if not self.client.collection_exists(self.collection_name):
+            raise IndexUnavailableError(
+                f"Qdrant collection {self.collection_name!r} is missing. Run the index command."
+            )
+
+        collection = self.client.get_collection(self.collection_name)
+        expected_metadata = self._index_metadata(chunks)
+        if collection.config.metadata != expected_metadata:
+            raise IndexUnavailableError(
+                "The Qdrant index does not match this corpus and embedding model. "
+                "Run the index command."
+            )
+        point_count = self.client.count(self.collection_name, exact=True).count
+        if point_count != len(chunks):
+            raise IndexUnavailableError(
+                f"The Qdrant index has {point_count} points; expected {len(chunks)}. "
+                "Run the index command."
+            )
+
+        self.documents = documents
+        self.chunks = chunks
+        self.ready = True
+
+    def index_corpus(self) -> None:
+        """Explicitly rebuild the standalone Qdrant collection from the local corpus."""
+        self.ready = False
+        documents, chunks = self._read_corpus()
+        metadata = self._index_metadata(chunks)
         texts = [f"{chunk.title}\n{chunk.heading}\n{chunk.text}" for chunk in chunks]
         vectors = self.encoder.encode(texts)
         if len(vectors) != len(chunks):
@@ -65,6 +126,7 @@ class RagService:
         self.client.create_collection(
             collection_name=self.collection_name,
             vectors_config=VectorParams(size=self.encoder.dimension, distance=Distance.COSINE),
+            metadata=metadata,
         )
         points = [
             PointStruct(
@@ -81,6 +143,12 @@ class RagService:
                 collection_name=self.collection_name,
                 points=points[start : start + 128],
                 wait=True,
+            )
+
+        point_count = self.client.count(self.collection_name, exact=True).count
+        if point_count != len(points):
+            raise RuntimeError(
+                f"Qdrant stored {point_count} points; expected {len(points)} after indexing"
             )
 
         self.documents = documents

@@ -160,10 +160,10 @@ export default function Home() {
             </div>
             <div>
               <p className="font-heading text-lg font-semibold tracking-[-0.03em]">
-                NextStep
+                GuidePost Health
               </p>
               <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-muted-foreground">
-                NHS-guided health assistant
+                Source-grounded health guidance
               </p>
             </div>
           </div>
