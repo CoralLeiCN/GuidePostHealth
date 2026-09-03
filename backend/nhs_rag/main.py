@@ -7,11 +7,12 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, HTTPException, Request, status
 from fastapi.middleware.cors import CORSMiddleware
+from qdrant_client import QdrantClient
 
 from nhs_rag.agent.codex import AnswerAgent, CodexAnswerAgent
 from nhs_rag.models import ChatRequest, ChatResponse, HealthResponse, SourceSummary
 from nhs_rag.retrieval.embedder import SentenceTransformerEncoder
-from nhs_rag.retrieval.service import CorpusUnavailableError, RagService
+from nhs_rag.retrieval.service import CorpusUnavailableError, IndexUnavailableError, RagService
 from nhs_rag.service import ChatService
 from nhs_rag.settings import Settings, get_settings
 
@@ -29,6 +30,12 @@ def create_app(
         corpus_dir=runtime_settings.corpus_dir,
         collection_name=runtime_settings.collection_name,
         encoder=SentenceTransformerEncoder(runtime_settings.embedding_model),
+        embedding_model=runtime_settings.embedding_model,
+        client=QdrantClient(
+            url=str(runtime_settings.qdrant_url),
+            timeout=runtime_settings.qdrant_timeout_seconds,
+            check_compatibility=False,
+        ),
     )
     runtime_agent = agent or CodexAnswerAgent(
         model=runtime_settings.codex_model,
@@ -46,19 +53,25 @@ def create_app(
 
     @asynccontextmanager
     async def lifespan(_: FastAPI) -> AsyncIterator[None]:
-        if runtime_settings.auto_index and not runtime_rag.ready:
+        if not runtime_rag.ready and isinstance(runtime_rag, RagService):
             try:
-                await asyncio.to_thread(runtime_rag.index_corpus)
+                await asyncio.to_thread(runtime_rag.load_existing_index)
                 logger.info(
-                    "NHS corpus indexed: documents=%s chunks=%s",
+                    "NHS Qdrant index loaded: documents=%s chunks=%s",
                     runtime_rag.document_count,
                     runtime_rag.chunk_count,
                 )
             except CorpusUnavailableError:
                 logger.warning("NHS corpus is absent; readiness will remain false")
+            except IndexUnavailableError as error:
+                logger.warning("NHS Qdrant index is unavailable: %s", error)
             except Exception:
-                logger.exception("NHS corpus indexing failed")
-        yield
+                logger.exception("NHS Qdrant index validation failed")
+        try:
+            yield
+        finally:
+            if isinstance(runtime_rag, RagService):
+                runtime_rag.close()
 
     app = FastAPI(
         title=runtime_settings.app_name,
@@ -89,7 +102,7 @@ def create_app(
         if not runtime_rag.ready:
             raise HTTPException(
                 status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-                detail="The local NHS corpus has not been indexed yet.",
+                detail="The NHS corpus or standalone Qdrant index is not ready.",
             )
         return response
 
@@ -98,7 +111,7 @@ def create_app(
         if not runtime_rag.ready:
             raise HTTPException(
                 status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-                detail="Run the NHS ingestion command, then restart the API.",
+                detail="Run the NHS ingestion and Qdrant indexing commands, then restart the API.",
             )
         return runtime_rag.source_summaries()
 
@@ -108,7 +121,7 @@ def create_app(
         if not runtime_rag.ready:
             raise HTTPException(
                 status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-                detail="The NHS guide index is not ready. Refresh the corpus and restart the API.",
+                detail="The standalone Qdrant index is not ready. Re-index and restart the API.",
             )
         return await chat_service.answer(payload)
 

@@ -1,6 +1,6 @@
 {
-  "name": "nextstep-nhs-guide",
-  "description": "NextStep NHS-guided symptom navigator frontend",
+  "name": "guidepost-health",
+  "description": "GuidePost Health source-grounded health guidance frontend",
   "version": "0.1.0",
   "private": true,
   "engines": {
@@ -9,6 +9,10 @@
   "scripts": {
     "dev": "vinext dev",
     "dev:api": "uv run uvicorn nhs_rag.main:app --app-dir backend --host 127.0.0.1 --port 8000 --reload",
+    "qdrant:up": "docker compose up -d --wait qdrant",
+    "qdrant:index": "uv run python -m nhs_rag.retrieval.cli",
+    "qdrant:down": "docker compose down",
+    "qdrant:logs": "docker compose logs -f qdrant",
     "build": "vinext build",
     "start": "wrangler dev --config dist/server/wrangler.json",
     "lint": "oxlint",

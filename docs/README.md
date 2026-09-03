@@ -1,4 +1,4 @@
-# NextStep specification set
+# GuidePost Health specification set
 
 These documents describe the system that exists in this repository and the work still required before it can be considered for public or clinical use.
 
@@ -19,7 +19,7 @@ The baseline is version `0.1.0`, reviewed against the code and local corpus on 3
 | --- | --- |
 | Product | Local, England-focused NHS information navigator; not a diagnostic or clinical triage service. |
 | Corpus | A tracked manifest of 25 NHS symptom/condition URLs and an ignored local snapshot of 25 parsed documents, 205 sections, and 207 chunks. |
-| Retrieval | Normalised Sentence Transformer embeddings and process-local Qdrant cosine search. |
+| Retrieval | Normalised Sentence Transformer embeddings and persistent standalone Qdrant cosine search. |
 | Answering | A constrained, read-only Codex synthesis step with evidence-ID checks and an extractive fallback. |
 | Safety | A narrow deterministic emergency phrase rule, forced urgent evidence from matched guides, fixed 999/111 UI copy, and server-owned citations. |
 | Backend | FastAPI with chat, source inventory, liveness, and readiness endpoints. |
@@ -37,8 +37,8 @@ The baseline is version `0.1.0`, reviewed against the code and local corpus on 3
 | Find common NHS symptom guides | Implemented | `config/nhs_sources.json` contains 25 curated NHS symptom/condition pages. |
 | Store downloaded guides locally but ignore them in Git | Implemented | Parsed JSON is under ignored `data/nhs/`; selection and ingestion code remain tracked. |
 | Build RAG over the guides | Implemented | Section-aware chunking, local embeddings, dense retrieval, urgent-section augmentation, and citations. |
-| Use Qdrant in memory now | Implemented | One process-local collection is rebuilt at API startup. |
-| Move to dedicated Qdrant later | Required for production | Persistent deployment, access controls, index promotion, backup, restore, and multi-worker operation remain open. |
+| Run standalone Qdrant locally | Implemented | A resource-limited Docker service persists the explicitly indexed collection in a named volume. |
+| Harden Qdrant for production | Required for production | Authentication, encryption, index promotion, backup, and restore remain open. |
 | Use a simple Transformer embedding model | Implemented | `sentence-transformers/all-MiniLM-L6-v2`, loaded locally and configured by environment. |
 | Use Codex as the agent harness | Implemented | Read-only ephemeral Codex threads behind a replaceable `AnswerAgent` protocol. |
 | Build a modern Python backend | Implemented | Typed FastAPI service with readiness, source inventory, and structured chat endpoints. |
@@ -58,7 +58,7 @@ The baseline is version `0.1.0`, reviewed against the code and local corpus on 3
 
 - The current milestone is an engineering MVP that can be run and evaluated locally.
 - Downloaded NHS text remains outside Git; the reviewed URL manifest and the ingestion code are versioned.
-- Qdrant is intentionally in memory for the MVP. A persistent, authenticated service is required for a multi-worker production deployment.
+- Qdrant runs as a resource-limited persistent local service. Authentication, encryption, and operational controls are required for production.
 - Codex is an interchangeable answer harness, not the source of health facts. It receives retrieved evidence and must not supply URLs.
 - Public pilot is blocked by clinical governance, safety evaluation, regulatory assessment, privacy/DPIA, licensing, security, accessibility, and production operations work.
 - Clinical use remains out of scope unless the product is deliberately re-scoped and the applicable evidence and governance obligations are met.

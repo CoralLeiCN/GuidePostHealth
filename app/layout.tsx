@@ -16,21 +16,23 @@ export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000',
   ),
-  title: 'NextStep — NHS-guided health assistant',
+  title: 'GuidePost Health — source-grounded health guidance',
   description:
-    'A source-grounded assistant for understanding sensible next steps from NHS symptom guidance.',
+    'A source-grounded guide for navigating published health information and understanding when to seek help.',
   openGraph: {
-    title: 'NextStep — NHS-guided health assistant',
+    title: 'GuidePost Health — source-grounded health guidance',
     description:
-      'Understand sensible next steps with answers grounded in reviewed NHS symptom guidance.',
+      'Navigate reviewed health guidance with clear source links and safety-focused information.',
     type: 'website',
-    images: [{ url: '/og.png', width: 1731, height: 909, alt: 'NextStep' }],
+    images: [
+      { url: '/og.png', width: 1731, height: 909, alt: 'GuidePost Health' },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'NextStep — NHS-guided health assistant',
+    title: 'GuidePost Health — source-grounded health guidance',
     description:
-      'Understand sensible next steps with answers grounded in reviewed NHS symptom guidance.',
+      'Navigate reviewed health guidance with clear source links and safety-focused information.',
     images: ['/og.png'],
   },
 };

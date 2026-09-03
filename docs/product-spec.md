@@ -2,7 +2,7 @@
 
 ## 1. Product statement
 
-NextStep is a research prototype that helps a person in England find and understand relevant next steps from a curated set of NHS symptom and condition guides.
+GuidePost Health is a research prototype that helps a person in England find and understand relevant guidance from a curated set of NHS symptom and condition guides.
 
 The current product may summarise retrieved guidance, surface warning signs, suggest an official route such as NHS 111, and link to the original NHS pages. It must not diagnose, rule out a condition, claim that symptoms are harmless, or present generated wording as NHS-authored or clinically approved.
 
@@ -61,7 +61,7 @@ The readiness check currently happens before the emergency rule. This is a known
 | --- | --- | --- | --- |
 | PR-001 | Accept a plain-text user message between 2 and 2,000 characters. | Implemented | `backend/nhs_rag/models.py` |
 | PR-002 | Accept at most 10 prior messages, with roles limited to `user` and `assistant`. | Implemented | `backend/nhs_rag/models.py` |
-| PR-003 | Retrieve evidence from the ignored local NHS corpus using an in-memory vector index. | Implemented | `backend/nhs_rag/retrieval/service.py` |
+| PR-003 | Retrieve evidence from the ignored local NHS corpus using a persistent standalone vector index. | Implemented | `backend/nhs_rag/retrieval/service.py` |
 | PR-004 | Add urgent or emergency sections from the most strongly matched guides to the evidence candidate list. | Implemented | `backend/nhs_rag/retrieval/service.py` |
 | PR-005 | Generate only a structured response and require known evidence IDs for each generated next step and warning sign. | Implemented | `backend/nhs_rag/agent/` |
 | PR-006 | Construct source titles and URLs from the server-owned corpus, never from model output. | Implemented | `backend/nhs_rag/service.py` |
@@ -109,4 +109,3 @@ The local engineering MVP is accepted when all of the following hold:
 - Backend tests, lint, and type checking pass, and the frontend lints and builds.
 
 These criteria are engineering acceptance only. They do not satisfy the public-pilot gate defined in [Safety and governance](safety-and-governance.md).
-

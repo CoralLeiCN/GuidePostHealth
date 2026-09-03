@@ -110,7 +110,7 @@ async def ingest_sources(
     force: bool = False,
 ) -> IngestionReport:
     output_dir.mkdir(parents=True, exist_ok=True)
-    user_agent = f"NextStepNHSRAG/0.1 (+{contact})"
+    user_agent = f"GuidePostHealthRAG/0.1 (+{contact})"
     report = IngestionReport()
     timeout = httpx.Timeout(30.0, connect=10.0)
 

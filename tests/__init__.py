@@ -1,1 +1,1 @@
-"""Test suite for the NextStep backend."""
+"""Test suite for the GuidePost Health backend."""

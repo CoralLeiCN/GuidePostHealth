@@ -11,7 +11,7 @@ from .test_chat_service import FailingAgent, FakeRag
 
 def test_health_and_chat_contract() -> None:
     rag = FakeRag()
-    settings = Settings(auto_index=False, codex_enabled=False)
+    settings = Settings(codex_enabled=False)
     app = create_app(
         settings=settings,
         rag=cast(Any, rag),
@@ -31,7 +31,7 @@ def test_health_and_chat_contract() -> None:
 
 def test_chat_rejects_too_short_input() -> None:
     app = create_app(
-        settings=Settings(auto_index=False, codex_enabled=False),
+        settings=Settings(codex_enabled=False),
         rag=cast(Any, FakeRag()),
         agent=cast(Any, FailingAgent()),
     )

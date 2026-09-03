@@ -739,7 +739,7 @@ wheels = [
 ]
 
 [[package]]
-name = "nextstep-nhs-rag"
+name = "guidepost-health-rag"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
@@ -768,7 +768,7 @@ requires-dist = [
     { name = "httpx", specifier = ">=0.28,<1" },
     { name = "openai-codex", specifier = ">=0.1,<1" },
     { name = "pydantic-settings", specifier = ">=2.10,<3" },
-    { name = "qdrant-client", specifier = ">=1.15,<2" },
+    { name = "qdrant-client", specifier = ">=1.19,<1.20" },
     { name = "sentence-transformers", specifier = ">=5,<6" },
     { name = "uvicorn", extras = ["standard"], specifier = ">=0.35,<1" },
 ]

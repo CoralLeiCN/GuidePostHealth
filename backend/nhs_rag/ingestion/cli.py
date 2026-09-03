@@ -13,7 +13,7 @@ def _parser() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         "--contact",
-        default="http://localhost/nextstep-research-prototype",
+        default="http://localhost/guidepost-health-research-prototype",
         help="Contact URL or email included in the crawler user agent.",
     )
     parser.add_argument("--delay", type=float, default=1.0, help="Delay between pages.")
