@@ -20,7 +20,7 @@ make install
 ### Build the ignored corpus
 
 ```bash
-uv run python -m nhs_rag.ingestion.cli --contact "mailto:you@example.com"
+uv run python -m cronjobs.nhs_dataset.refresh --contact "mailto:you@example.com"
 ```
 
 Use a real monitored contact address or project URL for anything beyond individual development.
@@ -50,7 +50,7 @@ Restart the API. Successful chats will report `retrieval_only` and return source
 Run ingestion again, explicitly rebuild the persisted index, then restart the API so it validates the new collection.
 
 ```bash
-uv run python -m nhs_rag.ingestion.cli --contact "mailto:you@example.com"
+uv run python -m cronjobs.nhs_dataset.refresh --contact "mailto:you@example.com"
 make qdrant-index
 ```
 
@@ -60,13 +60,14 @@ The current process has no scheduler, live re-index endpoint, corpus promotion e
 
 ```bash
 uv run pytest
-uv run ruff check backend tests
+uv run ruff check backend cronjobs tests
 uv run mypy
 npm run lint
 npm run build
 ```
 
-The initial implementation baseline passed all commands. The Python suite currently expands to 13 passing test cases and covers:
+The current implementation passes all commands. The Python suite currently expands to 19
+passing test cases and covers:
 
 - parser section extraction, media removal, and urgency labels;
 - URL allowlist validation;
@@ -100,7 +101,12 @@ The initial implementation baseline passed all commands. The Python suite curren
 - No automated corpus refresh, diff review, or freshness enforcement.
 - CORS defaults and development servers are not a production security configuration.
 
-## 6. Roadmap
+## 6. Local learning scope and conditional future work
+
+The root [backlog.md](../backlog.md) owns current work status; the milestones below retain
+design context and do not independently schedule work.
+
+The active purpose is local LLM testing and learning RAG with fictional scenarios. Public and clinical use are not intended. Milestones 1–4 below are retained as conditional reference material for a separate scope change, not planned releases.
 
 ### Milestone 0 — local engineering MVP
 
@@ -117,7 +123,7 @@ Status: **Implemented**.
 
 ### Milestone 1 — safety and product definition
 
-Status: **Required before public pilot**.
+Status: **Out of scope; conditional on a separately proposed public application**.
 
 1. Approve intended purpose, users, exclusions, content scope, and claims.
 2. Appoint clinical safety, privacy, regulatory, legal, security, accessibility, and operational owners.
@@ -127,7 +133,7 @@ Status: **Required before public pilot**.
 
 ### Milestone 2 — reproducible content and retrieval
 
-Status: **Required before public pilot**.
+Status: **Out of scope; conditional on a separately proposed public application**.
 
 1. Version, sign, and promote corpus/index artifacts.
 2. Automate refresh, diff review, orphan deletion, freshness alerts, rollback, and takedown.
@@ -136,7 +142,7 @@ Status: **Required before public pilot**.
 
 ### Milestone 3 — production service controls
 
-Status: **Required before public pilot**.
+Status: **Out of scope; conditional on a separately proposed public application**.
 
 1. Select an approved hosting/data region and deploy TLS, secrets, least privilege, network controls, and hardened images.
 2. Add appropriate authentication/abuse controls, full-request timeouts, cancellation, backpressure, and provider circuit breaking.
@@ -146,7 +152,7 @@ Status: **Required before public pilot**.
 
 ### Milestone 4 — controlled pilot decision
 
-Status: **Blocked**.
+Status: **Out of scope**.
 
 1. Run the versioned release candidate through all safety and quality gates.
 2. Resolve every unacceptable hazard and regression.
@@ -175,7 +181,7 @@ Done when setup is reproducible, the corpus can be ingested, the services run, r
 
 ### Public pilot
 
-Done only when the release gate in [Safety and governance](safety-and-governance.md) is satisfied and the approved release can be operated, monitored, stopped, rolled back, and audited without exposing symptom content.
+Not a project deliverable. A separately scoped public application would need to satisfy the conditional release gate in [Safety and governance](safety-and-governance.md) and demonstrate that it can be operated, monitored, stopped, rolled back and audited appropriately.
 
 ### Clinical use
 

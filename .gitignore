@@ -35,9 +35,12 @@ yarn-error.log*
 # local environment
 .env*
 !.env.example
+/config/huggingface.local.json
 
-# downloaded NHS corpus and local model/runtime state
+# downloaded NHS raw HTML, parsed JSON, derived datasets, and local runtime state
+/data/raw/
 /data/nhs/
+/data/huggingface/
 /.cache/
 /.codex-runtime/
 

@@ -2,9 +2,9 @@
 
 ## 1. Release position
 
-The repository is an engineering research prototype. It has not completed clinical safety review, clinical validation, medical-device qualification/classification, privacy impact assessment, legal approval, security assurance, or accessibility assurance.
+The repository is a local project for LLM testing and learning RAG. It is not designed or intended for any public use, personal health guidance or clinical use. Use fictional scenarios, not real patient information. It has not completed clinical safety review, clinical validation, medical-device qualification/classification, privacy impact assessment, legal approval, security assurance, or accessibility assurance.
 
-It must not be offered as a public or clinical service until every applicable release blocker in this document has an accountable owner, objective evidence, and written approval.
+Public and clinical services are outside the project scope. The public-use requirements below are retained only for a separately proposed change of scope, which would need appropriate privacy, clinical and other reviews; they are not a release plan for this learning project.
 
 ## 2. Implemented safeguards
 
@@ -37,6 +37,8 @@ A small preceding-text negation pattern prevents some obvious false alerts. It i
 
 ## 4. Known safety gaps
 
+Work status and scope are maintained in the central [backlog](../backlog.md).
+
 | ID | Gap | Required treatment |
 | --- | --- | --- |
 | SG-001 | `/api/v1/chat` returns `503` before `ChatService` when the index is unavailable, so the fixed emergency response is skipped. | Move a clinically approved emergency route ahead of corpus readiness and test degraded operation. |
@@ -45,9 +47,9 @@ A small preceding-text negation pattern prevents some obvious false alerts. It i
 | SG-004 | A valid evidence ID does not prove that generated text is supported by that passage. | Add entailment/human-review evaluation and regression thresholds. |
 | SG-005 | No deterministic rule prevents the model from assigning lower urgency than retrieved NHS evidence. | Define and enforce a clinically approved “never downgrade” policy. |
 | SG-006 | Safety-section augmentation is limited to documents in the first 3 matches and the 9-item cap can omit appended sections. | Measure safety recall and redesign retrieval/capping under clinical review. |
-| SG-007 | The fixed 999 citation uses the response time as `fetched_at`, not reviewed corpus provenance. | Store and expose an accurate, versioned official-service source record. |
+| SG-007 | Corrected: fixed 999 links use a null fetch date and are labelled as service links without a local copy. | A richer versioned service-source record, if needed, is tracked with BL-016. |
 | SG-008 | Agent failures silently degrade from an operational perspective. | Add privacy-safe typed metrics, alerts, and runbooks. |
-| SG-009 | “Chat stays in this browser session” can be read as “data stays in the browser”. | Pair storage copy with explicit transmission and processor disclosure. |
+| SG-009 | Composer now discloses transmission to the service and configured AI provider. Provider identity, retention, lawful basis and a full privacy notice remain unresolved. | Complete the operator-specific privacy notice and data-protection review before collecting real health information. |
 | SG-010 | Canonical URLs parsed from HTML and ignored local JSON are trusted downstream. | Revalidate exact NHS URLs and integrity-protect promoted corpus artifacts. |
 
 ## 5. Clinical governance requirements
@@ -121,7 +123,7 @@ Before a public pilot, the release must also have:
 
 ## 10. Release gate
 
-Public-pilot status remains **blocked** until:
+Public-pilot status is **out of scope**. If a separate scope change is proposed, the following conditions would need to be met:
 
 1. All `Required` items have named owners and objective completion evidence.
 2. Clinical, regulatory, privacy, legal, security, accessibility, and operational approvers sign the same versioned release candidate.
@@ -130,4 +132,3 @@ Public-pilot status remains **blocked** until:
 5. Monitoring, incident response, rollback, and takedown have been exercised.
 
 Clinical deployment is a separate decision and remains out of scope for the current prototype.
-

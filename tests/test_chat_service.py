@@ -67,6 +67,7 @@ async def test_emergency_floor_returns_before_retrieval() -> None:
     assert response.urgency == "emergency"
     assert "999" in response.summary
     assert not rag.searched
+    assert response.sources[0].fetched_at is None
 
 
 async def test_agent_failure_returns_labelled_source_extracts() -> None:
@@ -79,6 +80,9 @@ async def test_agent_failure_returns_labelled_source_extracts() -> None:
     assert response.next_steps == ["Rest and drink plenty of fluids."]
     assert response.warning_signs == ["Contact NHS 111 if you feel very unwell."]
     assert response.sources[0].title == "Cough"
+    assert "Contains public sector information" in response.notice
+    assert "Not authored or approved by the NHS" in response.notice
+    assert response.licence_url.endswith("/open-government-licence/version/3/")
 
 
 async def test_obvious_negation_does_not_trigger_emergency_floor() -> None:

@@ -1,15 +1,22 @@
 # Corpus and RAG specification
 
+The detailed [dataset creation workflow and extraction specification](nhs-dataset-workflow.md)
+is the reference for commands, raw/parsed/export schemas, selector behavior, multimedia loss,
+failure handling and human review. This document summarizes the corpus and downstream RAG.
+
 ## 1. Corpus scope and ownership
 
-`config/nhs_sources.json` is the source-of-truth allowlist. It currently contains 25 common symptom and condition guides discovered from the NHS Symptoms A–Z area.
+`config/nhs_sources.json` is the source-of-truth allowlist. It can be regenerated from the
+NHS Symptoms A-to-Z index. Every displayed medical or everyday term is retained, while links
+that resolve to the same guide URL are grouped into one source.
 
-The manifest is tracked in Git. Parsed documents are written to `data/nhs/`, which is ignored. The local snapshot checked on 31 August 2026 contains:
+The manifest is tracked in Git. Parsed documents are written to `data/nhs/`, which is ignored.
+The local snapshot checked on 7 September 2026 contains:
 
-- 25 guide JSON files;
-- 205 sections;
-- 207 chunks after section-aware chunking;
-- fetch timestamps from 30 August 2026.
+- 205 A-to-Z index entries;
+- 138 unique guide JSON files after URL deduplication;
+- 1,199 parsed sections and 1,221 derived retrieval chunks; and
+- original fetch timestamps from 6 September 2026.
 
 Counts are observations, not fixed acceptance values. They change when the manifest, upstream pages, or parser changes.
 
@@ -19,9 +26,10 @@ An allowed requested or redirected URL must:
 
 - use HTTPS;
 - have the exact host `www.nhs.uk`;
-- have a path beginning with `/symptoms/` or `/conditions/`;
+- have a path beginning with `/symptoms/`, `/conditions/`, `/mental-health/`, or `/pregnancy/`;
 - contain no username, password, or explicit port; and
-- appear in the manually curated manifest for normal ingestion.
+- be selected by the tracked, index-derived manifest for normal ingestion. Redirect and
+  canonical destinations are path-validated but need not separately appear in the manifest.
 
 The fetcher is sequential and manifest-only. It does not recursively crawl page links.
 
@@ -30,10 +38,25 @@ The fetcher is sequential and manifest-only. It does not recursively crawl page 
 The command is:
 
 ```bash
-uv run python -m nhs_rag.ingestion.cli --contact "mailto:you@example.com"
+uv run python -m cronjobs.nhs_dataset.refresh --contact "mailto:you@example.com"
 ```
 
-Supported options are `--contact`, `--delay`, `--limit`, and `--force`.
+Supported options are `--contact`, `--delay`, `--limit`, `--force`, `--manifest-path`,
+`--raw-dir`, and `--corpus-dir`.
+
+To rediscover the full A-to-Z index, refresh the corpus, and create a Hugging Face-compatible
+dataset repository in one run:
+
+```bash
+uv run python -m cronjobs.nhs_dataset --contact "mailto:you@example.com"
+```
+
+Successful HTML responses and provenance metadata are archived under `data/raw/nhs/`. Reparse
+that archive and rebuild the Hugging Face export without network access using:
+
+```bash
+uv run python -m cronjobs.nhs_dataset --from-raw
+```
 
 For each run, ingestion must:
 
@@ -44,11 +67,14 @@ For each run, ingestion must:
 5. Use a 30-second timeout with a 10-second connection timeout.
 6. Attempt a request at most 3 times, with exponential delay for request or validation failures.
 7. Respect `Retry-After` for `429` responses, capped at 30 seconds.
-8. Validate every redirect and the final URL with the same exact-host/path rule.
+8. Validate every redirect and the final URL after HTTPX has followed redirects. This does
+   not prevent an out-of-scope redirect request from being sent.
 9. Send `If-None-Match` and `If-Modified-Since` when prior metadata exists, unless `--force` is used.
 10. Treat `304` as unchanged.
-11. Parse successful HTML and atomically replace the destination through a `.json.tmp` file.
-12. Isolate failures by source, preserve any prior valid destination, continue the run, and exit non-zero when any source failed.
+11. Gzip the successful raw HTML response and atomically retain response provenance metadata.
+12. Parse the response text and atomically replace the parsed destination through a `.json.tmp`
+    file. Raw body, raw metadata and parsed JSON are not replaced as one transaction.
+13. Isolate failures by source, preserve any prior valid destination, continue the run, and exit non-zero when any source failed.
 
 ## 4. Parsed guide schema
 
@@ -63,13 +89,27 @@ Each `GuideDocument` stores:
 - parser version and the OGL v3.0 licence label; and
 - ordered sections with heading, text, and urgency classification.
 
-The parser retains text from headings, paragraphs, list items, and definition lists inside `main#maincontent` or the first `main`. It strips scripts, styles, SVG, forms, navigation, pictures, figures, video, audio, iframes, and `noscript` content. Duplicate lines and sections shorter than 20 characters are removed.
+The parser retains `h1`–`h3`, paragraphs, list items, and definition entries inside
+exactly one `main#maincontent`; the document must have exactly one main element. Missing or
+ambiguous regions raise an upstream-schema error in both guide and index parsing, with no
+fallback. All 138 archived guides match this contract. It strips scripts, styles, SVG, forms,
+navigation, pictures, whole figures, images, video, audio, iframes, `noscript`, canvas, objects
+and embeds. It removes duplicate lines within each section, sections shorter than 20
+characters, and sections headed `video:` or `audio:`. It does not deduplicate whole sections.
 
-Raw HTML and media are not retained.
+Raw HTML is retained as compressed local archives with provenance metadata; media binaries
+are not downloaded. Removing figures also removes useful captions and credits. Tables are
+not structurally extracted: selected descendants can survive while headers, cell boundaries
+and row relationships are lost. See the detailed workflow for measured omissions and proposed
+review decisions; these losses are not corrected merely by labeling the result as an adaptation.
 
 ## 5. Urgency labelling
 
-The parser assigns one of `general`, `routine`, `urgent`, or `emergency` using NHS care-card CSS classes and phrases found in headings or nearby elements. Emergency has the highest rank, then urgent, routine, and general.
+The parser assigns one of `general`, `routine`, `urgent`, or `emergency` using NHS care-card
+CSS classes and the active heading. Section aggregation ranks emergency above urgent, routine
+and general. Within an individual rule check, however, routine phrases are checked before
+urgent phrases; overlapping indicators can therefore yield a routine candidate. This is an
+open review issue described in the detailed workflow.
 
 This is a structural heuristic, not a clinically validated classifier. It must preserve the original text and must be evaluated whenever NHS markup or parser rules change.
 
@@ -142,9 +182,9 @@ The following are required before a public pilot:
 
 ## 11. NHS content and attribution
 
-The parser deliberately excludes branding assets, media, forms, and interactive content. That reduces but does not eliminate licensing risk.
+The parser removes media and interactive elements and rejects pages marked as registered medical devices. These structural checks reduce but do not eliminate licensing risk. Requested and canonical URLs must stay within the four permitted guidance paths; excluded campaign paths are rejected.
 
-NHS terms require correct attribution and include content that is not available under the standard reuse terms. The service must retain original source links, copied-as-at information, an OGL statement, and independent/no-endorsement wording. A page-level legal review and freshness policy remain required. Gitignore is a source-control choice, not a licence control.
+The parser changes context and omits tables; records and answers are treated as adaptations with generic OGL attribution. Original-page links identify provenance, not authorship of the adaptation. The UI displays copy dates, licence links and independent/no-endorsement wording. The export carries these disclosures per record and in `NOTICE.md`. A page-level rights review and freshness policy remain required. Gitignore is a source-control choice, not a licence control. See the [7 September 2026 audit](nhs-dataset-compliance.md).
 
 Primary references:
 

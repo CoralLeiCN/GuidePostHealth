@@ -2,9 +2,14 @@ from __future__ import annotations
 
 import argparse
 import asyncio
+from pathlib import Path
 
-from nhs_rag.ingestion.pipeline import ingest_sources, load_sources
-from nhs_rag.settings import get_settings
+from cronjobs.nhs_dataset.downloader import ingest_sources, load_sources
+from cronjobs.nhs_dataset.paths import (
+    DEFAULT_CORPUS_DIR,
+    DEFAULT_MANIFEST_PATH,
+    DEFAULT_RAW_DIR,
+)
 
 
 def _parser() -> argparse.ArgumentParser:
@@ -23,24 +28,43 @@ def _parser() -> argparse.ArgumentParser:
         action="store_true",
         help="Refetch and reparse pages even when conditional request metadata exists.",
     )
+    parser.add_argument(
+        "--manifest-path",
+        type=Path,
+        default=DEFAULT_MANIFEST_PATH,
+        help="Tracked deduplicated NHS source manifest.",
+    )
+    parser.add_argument(
+        "--raw-dir",
+        type=Path,
+        default=DEFAULT_RAW_DIR,
+        help="Directory for compressed raw HTML and response metadata.",
+    )
+    parser.add_argument(
+        "--corpus-dir",
+        type=Path,
+        default=DEFAULT_CORPUS_DIR,
+        help="Directory for downloaded parsed guide JSON.",
+    )
     return parser
 
 
 async def _run() -> int:
     args = _parser().parse_args()
-    settings = get_settings()
-    sources = load_sources(settings.source_manifest)
+    sources = load_sources(args.manifest_path)
     if args.limit is not None:
         sources = sources[: max(args.limit, 0)]
     report = await ingest_sources(
         sources,
-        output_dir=settings.corpus_dir,
+        output_dir=args.corpus_dir,
+        raw_dir=args.raw_dir,
         contact=args.contact,
         delay_seconds=max(args.delay, 0),
         force=args.force,
     )
     print(
-        f"NHS corpus refresh complete: {report.fetched} fetched, "
+        f"NHS corpus refresh complete: {report.fetched} fetched and parsed, "
+        f"{report.archived} raw snapshots archived, "
         f"{report.unchanged} unchanged, {report.failed} failed."
     )
     for error in report.errors or []:

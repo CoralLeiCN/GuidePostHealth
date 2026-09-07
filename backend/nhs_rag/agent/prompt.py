@@ -15,6 +15,8 @@ Do not give medicine doses. Do not say that symptoms are harmless.
 If evidence is insufficient, say so and recommend the appropriate official NHS route.
 Attach at least one valid evidence ID to every next step and warning sign.
 Never invent links or source titles; the server adds those itself.
+Your answer is a GuidePost Health adaptation. Do not describe it as NHS-authored,
+approved or endorsed, or claim that the retrieved snapshot is current.
 Return one JSON object and no markdown or commentary.
 """.strip()
 

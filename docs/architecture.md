@@ -29,7 +29,7 @@ The ingestion and indexing paths are run explicitly. API startup loads the local
 | Component | Responsibility |
 | --- | --- |
 | `config/nhs_sources.json` | Versioned source allowlist and corpus scope. |
-| `backend/nhs_rag/ingestion/` | Fetch NHS pages, validate network destinations, parse text and metadata, and write local guide JSON. |
+| `cronjobs/nhs_dataset/` | Run offline NHS discovery, downloading, parsing, and Hugging Face dataset export. |
 | `backend/nhs_rag/retrieval/` | Chunk documents, create embeddings, build the Qdrant collection, and retrieve evidence. |
 | `backend/nhs_rag/safety/` | Apply the narrow deterministic emergency phrase floor. |
 | `backend/nhs_rag/agent/` | Build the constrained evidence prompt and adapt the Codex SDK to the `AnswerAgent` interface. |
@@ -116,7 +116,7 @@ The compact model avoids a separate embedding API and keeps corpus embedding loc
 
 ### Replaceable answer agent
 
-`AnswerAgent` separates retrieval and API behaviour from Codex. The current Codex harness meets the agentic requirement while allowing a clinically governed model workflow to replace it without redesigning ingestion or retrieval.
+`AnswerAgent` separates retrieval and API behaviour from Codex so local experiments can compare answer models without redesigning ingestion or retrieval. The project is for LLM testing and learning RAG, not public or clinical use.
 
 ### Ignored downloaded corpus
 
