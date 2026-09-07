@@ -80,7 +80,7 @@ class SourceCitation(BaseModel):
     title: str
     section: str
     url: HttpUrl
-    fetched_at: datetime
+    fetched_at: datetime | None
     excerpt: str
 
 
@@ -95,8 +95,11 @@ class ChatResponse(BaseModel):
     follow_up_question: str | None = None
     sources: list[SourceCitation]
     notice: str = (
-        "AI-generated guidance based on retrieved NHS information. It is not a diagnosis."
+        "Adapted guidance produced by GuidePost Health, not authored or approved by the NHS. "
+        "It is not a diagnosis. "
+        "Contains public sector information licensed under the Open Government Licence v3.0."
     )
+    licence_url: str = "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
 
 
 class HealthResponse(BaseModel):

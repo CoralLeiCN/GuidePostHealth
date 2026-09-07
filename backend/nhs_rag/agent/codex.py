@@ -1,11 +1,15 @@
 from __future__ import annotations
 
 import asyncio
+import json
 from pathlib import Path
 from typing import Protocol
 
 from nhs_rag.agent.prompt import build_prompt
 from nhs_rag.models import AgentDraft, ChatMessage, RetrievedChunk
+
+_CUSTOM_PROVIDER_ID = "guidepost_openai_compatible"
+_CUSTOM_PROVIDER_API_KEY_ENV = "GUIDEPOST_CODEX_PROVIDER_API_KEY"
 
 
 class AnswerAgent(Protocol):
@@ -31,11 +35,17 @@ class CodexAnswerAgent:
         timeout_seconds: float,
         max_concurrency: int,
         runtime_dir: Path,
+        base_url: str | None = None,
+        api_key: str | None = None,
         enabled: bool = True,
     ) -> None:
+        if api_key is not None and not base_url:
+            raise ValueError("A custom Codex API key requires a custom base URL")
         self.model = model
         self.timeout_seconds = timeout_seconds
         self.runtime_dir = runtime_dir
+        self.base_url = base_url
+        self._api_key = api_key
         self._enabled = enabled
         self._semaphore = asyncio.Semaphore(max_concurrency)
 
@@ -53,13 +63,19 @@ class CodexAnswerAgent:
         if not self.enabled:
             raise RuntimeError("Codex generation is disabled")
 
-        from openai_codex import ApprovalMode, AsyncCodex, Sandbox
+        from openai_codex import ApprovalMode, AsyncCodex, CodexConfig, Sandbox
 
         prompt = build_prompt(question=question, history=history, evidence=evidence)
+        codex_config = CodexConfig(
+            config_overrides=self._provider_overrides(),
+            env=(
+                {_CUSTOM_PROVIDER_API_KEY_ENV: self._api_key} if self._api_key is not None else None
+            ),
+        )
         self.runtime_dir.mkdir(parents=True, exist_ok=True)
         async with self._semaphore:
             async with asyncio.timeout(self.timeout_seconds):
-                async with AsyncCodex() as codex:
+                async with AsyncCodex(config=codex_config) as codex:
                     thread = await codex.thread_start(
                         approval_mode=ApprovalMode.deny_all,
                         cwd=str(self.runtime_dir),
@@ -86,3 +102,24 @@ class CodexAnswerAgent:
         ):
             raise ValueError("Codex returned an unsupported or unknown evidence reference")
         return draft
+
+    def _provider_overrides(self) -> tuple[str, ...]:
+        """Build per-process Codex config without changing the user's global config."""
+        if self.base_url is None:
+            return ()
+
+        provider = f"model_providers.{_CUSTOM_PROVIDER_ID}"
+        overrides = [
+            f"model_provider={_toml_string(_CUSTOM_PROVIDER_ID)}",
+            f"{provider}.name={_toml_string('GuidePost OpenAI-compatible endpoint')}",
+            f"{provider}.base_url={_toml_string(self.base_url)}",
+            f"{provider}.wire_api={_toml_string('responses')}",
+        ]
+        if self._api_key is not None:
+            overrides.append(f"{provider}.env_key={_toml_string(_CUSTOM_PROVIDER_API_KEY_ENV)}")
+        return tuple(overrides)
+
+
+def _toml_string(value: str) -> str:
+    """Encode untrusted configuration text as a TOML-compatible basic string."""
+    return json.dumps(value)

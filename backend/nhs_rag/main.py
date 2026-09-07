@@ -42,6 +42,14 @@ def create_app(
         timeout_seconds=runtime_settings.codex_timeout_seconds,
         max_concurrency=runtime_settings.codex_max_concurrency,
         runtime_dir=runtime_settings.codex_runtime_dir,
+        base_url=(
+            str(runtime_settings.codex_base_url) if runtime_settings.codex_base_url else None
+        ),
+        api_key=(
+            runtime_settings.codex_api_key.get_secret_value()
+            if runtime_settings.codex_api_key
+            else None
+        ),
         enabled=runtime_settings.codex_enabled,
     )
     chat_service = ChatService(

@@ -8,11 +8,13 @@ from typing import Any, Literal
 from urllib.parse import urljoin
 
 from bs4 import BeautifulSoup, Tag
+from nhs_rag.models import GuideDocument, GuideSection
 from pydantic import HttpUrl
 
-from nhs_rag.models import GuideDocument, GuideSection
+from cronjobs.nhs_dataset.content import require_main_content
+from cronjobs.nhs_dataset.urls import validate_nhs_url
 
-PARSER_VERSION = "1"
+PARSER_VERSION = "3"
 _SPACE = re.compile(r"\s+")
 _DATE_TEXT = r"(\d{1,2}\s+[A-Za-z]+\s+\d{4})"
 _LAST_REVIEWED = re.compile(rf"Page last reviewed:\s*{_DATE_TEXT}", re.I)
@@ -97,7 +99,8 @@ def _urgency_for(element: Tag, heading: str) -> SectionUrgency:
 
 def _extract_sections(main: Tag, title: str) -> list[GuideSection]:
     for unwanted in main.select(
-        "script, style, svg, form, nav, picture, figure, video, audio, iframe, noscript"
+        "script, style, svg, form, nav, picture, figure, img, video, audio, iframe, "
+        "noscript, canvas, object, embed"
     ):
         unwanted.decompose()
 
@@ -156,16 +159,18 @@ def parse_nhs_page(
 ) -> GuideDocument:
     """Turn one server-rendered NHS page into a text-only, section-aware document."""
 
+    validate_nhs_url(requested_url)
     soup = BeautifulSoup(html, "html.parser")
+    main = require_main_content(soup, url=requested_url)
     metadata = _medical_page_metadata(soup)
     canonical_tag = soup.select_one('link[rel="canonical"]')
     canonical_candidate = (
         canonical_tag.get("href") if isinstance(canonical_tag, Tag) else metadata.get("url")
     )
     canonical_url = urljoin(requested_url, str(canonical_candidate or requested_url))
-    main = soup.select_one("main#maincontent") or soup.select_one("main")
-    if not isinstance(main, Tag):
-        raise ValueError("NHS page did not contain a main content region")
+    validate_nhs_url(canonical_url)
+    if "registered medical device" in main.get_text(" ", strip=True).casefold():
+        raise ValueError("Medical-device content requires exclusion and manual rights review")
 
     h1 = main.find("h1")
     title = _clean_text(h1.get_text(" ", strip=True)) if isinstance(h1, Tag) else ""

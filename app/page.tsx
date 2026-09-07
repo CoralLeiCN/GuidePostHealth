@@ -25,9 +25,9 @@ import { cn } from '@/lib/utils';
 const API_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8000';
 
 const suggestions = [
-  'I have had a cough for 5 days',
-  'What should I do about a headache?',
-  'My child has a high temperature',
+  'Fictional test: an adult has had a cough for 5 days',
+  'Fictional test: an adult has a headache',
+  'Fictional test: a child has a high temperature',
 ];
 
 type Source = {
@@ -35,7 +35,7 @@ type Source = {
   title: string;
   section: string;
   url: string;
-  fetched_at: string;
+  fetched_at: string | null;
   excerpt: string;
 };
 
@@ -163,7 +163,7 @@ export default function Home() {
                 GuidePost Health
               </p>
               <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-muted-foreground">
-                Source-grounded health guidance
+                LLM testing & RAG learning
               </p>
             </div>
           </div>
@@ -172,7 +172,7 @@ export default function Home() {
               variant="outline"
               className="hidden border-[var(--teal-border)] bg-[var(--teal-wash)] text-[var(--teal-strong)] sm:inline-flex"
             >
-              <ShieldCheck data-icon="inline-start" /> 25 reviewed guides
+              <ShieldCheck data-icon="inline-start" /> Local experiments only
             </Badge>
             {messages.length > 0 && (
               <Button
@@ -211,9 +211,9 @@ export default function Home() {
               className="mt-auto rounded-[24px] border bg-white p-2 shadow-[0_18px_60px_rgba(16,43,48,.09)]"
             >
               <Textarea
-                aria-label="Describe your symptoms"
+                aria-label="Enter a fictional test question"
                 className="min-h-20 resize-none border-0 bg-transparent px-3 py-3 text-[15px] shadow-none focus-visible:ring-0"
-                placeholder="For example: I've had a dry cough since Monday and feel tired…"
+                placeholder="For example: Fictional test — an adult has had a dry cough for 5 days…"
                 value={input}
                 onChange={(event) => setInput(event.target.value)}
                 onKeyDown={handleKeys}
@@ -222,7 +222,7 @@ export default function Home() {
               <div className="flex items-center justify-between gap-3 px-2 pb-1 pt-2">
                 <div className="flex items-center gap-2 text-[11px] text-muted-foreground">
                   <LockKeyhole className="size-3.5" />
-                  <span>Chat stays in this browser session</span>
+                  <span>Messages are sent to this service and, when enabled, its AI provider.</span>
                 </div>
                 <Button
                   aria-label="Send message"
@@ -240,7 +240,9 @@ export default function Home() {
               </div>
             </form>
             <p className="mt-3 text-center text-[11px] leading-5 text-muted-foreground">
-              General guidance, not a diagnosis. In England, use NHS 111 if you need
+              For LLM testing and learning RAG only. Not designed for public or clinical use.
+              Use fictional examples, not real patient information.
+              In England, use NHS 111 if you need
               help now but it is not an emergency.
             </p>
           </div>
@@ -261,14 +263,14 @@ function Welcome({ onSuggestion }: { onSuggestion: (suggestion: string) => void 
         </div>
         <div className="max-w-2xl">
           <p className="mb-1 text-xs font-semibold uppercase tracking-[0.11em] text-primary">
-            Health guide
+            Local RAG experiment
           </p>
           <h1 className="font-heading text-3xl font-semibold tracking-[-0.045em] sm:text-4xl">
-            What&apos;s going on today?
+            Try a fictional test question
           </h1>
           <p className="mt-3 max-w-xl text-[15px] leading-7 text-muted-foreground">
-            Describe your symptoms in your own words. I&apos;ll use current NHS guidance
-            to help you understand sensible next steps.
+            Explore how an LLM retrieves passages and generates an answer from a saved
+            guidance library. This is a learning project, not a service for personal health advice.
           </p>
         </div>
       </div>
@@ -329,7 +331,7 @@ function ChatMessage({ message }: { message: ConversationMessage }) {
             ? 'Emergency action'
             : guidance.urgency === 'urgent'
               ? 'Get help now'
-              : 'NHS-guided answer'}
+              : 'GuidePost Health guidance'}
         </Badge>
         {guidance.mode === 'retrieval_only' && (
           <Badge variant="outline">Source extracts</Badge>
@@ -354,8 +356,11 @@ function ChatMessage({ message }: { message: ConversationMessage }) {
         </div>
       )}
       {guidance.sources.length > 0 && <Sources sources={guidance.sources} />}
-      <p className="mt-4 border-t pt-3 text-[10px] leading-4 text-muted-foreground">
-        {guidance.notice}
+      <p className="mt-4 border-t pt-3 text-xs leading-5 text-muted-foreground">
+        {guidance.notice}{' '}
+        <a className="underline" href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" target="_blank" rel="noreferrer">
+          Read the licence
+        </a>
       </p>
     </article>
   );
@@ -396,7 +401,7 @@ function Sources({ sources }: { sources: Source[] }) {
   return (
     <div className="mt-5 border-t pt-4">
       <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.09em] text-muted-foreground">
-        NHS sources
+        Original reference pages · this response is a GuidePost Health adaptation
       </p>
       <div className="flex flex-wrap gap-2">
         {sources.map((source) => (
@@ -405,10 +410,16 @@ function Sources({ sources }: { sources: Source[] }) {
             href={source.url}
             target="_blank"
             rel="noreferrer"
-            title={`Copied as at ${new Date(source.fetched_at).toLocaleDateString('en-GB')}`}
             className="inline-flex items-center gap-1.5 rounded-full border bg-[var(--paper-deep)] px-3 py-1.5 text-xs font-medium transition hover:border-[var(--teal-border)] hover:text-primary focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/40"
           >
-            {source.title} · {source.section}
+            <span>
+              {source.title} · {source.section}
+              <span className="block font-normal">
+                {source.fetched_at
+                  ? `Original page copied as at ${new Date(source.fetched_at).toLocaleDateString('en-GB', { timeZone: 'UTC' })}`
+                  : 'Official service link · no local copy'}
+              </span>
+            </span>
             <ExternalLink className="size-3" />
           </a>
         ))}
@@ -438,18 +449,18 @@ function HowItWorks() {
         <div className="space-y-3">
           <InfoCard
             icon={<MessageCircleQuestion className="size-4" />}
-            title="Tell me what you notice"
-            body="Include when it started, what makes it better or worse, and anything else that feels relevant."
+            title="Use a fictional scenario"
+            body="Test different questions without entering real symptoms, patient records or identifying information."
           />
           <InfoCard
             icon={<BookOpenText className="size-4" />}
-            title="Grounded in NHS guides"
-            body="Answers are retrieved from 25 reviewed symptom pages and link to the original guidance."
+            title="A saved guidance library"
+            body="GuidePost Health adapts text from NHS website pages. Original links and copy dates let you check the full, latest guidance."
           />
           <InfoCard
             icon={<ShieldCheck className="size-4" />}
-            title="Clear next steps"
-            body="See what you can try, when to speak to a pharmacist or GP, and when to seek urgent help."
+            title="Inspect the model output"
+            body="Compare the generated answer with the retrieved passages to learn about grounding, omissions and retrieval quality."
           />
         </div>
 
@@ -463,10 +474,13 @@ function HowItWorks() {
           <ExternalLink className="size-4" />
         </a>
 
-        <p className="mt-6 border-t pt-5 text-[11px] leading-5 text-muted-foreground">
-          Independent research prototype for England. Not affiliated with or endorsed by
-          the NHS. Contains public sector information licensed under the Open Government
-          Licence v3.0.
+        <p className="mt-6 border-t pt-5 text-xs leading-5 text-muted-foreground">
+          Local LLM testing and RAG learning project. Not designed for any public use,
+          personal health advice or clinical decisions. Not affiliated with or endorsed by
+          the NHS. Contains public sector information licensed under the{' '}
+          <a className="underline" href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" target="_blank" rel="noreferrer">Open Government Licence v3.0</a>.
+          {' '}Adapted extracts and generated answers are not NHS-authored or clinically approved.
+          {' '}<a className="underline" href="https://www.nhs.uk/our-policies/terms-and-conditions/" target="_blank" rel="noreferrer">NHS content terms</a> apply to reuse.
         </p>
       </div>
     </aside>

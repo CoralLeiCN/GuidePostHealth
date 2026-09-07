@@ -1,107 +1,3012 @@
 {
   "licence": "Open Government Licence v3.0",
   "discovery_source": "https://www.nhs.uk/symptoms/",
-  "scope": "Curated common symptom guidance for England",
+  "discovered_at": "2026-09-05T21:31:00.247302+00:00",
+  "scope": "All guides linked from the NHS Symptoms A to Z index for England",
+  "index_entry_count": 205,
+  "unique_guide_count": 138,
   "sources": [
     {
-      "title": "Back pain",
-      "url": "https://www.nhs.uk/conditions/back-pain/"
-    },
-    {
-      "title": "Bloating",
-      "url": "https://www.nhs.uk/symptoms/bloating/"
-    },
-    {
-      "title": "Chest pain",
-      "url": "https://www.nhs.uk/symptoms/chest-pain/"
-    },
-    {
-      "title": "Constipation",
-      "url": "https://www.nhs.uk/conditions/constipation/"
-    },
-    {
-      "title": "Cough",
-      "url": "https://www.nhs.uk/symptoms/cough/"
-    },
-    {
-      "title": "Dehydration",
-      "url": "https://www.nhs.uk/conditions/dehydration/"
-    },
-    {
-      "title": "Diarrhoea and vomiting",
-      "url": "https://www.nhs.uk/symptoms/diarrhoea-and-vomiting/"
-    },
-    {
-      "title": "Dizziness",
-      "url": "https://www.nhs.uk/symptoms/dizziness/"
-    },
-    {
-      "title": "Earache",
-      "url": "https://www.nhs.uk/symptoms/earache/"
-    },
-    {
-      "title": "Fainting",
-      "url": "https://www.nhs.uk/symptoms/fainting/"
-    },
-    {
-      "title": "Feeling sick (nausea)",
-      "url": "https://www.nhs.uk/symptoms/feeling-sick-nausea/"
-    },
-    {
-      "title": "High temperature (fever) in adults",
-      "url": "https://www.nhs.uk/symptoms/fever-in-adults/"
-    },
-    {
-      "title": "High temperature (fever) in children",
-      "url": "https://www.nhs.uk/symptoms/fever-in-children/"
-    },
-    {
-      "title": "Headaches",
-      "url": "https://www.nhs.uk/symptoms/headaches/"
-    },
-    {
-      "title": "Heart palpitations",
-      "url": "https://www.nhs.uk/symptoms/heart-palpitations/"
+      "title": "Reflux in babies",
+      "url": "https://www.nhs.uk/conditions/reflux-in-babies/",
+      "aliases": [
+        "Acid reflux in babies"
+      ],
+      "index_terms": [
+        "Acid reflux in babies, see Reflux in babies",
+        "Reflux in babies"
+      ],
+      "index_entries": [
+        {
+          "letter": "A",
+          "label": "Acid reflux in babies, see Reflux in babies",
+          "term": "Acid reflux in babies",
+          "url": "https://www.nhs.uk/conditions/reflux-in-babies/",
+          "cross_reference": true
+        },
+        {
+          "letter": "R",
+          "label": "Reflux in babies",
+          "term": "Reflux in babies",
+          "url": "https://www.nhs.uk/conditions/reflux-in-babies/",
+          "cross_reference": false
+        }
+      ]
     },
     {
       "title": "Heartburn and acid reflux",
-      "url": "https://www.nhs.uk/conditions/heartburn-and-acid-reflux/"
+      "url": "https://www.nhs.uk/conditions/heartburn-and-acid-reflux/",
+      "aliases": [
+        "Acid reflux",
+        "Gastro-oesophageal reflux disease (GORD)"
+      ],
+      "index_terms": [
+        "Acid reflux, see Heartburn and acid reflux",
+        "Gastro-oesophageal reflux disease (GORD), see Heartburn and acid reflux",
+        "Heartburn and acid reflux"
+      ],
+      "index_entries": [
+        {
+          "letter": "A",
+          "label": "Acid reflux, see Heartburn and acid reflux",
+          "term": "Acid reflux",
+          "url": "https://www.nhs.uk/conditions/heartburn-and-acid-reflux/",
+          "cross_reference": true
+        },
+        {
+          "letter": "G",
+          "label": "Gastro-oesophageal reflux disease (GORD), see Heartburn and acid reflux",
+          "term": "Gastro-oesophageal reflux disease (GORD)",
+          "url": "https://www.nhs.uk/conditions/heartburn-and-acid-reflux/",
+          "cross_reference": true
+        },
+        {
+          "letter": "H",
+          "label": "Heartburn and acid reflux",
+          "term": "Heartburn and acid reflux",
+          "url": "https://www.nhs.uk/conditions/heartburn-and-acid-reflux/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Memory loss (amnesia)",
+      "url": "https://www.nhs.uk/symptoms/memory-loss-amnesia/",
+      "aliases": [
+        "Amnesia"
+      ],
+      "index_terms": [
+        "Amnesia, see Memory loss (amnesia)",
+        "Memory loss (amnesia)"
+      ],
+      "index_entries": [
+        {
+          "letter": "A",
+          "label": "Amnesia, see Memory loss (amnesia)",
+          "term": "Amnesia",
+          "url": "https://www.nhs.uk/symptoms/memory-loss-amnesia/",
+          "cross_reference": true
+        },
+        {
+          "letter": "M",
+          "label": "Memory loss (amnesia)",
+          "term": "Memory loss (amnesia)",
+          "url": "https://www.nhs.uk/symptoms/memory-loss-amnesia/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Anal pain",
+      "url": "https://www.nhs.uk/symptoms/anal-pain/",
+      "aliases": [],
+      "index_terms": [
+        "Anal pain"
+      ],
+      "index_entries": [
+        {
+          "letter": "A",
+          "label": "Anal pain",
+          "term": "Anal pain",
+          "url": "https://www.nhs.uk/symptoms/anal-pain/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Anger",
+      "url": "https://www.nhs.uk/mental-health/feelings-symptoms-behaviours/feelings-and-symptoms/anger/",
+      "aliases": [],
+      "index_terms": [
+        "Anger"
+      ],
+      "index_entries": [
+        {
+          "letter": "A",
+          "label": "Anger",
+          "term": "Anger",
+          "url": "https://www.nhs.uk/mental-health/feelings-symptoms-behaviours/feelings-and-symptoms/anger/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Ankle pain",
+      "url": "https://www.nhs.uk/symptoms/foot-pain/ankle-pain/",
+      "aliases": [],
+      "index_terms": [
+        "Ankle pain"
+      ],
+      "index_entries": [
+        {
+          "letter": "A",
+          "label": "Ankle pain",
+          "term": "Ankle pain",
+          "url": "https://www.nhs.uk/symptoms/foot-pain/ankle-pain/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Swollen ankles, feet and legs (oedema)",
+      "url": "https://www.nhs.uk/conditions/oedema/",
+      "aliases": [
+        "Ankles (swollen)"
+      ],
+      "index_terms": [
+        "Ankles (swollen), see Swollen ankles, feet and legs (oedema)",
+        "Swollen ankles, feet and legs (oedema)"
+      ],
+      "index_entries": [
+        {
+          "letter": "A",
+          "label": "Ankles (swollen), see Swollen ankles, feet and legs (oedema)",
+          "term": "Ankles (swollen)",
+          "url": "https://www.nhs.uk/conditions/oedema/",
+          "cross_reference": true
+        },
+        {
+          "letter": "S",
+          "label": "Swollen ankles, feet and legs (oedema)",
+          "term": "Swollen ankles, feet and legs (oedema)",
+          "url": "https://www.nhs.uk/conditions/oedema/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Lost or changed sense of smell",
+      "url": "https://www.nhs.uk/symptoms/lost-or-changed-sense-smell/",
+      "aliases": [
+        "Anosmia",
+        "Sense of smell (lost/changed)"
+      ],
+      "index_terms": [
+        "Anosmia, see Lost or changed sense of smell",
+        "Lost or changed sense of smell",
+        "Sense of smell (lost/changed), see Lost or changed sense of smell"
+      ],
+      "index_entries": [
+        {
+          "letter": "A",
+          "label": "Anosmia, see Lost or changed sense of smell",
+          "term": "Anosmia",
+          "url": "https://www.nhs.uk/symptoms/lost-or-changed-sense-smell/",
+          "cross_reference": true
+        },
+        {
+          "letter": "L",
+          "label": "Lost or changed sense of smell",
+          "term": "Lost or changed sense of smell",
+          "url": "https://www.nhs.uk/symptoms/lost-or-changed-sense-smell/",
+          "cross_reference": false
+        },
+        {
+          "letter": "S",
+          "label": "Sense of smell (lost/changed), see Lost or changed sense of smell",
+          "term": "Sense of smell (lost/changed)",
+          "url": "https://www.nhs.uk/symptoms/lost-or-changed-sense-smell/",
+          "cross_reference": true
+        }
+      ]
+    },
+    {
+      "title": "Itchy bottom",
+      "url": "https://www.nhs.uk/symptoms/itchy-anus/",
+      "aliases": [
+        "Anus (itchy)"
+      ],
+      "index_terms": [
+        "Anus (itchy), see Itchy bottom",
+        "Itchy bottom"
+      ],
+      "index_entries": [
+        {
+          "letter": "A",
+          "label": "Anus (itchy), see Itchy bottom",
+          "term": "Anus (itchy)",
+          "url": "https://www.nhs.uk/symptoms/itchy-anus/",
+          "cross_reference": true
+        },
+        {
+          "letter": "I",
+          "label": "Itchy bottom",
+          "term": "Itchy bottom",
+          "url": "https://www.nhs.uk/symptoms/itchy-anus/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Anxiety, fear and panic",
+      "url": "https://www.nhs.uk/mental-health/feelings-symptoms-behaviours/feelings-and-symptoms/anxiety-fear-panic/",
+      "aliases": [],
+      "index_terms": [
+        "Anxiety, fear and panic"
+      ],
+      "index_entries": [
+        {
+          "letter": "A",
+          "label": "Anxiety, fear and panic",
+          "term": "Anxiety, fear and panic",
+          "url": "https://www.nhs.uk/mental-health/feelings-symptoms-behaviours/feelings-and-symptoms/anxiety-fear-panic/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Elbow and arm pain",
+      "url": "https://www.nhs.uk/symptoms/elbow-and-arm-pain/",
+      "aliases": [
+        "Arm pain"
+      ],
+      "index_terms": [
+        "Arm pain, see Elbow and arm pain",
+        "Elbow and arm pain"
+      ],
+      "index_entries": [
+        {
+          "letter": "A",
+          "label": "Arm pain, see Elbow and arm pain",
+          "term": "Arm pain",
+          "url": "https://www.nhs.uk/symptoms/elbow-and-arm-pain/",
+          "cross_reference": true
+        },
+        {
+          "letter": "E",
+          "label": "Elbow and arm pain",
+          "term": "Elbow and arm pain",
+          "url": "https://www.nhs.uk/symptoms/elbow-and-arm-pain/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Back pain",
+      "url": "https://www.nhs.uk/conditions/back-pain/",
+      "aliases": [],
+      "index_terms": [
+        "Back pain"
+      ],
+      "index_entries": [
+        {
+          "letter": "B",
+          "label": "Back pain",
+          "term": "Back pain",
+          "url": "https://www.nhs.uk/conditions/back-pain/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Bad breath",
+      "url": "https://www.nhs.uk/symptoms/bad-breath/",
+      "aliases": [],
+      "index_terms": [
+        "Bad breath"
+      ],
+      "index_entries": [
+        {
+          "letter": "B",
+          "label": "Bad breath",
+          "term": "Bad breath",
+          "url": "https://www.nhs.uk/symptoms/bad-breath/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Bedwetting in children",
+      "url": "https://www.nhs.uk/symptoms/bedwetting/",
+      "aliases": [],
+      "index_terms": [
+        "Bedwetting in children"
+      ],
+      "index_entries": [
+        {
+          "letter": "B",
+          "label": "Bedwetting in children",
+          "term": "Bedwetting in children",
+          "url": "https://www.nhs.uk/symptoms/bedwetting/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Diarrhoea and vomiting",
+      "url": "https://www.nhs.uk/symptoms/diarrhoea-and-vomiting/",
+      "aliases": [
+        "Being sick",
+        "Vomiting"
+      ],
+      "index_terms": [
+        "Being sick, see Diarrhoea and vomiting",
+        "Diarrhoea and vomiting",
+        "Vomiting, see Diarrhoea and vomiting"
+      ],
+      "index_entries": [
+        {
+          "letter": "B",
+          "label": "Being sick, see Diarrhoea and vomiting",
+          "term": "Being sick",
+          "url": "https://www.nhs.uk/symptoms/diarrhoea-and-vomiting/",
+          "cross_reference": true
+        },
+        {
+          "letter": "D",
+          "label": "Diarrhoea and vomiting",
+          "term": "Diarrhoea and vomiting",
+          "url": "https://www.nhs.uk/symptoms/diarrhoea-and-vomiting/",
+          "cross_reference": false
+        },
+        {
+          "letter": "V",
+          "label": "Vomiting, see Diarrhoea and vomiting",
+          "term": "Vomiting",
+          "url": "https://www.nhs.uk/symptoms/diarrhoea-and-vomiting/",
+          "cross_reference": true
+        }
+      ]
+    },
+    {
+      "title": "Postmenopausal bleeding",
+      "url": "https://www.nhs.uk/symptoms/post-menopausal-bleeding/",
+      "aliases": [
+        "Bleeding after the menopause"
+      ],
+      "index_terms": [
+        "Bleeding after the menopause, see Postmenopausal bleeding",
+        "Postmenopausal bleeding"
+      ],
+      "index_entries": [
+        {
+          "letter": "B",
+          "label": "Bleeding after the menopause, see Postmenopausal bleeding",
+          "term": "Bleeding after the menopause",
+          "url": "https://www.nhs.uk/symptoms/post-menopausal-bleeding/",
+          "cross_reference": true
+        },
+        {
+          "letter": "P",
+          "label": "Postmenopausal bleeding",
+          "term": "Postmenopausal bleeding",
+          "url": "https://www.nhs.uk/symptoms/post-menopausal-bleeding/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Vaginal bleeding between periods or after sex",
+      "url": "https://www.nhs.uk/symptoms/vaginal-bleeding-between-periods-or-after-sex/",
+      "aliases": [
+        "Bleeding between periods or after sex"
+      ],
+      "index_terms": [
+        "Bleeding between periods or after sex, see Vaginal bleeding between periods or after sex",
+        "Vaginal bleeding between periods or after sex"
+      ],
+      "index_entries": [
+        {
+          "letter": "B",
+          "label": "Bleeding between periods or after sex, see Vaginal bleeding between periods or after sex",
+          "term": "Bleeding between periods or after sex",
+          "url": "https://www.nhs.uk/symptoms/vaginal-bleeding-between-periods-or-after-sex/",
+          "cross_reference": true
+        },
+        {
+          "letter": "V",
+          "label": "Vaginal bleeding between periods or after sex",
+          "term": "Vaginal bleeding between periods or after sex",
+          "url": "https://www.nhs.uk/symptoms/vaginal-bleeding-between-periods-or-after-sex/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Bleeding from the bottom (rectal bleeding)",
+      "url": "https://www.nhs.uk/symptoms/bleeding-from-the-bottom-rectal-bleeding/",
+      "aliases": [],
+      "index_terms": [
+        "Bleeding from the bottom (rectal bleeding)"
+      ],
+      "index_entries": [
+        {
+          "letter": "B",
+          "label": "Bleeding from the bottom (rectal bleeding)",
+          "term": "Bleeding from the bottom (rectal bleeding)",
+          "url": "https://www.nhs.uk/symptoms/bleeding-from-the-bottom-rectal-bleeding/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Vaginal bleeding in pregnancy",
+      "url": "https://www.nhs.uk/pregnancy/common-symptoms/vaginal-bleeding/",
+      "aliases": [
+        "Bleeding from the vagina in pregnancy"
+      ],
+      "index_terms": [
+        "Bleeding from the vagina in pregnancy, see Vaginal bleeding in pregnancy",
+        "Vaginal bleeding in pregnancy"
+      ],
+      "index_entries": [
+        {
+          "letter": "B",
+          "label": "Bleeding from the vagina in pregnancy, see Vaginal bleeding in pregnancy",
+          "term": "Bleeding from the vagina in pregnancy",
+          "url": "https://www.nhs.uk/pregnancy/common-symptoms/vaginal-bleeding/",
+          "cross_reference": true
+        },
+        {
+          "letter": "V",
+          "label": "Vaginal bleeding in pregnancy",
+          "term": "Vaginal bleeding in pregnancy",
+          "url": "https://www.nhs.uk/pregnancy/common-symptoms/vaginal-bleeding/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Bloating",
+      "url": "https://www.nhs.uk/symptoms/bloating/",
+      "aliases": [],
+      "index_terms": [
+        "Bloating"
+      ],
+      "index_entries": [
+        {
+          "letter": "B",
+          "label": "Bloating",
+          "term": "Bloating",
+          "url": "https://www.nhs.uk/symptoms/bloating/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Coughing up blood (blood in phlegm)",
+      "url": "https://www.nhs.uk/symptoms/coughing-up-blood/",
+      "aliases": [
+        "Blood in phlegm"
+      ],
+      "index_terms": [
+        "Blood in phlegm, see Coughing up blood (blood in phlegm)",
+        "Coughing up blood (blood in phlegm)"
+      ],
+      "index_entries": [
+        {
+          "letter": "B",
+          "label": "Blood in phlegm, see Coughing up blood (blood in phlegm)",
+          "term": "Blood in phlegm",
+          "url": "https://www.nhs.uk/symptoms/coughing-up-blood/",
+          "cross_reference": true
+        },
+        {
+          "letter": "C",
+          "label": "Coughing up blood (blood in phlegm)",
+          "term": "Coughing up blood (blood in phlegm)",
+          "url": "https://www.nhs.uk/symptoms/coughing-up-blood/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Blood in semen",
+      "url": "https://www.nhs.uk/symptoms/blood-in-semen/",
+      "aliases": [],
+      "index_terms": [
+        "Blood in semen"
+      ],
+      "index_entries": [
+        {
+          "letter": "B",
+          "label": "Blood in semen",
+          "term": "Blood in semen",
+          "url": "https://www.nhs.uk/symptoms/blood-in-semen/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Blood in urine",
+      "url": "https://www.nhs.uk/symptoms/blood-in-urine/",
+      "aliases": [],
+      "index_terms": [
+        "Blood in urine"
+      ],
+      "index_entries": [
+        {
+          "letter": "B",
+          "label": "Blood in urine",
+          "term": "Blood in urine",
+          "url": "https://www.nhs.uk/symptoms/blood-in-urine/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Blue or grey skin or lips (cyanosis)",
+      "url": "https://www.nhs.uk/symptoms/blue-skin-or-lips-cyanosis/",
+      "aliases": [
+        "Cyanosis"
+      ],
+      "index_terms": [
+        "Blue or grey skin or lips (cyanosis)",
+        "Cyanosis, see Blue or grey skin or lips (cyanosis)"
+      ],
+      "index_entries": [
+        {
+          "letter": "B",
+          "label": "Blue or grey skin or lips (cyanosis)",
+          "term": "Blue or grey skin or lips (cyanosis)",
+          "url": "https://www.nhs.uk/symptoms/blue-skin-or-lips-cyanosis/",
+          "cross_reference": false
+        },
+        {
+          "letter": "C",
+          "label": "Cyanosis, see Blue or grey skin or lips (cyanosis)",
+          "term": "Cyanosis",
+          "url": "https://www.nhs.uk/symptoms/blue-skin-or-lips-cyanosis/",
+          "cross_reference": true
+        }
+      ]
+    },
+    {
+      "title": "Blushing",
+      "url": "https://www.nhs.uk/symptoms/blushing/",
+      "aliases": [],
+      "index_terms": [
+        "Blushing"
+      ],
+      "index_entries": [
+        {
+          "letter": "B",
+          "label": "Blushing",
+          "term": "Blushing",
+          "url": "https://www.nhs.uk/symptoms/blushing/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Body odour (BO)",
+      "url": "https://www.nhs.uk/symptoms/body-odour-bo/",
+      "aliases": [],
+      "index_terms": [
+        "Body odour (BO)"
+      ],
+      "index_entries": [
+        {
+          "letter": "B",
+          "label": "Body odour (BO)",
+          "term": "Body odour (BO)",
+          "url": "https://www.nhs.uk/symptoms/body-odour-bo/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Bowel incontinence",
+      "url": "https://www.nhs.uk/conditions/bowel-incontinence/",
+      "aliases": [
+        "Incontinence (bowel)"
+      ],
+      "index_terms": [
+        "Bowel incontinence",
+        "Incontinence (bowel), see Bowel incontinence"
+      ],
+      "index_entries": [
+        {
+          "letter": "B",
+          "label": "Bowel incontinence",
+          "term": "Bowel incontinence",
+          "url": "https://www.nhs.uk/conditions/bowel-incontinence/",
+          "cross_reference": false
+        },
+        {
+          "letter": "I",
+          "label": "Incontinence (bowel), see Bowel incontinence",
+          "term": "Incontinence (bowel)",
+          "url": "https://www.nhs.uk/conditions/bowel-incontinence/",
+          "cross_reference": true
+        }
+      ]
+    },
+    {
+      "title": "Breast lumps",
+      "url": "https://www.nhs.uk/symptoms/breast-lump/",
+      "aliases": [],
+      "index_terms": [
+        "Breast lumps"
+      ],
+      "index_entries": [
+        {
+          "letter": "B",
+          "label": "Breast lumps",
+          "term": "Breast lumps",
+          "url": "https://www.nhs.uk/symptoms/breast-lump/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Breast pain",
+      "url": "https://www.nhs.uk/symptoms/breast-pain/",
+      "aliases": [],
+      "index_terms": [
+        "Breast pain"
+      ],
+      "index_entries": [
+        {
+          "letter": "B",
+          "label": "Breast pain",
+          "term": "Breast pain",
+          "url": "https://www.nhs.uk/symptoms/breast-pain/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Teeth grinding (bruxism)",
+      "url": "https://www.nhs.uk/symptoms/teeth-grinding/",
+      "aliases": [
+        "Bruxism"
+      ],
+      "index_terms": [
+        "Bruxism, see Teeth grinding (bruxism)",
+        "Teeth grinding (bruxism)"
+      ],
+      "index_entries": [
+        {
+          "letter": "B",
+          "label": "Bruxism, see Teeth grinding (bruxism)",
+          "term": "Bruxism",
+          "url": "https://www.nhs.uk/symptoms/teeth-grinding/",
+          "cross_reference": true
+        },
+        {
+          "letter": "T",
+          "label": "Teeth grinding (bruxism)",
+          "term": "Teeth grinding (bruxism)",
+          "url": "https://www.nhs.uk/symptoms/teeth-grinding/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Bulging eyes (exophthalmos)",
+      "url": "https://www.nhs.uk/symptoms/bulging-eyes/",
+      "aliases": [],
+      "index_terms": [
+        "Bulging eyes (exophthalmos)"
+      ],
+      "index_entries": [
+        {
+          "letter": "B",
+          "label": "Bulging eyes (exophthalmos)",
+          "term": "Bulging eyes (exophthalmos)",
+          "url": "https://www.nhs.uk/symptoms/bulging-eyes/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Catarrh",
+      "url": "https://www.nhs.uk/conditions/catarrh/",
+      "aliases": [],
+      "index_terms": [
+        "Catarrh"
+      ],
+      "index_entries": [
+        {
+          "letter": "C",
+          "label": "Catarrh",
+          "term": "Catarrh",
+          "url": "https://www.nhs.uk/conditions/catarrh/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Chest pain",
+      "url": "https://www.nhs.uk/symptoms/chest-pain/",
+      "aliases": [
+        "Heart pain"
+      ],
+      "index_terms": [
+        "Chest pain",
+        "Heart pain, see Chest pain"
+      ],
+      "index_entries": [
+        {
+          "letter": "C",
+          "label": "Chest pain",
+          "term": "Chest pain",
+          "url": "https://www.nhs.uk/symptoms/chest-pain/",
+          "cross_reference": false
+        },
+        {
+          "letter": "H",
+          "label": "Heart pain, see Chest pain",
+          "term": "Heart pain",
+          "url": "https://www.nhs.uk/symptoms/chest-pain/",
+          "cross_reference": true
+        }
+      ]
+    },
+    {
+      "title": "Tailbone (coccyx) pain",
+      "url": "https://www.nhs.uk/conditions/tailbone-coccyx-pain/",
+      "aliases": [
+        "Coccyx pain"
+      ],
+      "index_terms": [
+        "Coccyx pain, see Tailbone (coccyx) pain",
+        "Tailbone (coccyx) pain"
+      ],
+      "index_entries": [
+        {
+          "letter": "C",
+          "label": "Coccyx pain, see Tailbone (coccyx) pain",
+          "term": "Coccyx pain",
+          "url": "https://www.nhs.uk/conditions/tailbone-coccyx-pain/",
+          "cross_reference": true
+        },
+        {
+          "letter": "T",
+          "label": "Tailbone (coccyx) pain",
+          "term": "Tailbone (coccyx) pain",
+          "url": "https://www.nhs.uk/conditions/tailbone-coccyx-pain/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Sudden confusion (delirium)",
+      "url": "https://www.nhs.uk/symptoms/confusion/",
+      "aliases": [
+        "Confusion (sudden)",
+        "Delirium"
+      ],
+      "index_terms": [
+        "Confusion (sudden), see Sudden confusion (delirium)",
+        "Delirium, see Sudden confusion (delirium)",
+        "Sudden confusion (delirium)"
+      ],
+      "index_entries": [
+        {
+          "letter": "C",
+          "label": "Confusion (sudden), see Sudden confusion (delirium)",
+          "term": "Confusion (sudden)",
+          "url": "https://www.nhs.uk/symptoms/confusion/",
+          "cross_reference": true
+        },
+        {
+          "letter": "D",
+          "label": "Delirium, see Sudden confusion (delirium)",
+          "term": "Delirium",
+          "url": "https://www.nhs.uk/symptoms/confusion/",
+          "cross_reference": true
+        },
+        {
+          "letter": "S",
+          "label": "Sudden confusion (delirium)",
+          "term": "Sudden confusion (delirium)",
+          "url": "https://www.nhs.uk/symptoms/confusion/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Constipation",
+      "url": "https://www.nhs.uk/conditions/constipation/",
+      "aliases": [],
+      "index_terms": [
+        "Constipation"
+      ],
+      "index_entries": [
+        {
+          "letter": "C",
+          "label": "Constipation",
+          "term": "Constipation",
+          "url": "https://www.nhs.uk/conditions/constipation/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Cough",
+      "url": "https://www.nhs.uk/symptoms/cough/",
+      "aliases": [],
+      "index_terms": [
+        "Cough"
+      ],
+      "index_entries": [
+        {
+          "letter": "C",
+          "label": "Cough",
+          "term": "Cough",
+          "url": "https://www.nhs.uk/symptoms/cough/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Hearing loss",
+      "url": "https://www.nhs.uk/conditions/hearing-loss/",
+      "aliases": [
+        "Deafness"
+      ],
+      "index_terms": [
+        "Deafness, see Hearing loss",
+        "Hearing loss"
+      ],
+      "index_entries": [
+        {
+          "letter": "D",
+          "label": "Deafness, see Hearing loss",
+          "term": "Deafness",
+          "url": "https://www.nhs.uk/conditions/hearing-loss/",
+          "cross_reference": true
+        },
+        {
+          "letter": "H",
+          "label": "Hearing loss",
+          "term": "Hearing loss",
+          "url": "https://www.nhs.uk/conditions/hearing-loss/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Dehydration",
+      "url": "https://www.nhs.uk/conditions/dehydration/",
+      "aliases": [],
+      "index_terms": [
+        "Dehydration"
+      ],
+      "index_entries": [
+        {
+          "letter": "D",
+          "label": "Dehydration",
+          "term": "Dehydration",
+          "url": "https://www.nhs.uk/conditions/dehydration/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Toothache",
+      "url": "https://www.nhs.uk/symptoms/toothache/",
+      "aliases": [
+        "Dental pain"
+      ],
+      "index_terms": [
+        "Dental pain, see Toothache",
+        "Toothache"
+      ],
+      "index_entries": [
+        {
+          "letter": "D",
+          "label": "Dental pain, see Toothache",
+          "term": "Dental pain",
+          "url": "https://www.nhs.uk/symptoms/toothache/",
+          "cross_reference": true
+        },
+        {
+          "letter": "T",
+          "label": "Toothache",
+          "term": "Toothache",
+          "url": "https://www.nhs.uk/symptoms/toothache/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Dizziness",
+      "url": "https://www.nhs.uk/symptoms/dizziness/",
+      "aliases": [],
+      "index_terms": [
+        "Dizziness"
+      ],
+      "index_entries": [
+        {
+          "letter": "D",
+          "label": "Dizziness",
+          "term": "Dizziness",
+          "url": "https://www.nhs.uk/symptoms/dizziness/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Double vision",
+      "url": "https://www.nhs.uk/symptoms/double-vision/",
+      "aliases": [],
+      "index_terms": [
+        "Double vision"
+      ],
+      "index_entries": [
+        {
+          "letter": "D",
+          "label": "Double vision",
+          "term": "Double vision",
+          "url": "https://www.nhs.uk/symptoms/double-vision/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Dry eyes",
+      "url": "https://www.nhs.uk/symptoms/dry-eyes/",
+      "aliases": [],
+      "index_terms": [
+        "Dry eyes"
+      ],
+      "index_entries": [
+        {
+          "letter": "D",
+          "label": "Dry eyes",
+          "term": "Dry eyes",
+          "url": "https://www.nhs.uk/symptoms/dry-eyes/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Sore or dry lips",
+      "url": "https://www.nhs.uk/symptoms/sore-or-dry-lips/",
+      "aliases": [
+        "Dry lips",
+        "Lips (sore or dry)"
+      ],
+      "index_terms": [
+        "Dry lips, see Sore or dry lips",
+        "Lips (sore or dry), see Sore or dry lips",
+        "Sore or dry lips"
+      ],
+      "index_entries": [
+        {
+          "letter": "D",
+          "label": "Dry lips, see Sore or dry lips",
+          "term": "Dry lips",
+          "url": "https://www.nhs.uk/symptoms/sore-or-dry-lips/",
+          "cross_reference": true
+        },
+        {
+          "letter": "L",
+          "label": "Lips (sore or dry), see Sore or dry lips",
+          "term": "Lips (sore or dry)",
+          "url": "https://www.nhs.uk/symptoms/sore-or-dry-lips/",
+          "cross_reference": true
+        },
+        {
+          "letter": "S",
+          "label": "Sore or dry lips",
+          "term": "Sore or dry lips",
+          "url": "https://www.nhs.uk/symptoms/sore-or-dry-lips/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Dry mouth",
+      "url": "https://www.nhs.uk/symptoms/dry-mouth/",
+      "aliases": [],
+      "index_terms": [
+        "Dry mouth"
+      ],
+      "index_entries": [
+        {
+          "letter": "D",
+          "label": "Dry mouth",
+          "term": "Dry mouth",
+          "url": "https://www.nhs.uk/symptoms/dry-mouth/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Dysphagia (swallowing problems)",
+      "url": "https://www.nhs.uk/symptoms/swallowing-problems-dysphagia/",
+      "aliases": [
+        "Swallowing problems"
+      ],
+      "index_terms": [
+        "Dysphagia (swallowing problems)",
+        "Swallowing problems, see Dysphagia (swallowing problems)"
+      ],
+      "index_entries": [
+        {
+          "letter": "D",
+          "label": "Dysphagia (swallowing problems)",
+          "term": "Dysphagia (swallowing problems)",
+          "url": "https://www.nhs.uk/symptoms/swallowing-problems-dysphagia/",
+          "cross_reference": false
+        },
+        {
+          "letter": "S",
+          "label": "Swallowing problems, see Dysphagia (swallowing problems)",
+          "term": "Swallowing problems",
+          "url": "https://www.nhs.uk/symptoms/swallowing-problems-dysphagia/",
+          "cross_reference": true
+        }
+      ]
+    },
+    {
+      "title": "Earache",
+      "url": "https://www.nhs.uk/symptoms/earache/",
+      "aliases": [],
+      "index_terms": [
+        "Earache"
+      ],
+      "index_entries": [
+        {
+          "letter": "E",
+          "label": "Earache",
+          "term": "Earache",
+          "url": "https://www.nhs.uk/symptoms/earache/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Heart palpitations",
+      "url": "https://www.nhs.uk/symptoms/heart-palpitations/",
+      "aliases": [
+        "Ectopic beats",
+        "Palpitations"
+      ],
+      "index_terms": [
+        "Ectopic beats, see Heart palpitations",
+        "Heart palpitations",
+        "Palpitations, see Heart palpitations"
+      ],
+      "index_entries": [
+        {
+          "letter": "E",
+          "label": "Ectopic beats, see Heart palpitations",
+          "term": "Ectopic beats",
+          "url": "https://www.nhs.uk/symptoms/heart-palpitations/",
+          "cross_reference": true
+        },
+        {
+          "letter": "H",
+          "label": "Heart palpitations",
+          "term": "Heart palpitations",
+          "url": "https://www.nhs.uk/symptoms/heart-palpitations/",
+          "cross_reference": false
+        },
+        {
+          "letter": "P",
+          "label": "Palpitations, see Heart palpitations",
+          "term": "Palpitations",
+          "url": "https://www.nhs.uk/symptoms/heart-palpitations/",
+          "cross_reference": true
+        }
+      ]
+    },
+    {
+      "title": "Ejaculation problems",
+      "url": "https://www.nhs.uk/conditions/ejaculation-problems/",
+      "aliases": [
+        "Premature ejaculation"
+      ],
+      "index_terms": [
+        "Ejaculation problems",
+        "Premature ejaculation, see Ejaculation problems"
+      ],
+      "index_entries": [
+        {
+          "letter": "E",
+          "label": "Ejaculation problems",
+          "term": "Ejaculation problems",
+          "url": "https://www.nhs.uk/conditions/ejaculation-problems/",
+          "cross_reference": false
+        },
+        {
+          "letter": "P",
+          "label": "Premature ejaculation, see Ejaculation problems",
+          "term": "Premature ejaculation",
+          "url": "https://www.nhs.uk/conditions/ejaculation-problems/",
+          "cross_reference": true
+        }
+      ]
+    },
+    {
+      "title": "Erectile dysfunction (impotence)",
+      "url": "https://www.nhs.uk/conditions/erection-problems-erectile-dysfunction/",
+      "aliases": [
+        "Impotence"
+      ],
+      "index_terms": [
+        "Erectile dysfunction (impotence)",
+        "Impotence, see Erectile dysfunction (impotence)"
+      ],
+      "index_entries": [
+        {
+          "letter": "E",
+          "label": "Erectile dysfunction (impotence)",
+          "term": "Erectile dysfunction (impotence)",
+          "url": "https://www.nhs.uk/conditions/erection-problems-erectile-dysfunction/",
+          "cross_reference": false
+        },
+        {
+          "letter": "I",
+          "label": "Impotence, see Erectile dysfunction (impotence)",
+          "term": "Impotence",
+          "url": "https://www.nhs.uk/conditions/erection-problems-erectile-dysfunction/",
+          "cross_reference": true
+        }
+      ]
+    },
+    {
+      "title": "Tremor or shaking hands",
+      "url": "https://www.nhs.uk/symptoms/tremor-or-shaking-hands/",
+      "aliases": [
+        "Essential tremor",
+        "Shaking"
+      ],
+      "index_terms": [
+        "Essential tremor, see Tremor or shaking hands",
+        "Shaking, see Tremor or shaking hands",
+        "Tremor or shaking hands"
+      ],
+      "index_entries": [
+        {
+          "letter": "E",
+          "label": "Essential tremor, see Tremor or shaking hands",
+          "term": "Essential tremor",
+          "url": "https://www.nhs.uk/symptoms/tremor-or-shaking-hands/",
+          "cross_reference": true
+        },
+        {
+          "letter": "S",
+          "label": "Shaking, see Tremor or shaking hands",
+          "term": "Shaking",
+          "url": "https://www.nhs.uk/symptoms/tremor-or-shaking-hands/",
+          "cross_reference": true
+        },
+        {
+          "letter": "T",
+          "label": "Tremor or shaking hands",
+          "term": "Tremor or shaking hands",
+          "url": "https://www.nhs.uk/symptoms/tremor-or-shaking-hands/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Excessive daytime sleepiness (hypersomnia)",
+      "url": "https://www.nhs.uk/conditions/excessive-daytime-sleepiness-hypersomnia/",
+      "aliases": [
+        "Hypersomnia",
+        "Sleepiness"
+      ],
+      "index_terms": [
+        "Excessive daytime sleepiness (hypersomnia)",
+        "Hypersomnia, see Excessive daytime sleepiness (hypersomnia)",
+        "Sleepiness, see Excessive daytime sleepiness (hypersomnia)"
+      ],
+      "index_entries": [
+        {
+          "letter": "E",
+          "label": "Excessive daytime sleepiness (hypersomnia)",
+          "term": "Excessive daytime sleepiness (hypersomnia)",
+          "url": "https://www.nhs.uk/conditions/excessive-daytime-sleepiness-hypersomnia/",
+          "cross_reference": false
+        },
+        {
+          "letter": "H",
+          "label": "Hypersomnia, see Excessive daytime sleepiness (hypersomnia)",
+          "term": "Hypersomnia",
+          "url": "https://www.nhs.uk/conditions/excessive-daytime-sleepiness-hypersomnia/",
+          "cross_reference": true
+        },
+        {
+          "letter": "S",
+          "label": "Sleepiness, see Excessive daytime sleepiness (hypersomnia)",
+          "term": "Sleepiness",
+          "url": "https://www.nhs.uk/conditions/excessive-daytime-sleepiness-hypersomnia/",
+          "cross_reference": true
+        }
+      ]
+    },
+    {
+      "title": "Excessive hair growth (hirsutism)",
+      "url": "https://www.nhs.uk/symptoms/hirsutism/",
+      "aliases": [
+        "Hirsutism"
+      ],
+      "index_terms": [
+        "Excessive hair growth (hirsutism)",
+        "Hirsutism, see Excessive hair growth (hirsutism)"
+      ],
+      "index_entries": [
+        {
+          "letter": "E",
+          "label": "Excessive hair growth (hirsutism)",
+          "term": "Excessive hair growth (hirsutism)",
+          "url": "https://www.nhs.uk/symptoms/hirsutism/",
+          "cross_reference": false
+        },
+        {
+          "letter": "H",
+          "label": "Hirsutism, see Excessive hair growth (hirsutism)",
+          "term": "Hirsutism",
+          "url": "https://www.nhs.uk/symptoms/hirsutism/",
+          "cross_reference": true
+        }
+      ]
+    },
+    {
+      "title": "Excessive sweating (hyperhidrosis)",
+      "url": "https://www.nhs.uk/conditions/excessive-sweating-hyperhidrosis/",
+      "aliases": [
+        "Hyperhidrosis",
+        "Sweating (excessive)"
+      ],
+      "index_terms": [
+        "Excessive sweating (hyperhidrosis)",
+        "Hyperhidrosis, see Excessive sweating (hyperhidrosis)",
+        "Sweating (excessive), see Excessive sweating (hyperhidrosis)"
+      ],
+      "index_entries": [
+        {
+          "letter": "E",
+          "label": "Excessive sweating (hyperhidrosis)",
+          "term": "Excessive sweating (hyperhidrosis)",
+          "url": "https://www.nhs.uk/conditions/excessive-sweating-hyperhidrosis/",
+          "cross_reference": false
+        },
+        {
+          "letter": "H",
+          "label": "Hyperhidrosis, see Excessive sweating (hyperhidrosis)",
+          "term": "Hyperhidrosis",
+          "url": "https://www.nhs.uk/conditions/excessive-sweating-hyperhidrosis/",
+          "cross_reference": true
+        },
+        {
+          "letter": "S",
+          "label": "Sweating (excessive), see Excessive sweating (hyperhidrosis)",
+          "term": "Sweating (excessive)",
+          "url": "https://www.nhs.uk/conditions/excessive-sweating-hyperhidrosis/",
+          "cross_reference": true
+        }
+      ]
+    },
+    {
+      "title": "Excessive thirst",
+      "url": "https://www.nhs.uk/symptoms/thirst/",
+      "aliases": [
+        "Thirst (excessive)"
+      ],
+      "index_terms": [
+        "Excessive thirst",
+        "Thirst (excessive), see Excessive thirst"
+      ],
+      "index_entries": [
+        {
+          "letter": "E",
+          "label": "Excessive thirst",
+          "term": "Excessive thirst",
+          "url": "https://www.nhs.uk/symptoms/thirst/",
+          "cross_reference": false
+        },
+        {
+          "letter": "T",
+          "label": "Thirst (excessive), see Excessive thirst",
+          "term": "Thirst (excessive)",
+          "url": "https://www.nhs.uk/symptoms/thirst/",
+          "cross_reference": true
+        }
+      ]
+    },
+    {
+      "title": "Floaters and flashes in the eyes",
+      "url": "https://www.nhs.uk/symptoms/floaters-and-flashes-in-the-eyes/",
+      "aliases": [
+        "Eye floaters and flashes"
+      ],
+      "index_terms": [
+        "Eye floaters and flashes, see Floaters and flashes in the eyes",
+        "Floaters and flashes in the eyes"
+      ],
+      "index_entries": [
+        {
+          "letter": "E",
+          "label": "Eye floaters and flashes, see Floaters and flashes in the eyes",
+          "term": "Eye floaters and flashes",
+          "url": "https://www.nhs.uk/symptoms/floaters-and-flashes-in-the-eyes/",
+          "cross_reference": true
+        },
+        {
+          "letter": "F",
+          "label": "Floaters and flashes in the eyes",
+          "term": "Floaters and flashes in the eyes",
+          "url": "https://www.nhs.uk/symptoms/floaters-and-flashes-in-the-eyes/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Eye pain",
+      "url": "https://www.nhs.uk/symptoms/eye-pain/",
+      "aliases": [],
+      "index_terms": [
+        "Eye pain"
+      ],
+      "index_entries": [
+        {
+          "letter": "E",
+          "label": "Eye pain",
+          "term": "Eye pain",
+          "url": "https://www.nhs.uk/symptoms/eye-pain/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Eyelid problems",
+      "url": "https://www.nhs.uk/symptoms/eyelid-problems/",
+      "aliases": [],
+      "index_terms": [
+        "Eyelid problems"
+      ],
+      "index_entries": [
+        {
+          "letter": "E",
+          "label": "Eyelid problems",
+          "term": "Eyelid problems",
+          "url": "https://www.nhs.uk/symptoms/eyelid-problems/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Fainting",
+      "url": "https://www.nhs.uk/symptoms/fainting/",
+      "aliases": [],
+      "index_terms": [
+        "Fainting"
+      ],
+      "index_entries": [
+        {
+          "letter": "F",
+          "label": "Fainting",
+          "term": "Fainting",
+          "url": "https://www.nhs.uk/symptoms/fainting/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Farting (flatulence)",
+      "url": "https://www.nhs.uk/symptoms/flatulence/",
+      "aliases": [
+        "Flatulence",
+        "Wind"
+      ],
+      "index_terms": [
+        "Farting (flatulence)",
+        "Flatulence, see Farting (flatulence)",
+        "Wind, see Farting (flatulence)"
+      ],
+      "index_entries": [
+        {
+          "letter": "F",
+          "label": "Farting (flatulence)",
+          "term": "Farting (flatulence)",
+          "url": "https://www.nhs.uk/symptoms/flatulence/",
+          "cross_reference": false
+        },
+        {
+          "letter": "F",
+          "label": "Flatulence, see Farting (flatulence)",
+          "term": "Flatulence",
+          "url": "https://www.nhs.uk/symptoms/flatulence/",
+          "cross_reference": true
+        },
+        {
+          "letter": "W",
+          "label": "Wind, see Farting (flatulence)",
+          "term": "Wind",
+          "url": "https://www.nhs.uk/symptoms/flatulence/",
+          "cross_reference": true
+        }
+      ]
+    },
+    {
+      "title": "Feeling lonely",
+      "url": "https://www.nhs.uk/mental-health/feelings-symptoms-behaviours/feelings-and-symptoms/feeling-lonely/",
+      "aliases": [],
+      "index_terms": [
+        "Feeling lonely"
+      ],
+      "index_entries": [
+        {
+          "letter": "F",
+          "label": "Feeling lonely",
+          "term": "Feeling lonely",
+          "url": "https://www.nhs.uk/mental-health/feelings-symptoms-behaviours/feelings-and-symptoms/feeling-lonely/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Feeling sick (nausea)",
+      "url": "https://www.nhs.uk/symptoms/feeling-sick-nausea/",
+      "aliases": [
+        "Nausea"
+      ],
+      "index_terms": [
+        "Feeling sick (nausea)",
+        "Nausea, see Feeling sick (nausea)"
+      ],
+      "index_entries": [
+        {
+          "letter": "F",
+          "label": "Feeling sick (nausea)",
+          "term": "Feeling sick (nausea)",
+          "url": "https://www.nhs.uk/symptoms/feeling-sick-nausea/",
+          "cross_reference": false
+        },
+        {
+          "letter": "N",
+          "label": "Nausea, see Feeling sick (nausea)",
+          "term": "Nausea",
+          "url": "https://www.nhs.uk/symptoms/feeling-sick-nausea/",
+          "cross_reference": true
+        }
+      ]
+    },
+    {
+      "title": "High temperature (fever) in adults",
+      "url": "https://www.nhs.uk/symptoms/fever-in-adults/",
+      "aliases": [
+        "Fever in adults"
+      ],
+      "index_terms": [
+        "Fever in adults, see High temperature (fever) in adults",
+        "High temperature (fever) in adults"
+      ],
+      "index_entries": [
+        {
+          "letter": "F",
+          "label": "Fever in adults, see High temperature (fever) in adults",
+          "term": "Fever in adults",
+          "url": "https://www.nhs.uk/symptoms/fever-in-adults/",
+          "cross_reference": true
+        },
+        {
+          "letter": "H",
+          "label": "High temperature (fever) in adults",
+          "term": "High temperature (fever) in adults",
+          "url": "https://www.nhs.uk/symptoms/fever-in-adults/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "High temperature (fever) in children",
+      "url": "https://www.nhs.uk/symptoms/fever-in-children/",
+      "aliases": [
+        "Fever in children"
+      ],
+      "index_terms": [
+        "Fever in children, see High temperature (fever) in children",
+        "High temperature (fever) in children"
+      ],
+      "index_entries": [
+        {
+          "letter": "F",
+          "label": "Fever in children, see High temperature (fever) in children",
+          "term": "Fever in children",
+          "url": "https://www.nhs.uk/symptoms/fever-in-children/",
+          "cross_reference": true
+        },
+        {
+          "letter": "H",
+          "label": "High temperature (fever) in children",
+          "term": "High temperature (fever) in children",
+          "url": "https://www.nhs.uk/symptoms/fever-in-children/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Finger pain",
+      "url": "https://www.nhs.uk/symptoms/hand-pain/finger-pain/",
+      "aliases": [],
+      "index_terms": [
+        "Finger pain"
+      ],
+      "index_entries": [
+        {
+          "letter": "F",
+          "label": "Finger pain",
+          "term": "Finger pain",
+          "url": "https://www.nhs.uk/symptoms/hand-pain/finger-pain/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "What to do if someone has a seizure (fit)",
+      "url": "https://www.nhs.uk/symptoms/what-to-do-if-someone-has-a-seizure-fit/",
+      "aliases": [
+        "Fits (seizures)",
+        "Seizures (fits)"
+      ],
+      "index_terms": [
+        "Fits (seizures), see What to do if someone has a seizure (fit)",
+        "Seizures (fits), see What to do if someone has a seizure (fit)",
+        "What to do if someone has a seizure (fit)"
+      ],
+      "index_entries": [
+        {
+          "letter": "F",
+          "label": "Fits (seizures), see What to do if someone has a seizure (fit)",
+          "term": "Fits (seizures)",
+          "url": "https://www.nhs.uk/symptoms/what-to-do-if-someone-has-a-seizure-fit/",
+          "cross_reference": true
+        },
+        {
+          "letter": "S",
+          "label": "Seizures (fits), see What to do if someone has a seizure (fit)",
+          "term": "Seizures (fits)",
+          "url": "https://www.nhs.uk/symptoms/what-to-do-if-someone-has-a-seizure-fit/",
+          "cross_reference": true
+        },
+        {
+          "letter": "W",
+          "label": "What to do if someone has a seizure (fit)",
+          "term": "What to do if someone has a seizure (fit)",
+          "url": "https://www.nhs.uk/symptoms/what-to-do-if-someone-has-a-seizure-fit/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Foot pain",
+      "url": "https://www.nhs.uk/symptoms/foot-pain/",
+      "aliases": [],
+      "index_terms": [
+        "Foot pain"
+      ],
+      "index_entries": [
+        {
+          "letter": "F",
+          "label": "Foot pain",
+          "term": "Foot pain",
+          "url": "https://www.nhs.uk/symptoms/foot-pain/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Grief after bereavement or loss",
+      "url": "https://www.nhs.uk/mental-health/feelings-symptoms-behaviours/feelings-and-symptoms/grief-bereavement-loss/",
+      "aliases": [],
+      "index_terms": [
+        "Grief after bereavement or loss"
+      ],
+      "index_entries": [
+        {
+          "letter": "G",
+          "label": "Grief after bereavement or loss",
+          "term": "Grief after bereavement or loss",
+          "url": "https://www.nhs.uk/mental-health/feelings-symptoms-behaviours/feelings-and-symptoms/grief-bereavement-loss/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Hair loss",
+      "url": "https://www.nhs.uk/symptoms/hair-loss/",
+      "aliases": [],
+      "index_terms": [
+        "Hair loss"
+      ],
+      "index_entries": [
+        {
+          "letter": "H",
+          "label": "Hair loss",
+          "term": "Hair loss",
+          "url": "https://www.nhs.uk/symptoms/hair-loss/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Hallucinations and hearing voices",
+      "url": "https://www.nhs.uk/mental-health/feelings-symptoms-behaviours/feelings-and-symptoms/hallucinations-hearing-voices/",
+      "aliases": [
+        "Hearing voices"
+      ],
+      "index_terms": [
+        "Hallucinations and hearing voices",
+        "Hearing voices, see Hallucinations and hearing voices"
+      ],
+      "index_entries": [
+        {
+          "letter": "H",
+          "label": "Hallucinations and hearing voices",
+          "term": "Hallucinations and hearing voices",
+          "url": "https://www.nhs.uk/mental-health/feelings-symptoms-behaviours/feelings-and-symptoms/hallucinations-hearing-voices/",
+          "cross_reference": false
+        },
+        {
+          "letter": "H",
+          "label": "Hearing voices, see Hallucinations and hearing voices",
+          "term": "Hearing voices",
+          "url": "https://www.nhs.uk/mental-health/feelings-symptoms-behaviours/feelings-and-symptoms/hallucinations-hearing-voices/",
+          "cross_reference": true
+        }
+      ]
+    },
+    {
+      "title": "Hand pain",
+      "url": "https://www.nhs.uk/symptoms/hand-pain/",
+      "aliases": [],
+      "index_terms": [
+        "Hand pain"
+      ],
+      "index_entries": [
+        {
+          "letter": "H",
+          "label": "Hand pain",
+          "term": "Hand pain",
+          "url": "https://www.nhs.uk/symptoms/hand-pain/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Headaches",
+      "url": "https://www.nhs.uk/symptoms/headaches/",
+      "aliases": [],
+      "index_terms": [
+        "Headaches"
+      ],
+      "index_entries": [
+        {
+          "letter": "H",
+          "label": "Headaches",
+          "term": "Headaches",
+          "url": "https://www.nhs.uk/symptoms/headaches/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Heavy periods",
+      "url": "https://www.nhs.uk/conditions/heavy-periods/",
+      "aliases": [
+        "Periods (heavy)"
+      ],
+      "index_terms": [
+        "Heavy periods",
+        "Periods (heavy), see Heavy periods"
+      ],
+      "index_entries": [
+        {
+          "letter": "H",
+          "label": "Heavy periods",
+          "term": "Heavy periods",
+          "url": "https://www.nhs.uk/conditions/heavy-periods/",
+          "cross_reference": false
+        },
+        {
+          "letter": "P",
+          "label": "Periods (heavy), see Heavy periods",
+          "term": "Periods (heavy)",
+          "url": "https://www.nhs.uk/conditions/heavy-periods/",
+          "cross_reference": true
+        }
+      ]
+    },
+    {
+      "title": "Heel pain",
+      "url": "https://www.nhs.uk/symptoms/foot-pain/heel-pain/",
+      "aliases": [],
+      "index_terms": [
+        "Heel pain"
+      ],
+      "index_entries": [
+        {
+          "letter": "H",
+          "label": "Heel pain",
+          "term": "Heel pain",
+          "url": "https://www.nhs.uk/symptoms/foot-pain/heel-pain/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Hiccups",
+      "url": "https://www.nhs.uk/symptoms/hiccups/",
+      "aliases": [],
+      "index_terms": [
+        "Hiccups"
+      ],
+      "index_entries": [
+        {
+          "letter": "H",
+          "label": "Hiccups",
+          "term": "Hiccups",
+          "url": "https://www.nhs.uk/symptoms/hiccups/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Hip pain in adults",
+      "url": "https://www.nhs.uk/symptoms/hip-pain/",
+      "aliases": [],
+      "index_terms": [
+        "Hip pain in adults"
+      ],
+      "index_entries": [
+        {
+          "letter": "H",
+          "label": "Hip pain in adults",
+          "term": "Hip pain in adults",
+          "url": "https://www.nhs.uk/symptoms/hip-pain/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Hip pain in children (irritable hip)",
+      "url": "https://www.nhs.uk/symptoms/hip-pain-children-irritable-hip/",
+      "aliases": [
+        "Irritable hip"
+      ],
+      "index_terms": [
+        "Hip pain in children (irritable hip)",
+        "Irritable hip, see Hip pain in children (irritable hip)"
+      ],
+      "index_entries": [
+        {
+          "letter": "H",
+          "label": "Hip pain in children (irritable hip)",
+          "term": "Hip pain in children (irritable hip)",
+          "url": "https://www.nhs.uk/symptoms/hip-pain-children-irritable-hip/",
+          "cross_reference": false
+        },
+        {
+          "letter": "I",
+          "label": "Irritable hip, see Hip pain in children (irritable hip)",
+          "term": "Irritable hip",
+          "url": "https://www.nhs.uk/symptoms/hip-pain-children-irritable-hip/",
+          "cross_reference": true
+        }
+      ]
+    },
+    {
+      "title": "Hives",
+      "url": "https://www.nhs.uk/conditions/hives/",
+      "aliases": [],
+      "index_terms": [
+        "Hives"
+      ],
+      "index_entries": [
+        {
+          "letter": "H",
+          "label": "Hives",
+          "term": "Hives",
+          "url": "https://www.nhs.uk/conditions/hives/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Worms in humans",
+      "url": "https://www.nhs.uk/symptoms/worms-in-humans/",
+      "aliases": [
+        "Hookworm",
+        "Roundworm",
+        "Tapeworm"
+      ],
+      "index_terms": [
+        "Hookworm, see Worms in humans",
+        "Roundworm, see Worms in humans",
+        "Tapeworm, see Worms in humans",
+        "Worms in humans"
+      ],
+      "index_entries": [
+        {
+          "letter": "H",
+          "label": "Hookworm, see Worms in humans",
+          "term": "Hookworm",
+          "url": "https://www.nhs.uk/symptoms/worms-in-humans/",
+          "cross_reference": true
+        },
+        {
+          "letter": "R",
+          "label": "Roundworm, see Worms in humans",
+          "term": "Roundworm",
+          "url": "https://www.nhs.uk/symptoms/worms-in-humans/",
+          "cross_reference": true
+        },
+        {
+          "letter": "T",
+          "label": "Tapeworm, see Worms in humans",
+          "term": "Tapeworm",
+          "url": "https://www.nhs.uk/symptoms/worms-in-humans/",
+          "cross_reference": true
+        },
+        {
+          "letter": "W",
+          "label": "Worms in humans",
+          "term": "Worms in humans",
+          "url": "https://www.nhs.uk/symptoms/worms-in-humans/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Urinary incontinence",
+      "url": "https://www.nhs.uk/conditions/urinary-incontinence/",
+      "aliases": [
+        "Incontinence (urinary)"
+      ],
+      "index_terms": [
+        "Incontinence (urinary), see Urinary incontinence",
+        "Urinary incontinence"
+      ],
+      "index_entries": [
+        {
+          "letter": "I",
+          "label": "Incontinence (urinary), see Urinary incontinence",
+          "term": "Incontinence (urinary)",
+          "url": "https://www.nhs.uk/conditions/urinary-incontinence/",
+          "cross_reference": true
+        },
+        {
+          "letter": "U",
+          "label": "Urinary incontinence",
+          "term": "Urinary incontinence",
+          "url": "https://www.nhs.uk/conditions/urinary-incontinence/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Indigestion",
+      "url": "https://www.nhs.uk/conditions/indigestion/",
+      "aliases": [],
+      "index_terms": [
+        "Indigestion"
+      ],
+      "index_entries": [
+        {
+          "letter": "I",
+          "label": "Indigestion",
+          "term": "Indigestion",
+          "url": "https://www.nhs.uk/conditions/indigestion/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Insomnia",
+      "url": "https://www.nhs.uk/conditions/insomnia/",
+      "aliases": [],
+      "index_terms": [
+        "Insomnia"
+      ],
+      "index_entries": [
+        {
+          "letter": "I",
+          "label": "Insomnia",
+          "term": "Insomnia",
+          "url": "https://www.nhs.uk/conditions/insomnia/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Itching in pregnancy",
+      "url": "https://www.nhs.uk/pregnancy/complications/itching-and-intrahepatic-cholestasis/",
+      "aliases": [
+        "Intrahepatic cholestasis of pregnancy (ICP)"
+      ],
+      "index_terms": [
+        "Intrahepatic cholestasis of pregnancy (ICP), see Itching in pregnancy",
+        "Itching in pregnancy"
+      ],
+      "index_entries": [
+        {
+          "letter": "I",
+          "label": "Intrahepatic cholestasis of pregnancy (ICP), see Itching in pregnancy",
+          "term": "Intrahepatic cholestasis of pregnancy (ICP)",
+          "url": "https://www.nhs.uk/pregnancy/complications/itching-and-intrahepatic-cholestasis/",
+          "cross_reference": true
+        },
+        {
+          "letter": "I",
+          "label": "Itching in pregnancy",
+          "term": "Itching in pregnancy",
+          "url": "https://www.nhs.uk/pregnancy/complications/itching-and-intrahepatic-cholestasis/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Irregular periods",
+      "url": "https://www.nhs.uk/symptoms/irregular-periods/",
+      "aliases": [
+        "Periods (irregular)"
+      ],
+      "index_terms": [
+        "Irregular periods",
+        "Periods (irregular), see Irregular periods"
+      ],
+      "index_entries": [
+        {
+          "letter": "I",
+          "label": "Irregular periods",
+          "term": "Irregular periods",
+          "url": "https://www.nhs.uk/symptoms/irregular-periods/",
+          "cross_reference": false
+        },
+        {
+          "letter": "P",
+          "label": "Periods (irregular), see Irregular periods",
+          "term": "Periods (irregular)",
+          "url": "https://www.nhs.uk/symptoms/irregular-periods/",
+          "cross_reference": true
+        }
+      ]
     },
     {
       "title": "Itchy skin",
-      "url": "https://www.nhs.uk/symptoms/itchy-skin/"
+      "url": "https://www.nhs.uk/symptoms/itchy-skin/",
+      "aliases": [],
+      "index_terms": [
+        "Itchy skin"
+      ],
+      "index_entries": [
+        {
+          "letter": "I",
+          "label": "Itchy skin",
+          "term": "Itchy skin",
+          "url": "https://www.nhs.uk/symptoms/itchy-skin/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Joint pain",
+      "url": "https://www.nhs.uk/symptoms/joint-pain/",
+      "aliases": [],
+      "index_terms": [
+        "Joint pain"
+      ],
+      "index_entries": [
+        {
+          "letter": "J",
+          "label": "Joint pain",
+          "term": "Joint pain",
+          "url": "https://www.nhs.uk/symptoms/joint-pain/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Knee pain",
+      "url": "https://www.nhs.uk/symptoms/knee-pain/",
+      "aliases": [],
+      "index_terms": [
+        "Knee pain"
+      ],
+      "index_entries": [
+        {
+          "letter": "K",
+          "label": "Knee pain",
+          "term": "Knee pain",
+          "url": "https://www.nhs.uk/symptoms/knee-pain/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Leg cramps",
+      "url": "https://www.nhs.uk/conditions/leg-cramps/",
+      "aliases": [],
+      "index_terms": [
+        "Leg cramps"
+      ],
+      "index_entries": [
+        {
+          "letter": "L",
+          "label": "Leg cramps",
+          "term": "Leg cramps",
+          "url": "https://www.nhs.uk/conditions/leg-cramps/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Limping in children",
+      "url": "https://www.nhs.uk/symptoms/limp-in-children/",
+      "aliases": [],
+      "index_terms": [
+        "Limping in children"
+      ],
+      "index_entries": [
+        {
+          "letter": "L",
+          "label": "Limping in children",
+          "term": "Limping in children",
+          "url": "https://www.nhs.uk/symptoms/limp-in-children/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Low mood, sadness and depression",
+      "url": "https://www.nhs.uk/mental-health/feelings-symptoms-behaviours/feelings-and-symptoms/low-mood-sadness-depression/",
+      "aliases": [],
+      "index_terms": [
+        "Low mood, sadness and depression"
+      ],
+      "index_entries": [
+        {
+          "letter": "L",
+          "label": "Low mood, sadness and depression",
+          "term": "Low mood, sadness and depression",
+          "url": "https://www.nhs.uk/mental-health/feelings-symptoms-behaviours/feelings-and-symptoms/low-mood-sadness-depression/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Low sex drive (loss of libido)",
+      "url": "https://www.nhs.uk/symptoms/loss-of-libido/",
+      "aliases": [],
+      "index_terms": [
+        "Low sex drive (loss of libido)"
+      ],
+      "index_entries": [
+        {
+          "letter": "L",
+          "label": "Low sex drive (loss of libido)",
+          "term": "Low sex drive (loss of libido)",
+          "url": "https://www.nhs.uk/symptoms/loss-of-libido/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Lumps",
+      "url": "https://www.nhs.uk/symptoms/lumps/",
+      "aliases": [],
+      "index_terms": [
+        "Lumps"
+      ],
+      "index_entries": [
+        {
+          "letter": "L",
+          "label": "Lumps",
+          "term": "Lumps",
+          "url": "https://www.nhs.uk/symptoms/lumps/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Period pain",
+      "url": "https://www.nhs.uk/symptoms/period-pain/",
+      "aliases": [
+        "Menstrual pain",
+        "Painful periods"
+      ],
+      "index_terms": [
+        "Menstrual pain, see Period pain",
+        "Painful periods, see Period pain",
+        "Period pain"
+      ],
+      "index_entries": [
+        {
+          "letter": "M",
+          "label": "Menstrual pain, see Period pain",
+          "term": "Menstrual pain",
+          "url": "https://www.nhs.uk/symptoms/period-pain/",
+          "cross_reference": true
+        },
+        {
+          "letter": "P",
+          "label": "Painful periods, see Period pain",
+          "term": "Painful periods",
+          "url": "https://www.nhs.uk/symptoms/period-pain/",
+          "cross_reference": true
+        },
+        {
+          "letter": "P",
+          "label": "Period pain",
+          "term": "Period pain",
+          "url": "https://www.nhs.uk/symptoms/period-pain/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Metallic taste",
+      "url": "https://www.nhs.uk/symptoms/metallic-taste/",
+      "aliases": [],
+      "index_terms": [
+        "Metallic taste"
+      ],
+      "index_entries": [
+        {
+          "letter": "M",
+          "label": "Metallic taste",
+          "term": "Metallic taste",
+          "url": "https://www.nhs.uk/symptoms/metallic-taste/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Pain in the ball of the foot",
+      "url": "https://www.nhs.uk/symptoms/foot-pain/pain-in-the-ball-of-the-foot/",
+      "aliases": [
+        "Metatarsalgia"
+      ],
+      "index_terms": [
+        "Metatarsalgia, see Pain in the ball of the foot",
+        "Pain in the ball of the foot"
+      ],
+      "index_entries": [
+        {
+          "letter": "M",
+          "label": "Metatarsalgia, see Pain in the ball of the foot",
+          "term": "Metatarsalgia",
+          "url": "https://www.nhs.uk/symptoms/foot-pain/pain-in-the-ball-of-the-foot/",
+          "cross_reference": true
+        },
+        {
+          "letter": "P",
+          "label": "Pain in the ball of the foot",
+          "term": "Pain in the ball of the foot",
+          "url": "https://www.nhs.uk/symptoms/foot-pain/pain-in-the-ball-of-the-foot/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Missed or late periods",
+      "url": "https://www.nhs.uk/symptoms/missed-or-late-periods/",
+      "aliases": [
+        "Periods (missed or late)"
+      ],
+      "index_terms": [
+        "Missed or late periods",
+        "Periods (missed or late), see Missed or late periods"
+      ],
+      "index_entries": [
+        {
+          "letter": "M",
+          "label": "Missed or late periods",
+          "term": "Missed or late periods",
+          "url": "https://www.nhs.uk/symptoms/missed-or-late-periods/",
+          "cross_reference": false
+        },
+        {
+          "letter": "P",
+          "label": "Periods (missed or late), see Missed or late periods",
+          "term": "Periods (missed or late)",
+          "url": "https://www.nhs.uk/symptoms/missed-or-late-periods/",
+          "cross_reference": true
+        }
+      ]
+    },
+    {
+      "title": "Nail problems",
+      "url": "https://www.nhs.uk/symptoms/nail-problems/",
+      "aliases": [],
+      "index_terms": [
+        "Nail problems"
+      ],
+      "index_entries": [
+        {
+          "letter": "N",
+          "label": "Nail problems",
+          "term": "Nail problems",
+          "url": "https://www.nhs.uk/symptoms/nail-problems/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Neck pain",
+      "url": "https://www.nhs.uk/symptoms/neck-pain-and-stiff-neck/",
+      "aliases": [],
+      "index_terms": [
+        "Neck pain"
+      ],
+      "index_entries": [
+        {
+          "letter": "N",
+          "label": "Neck pain",
+          "term": "Neck pain",
+          "url": "https://www.nhs.uk/symptoms/neck-pain-and-stiff-neck/",
+          "cross_reference": false
+        }
+      ]
     },
     {
       "title": "Night sweats",
-      "url": "https://www.nhs.uk/symptoms/night-sweats/"
+      "url": "https://www.nhs.uk/symptoms/night-sweats/",
+      "aliases": [
+        "Sweating at night"
+      ],
+      "index_terms": [
+        "Night sweats",
+        "Sweating at night, see Night sweats"
+      ],
+      "index_entries": [
+        {
+          "letter": "N",
+          "label": "Night sweats",
+          "term": "Night sweats",
+          "url": "https://www.nhs.uk/symptoms/night-sweats/",
+          "cross_reference": false
+        },
+        {
+          "letter": "S",
+          "label": "Sweating at night, see Night sweats",
+          "term": "Sweating at night",
+          "url": "https://www.nhs.uk/symptoms/night-sweats/",
+          "cross_reference": true
+        }
+      ]
+    },
+    {
+      "title": "Nipple discharge",
+      "url": "https://www.nhs.uk/symptoms/nipple-discharge/",
+      "aliases": [],
+      "index_terms": [
+        "Nipple discharge"
+      ],
+      "index_entries": [
+        {
+          "letter": "N",
+          "label": "Nipple discharge",
+          "term": "Nipple discharge",
+          "url": "https://www.nhs.uk/symptoms/nipple-discharge/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Ovulation pain",
+      "url": "https://www.nhs.uk/symptoms/ovulation-pain/",
+      "aliases": [],
+      "index_terms": [
+        "Ovulation pain"
+      ],
+      "index_entries": [
+        {
+          "letter": "O",
+          "label": "Ovulation pain",
+          "term": "Ovulation pain",
+          "url": "https://www.nhs.uk/symptoms/ovulation-pain/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Testicle pain",
+      "url": "https://www.nhs.uk/symptoms/testicle-pain/",
+      "aliases": [
+        "Pain in testicles"
+      ],
+      "index_terms": [
+        "Pain in testicles, see Testicle pain",
+        "Testicle pain"
+      ],
+      "index_entries": [
+        {
+          "letter": "P",
+          "label": "Pain in testicles, see Testicle pain",
+          "term": "Pain in testicles",
+          "url": "https://www.nhs.uk/symptoms/testicle-pain/",
+          "cross_reference": true
+        },
+        {
+          "letter": "T",
+          "label": "Testicle pain",
+          "term": "Testicle pain",
+          "url": "https://www.nhs.uk/symptoms/testicle-pain/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Pain in the back of the hand",
+      "url": "https://www.nhs.uk/symptoms/hand-pain/pain-in-the-back-of-the-hand/",
+      "aliases": [],
+      "index_terms": [
+        "Pain in the back of the hand"
+      ],
+      "index_entries": [
+        {
+          "letter": "P",
+          "label": "Pain in the back of the hand",
+          "term": "Pain in the back of the hand",
+          "url": "https://www.nhs.uk/symptoms/hand-pain/pain-in-the-back-of-the-hand/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Pain in the bottom of the foot",
+      "url": "https://www.nhs.uk/symptoms/foot-pain/pain-in-the-bottom-of-the-foot/",
+      "aliases": [],
+      "index_terms": [
+        "Pain in the bottom of the foot"
+      ],
+      "index_entries": [
+        {
+          "letter": "P",
+          "label": "Pain in the bottom of the foot",
+          "term": "Pain in the bottom of the foot",
+          "url": "https://www.nhs.uk/symptoms/foot-pain/pain-in-the-bottom-of-the-foot/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Pain in the palm of the hand",
+      "url": "https://www.nhs.uk/symptoms/hand-pain/pain-in-the-palm-of-the-hand/",
+      "aliases": [],
+      "index_terms": [
+        "Pain in the palm of the hand"
+      ],
+      "index_entries": [
+        {
+          "letter": "P",
+          "label": "Pain in the palm of the hand",
+          "term": "Pain in the palm of the hand",
+          "url": "https://www.nhs.uk/symptoms/hand-pain/pain-in-the-palm-of-the-hand/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Pain in the top of the foot",
+      "url": "https://www.nhs.uk/symptoms/foot-pain/pain-in-the-top-of-the-foot/",
+      "aliases": [],
+      "index_terms": [
+        "Pain in the top of the foot"
+      ],
+      "index_entries": [
+        {
+          "letter": "P",
+          "label": "Pain in the top of the foot",
+          "term": "Pain in the top of the foot",
+          "url": "https://www.nhs.uk/symptoms/foot-pain/pain-in-the-top-of-the-foot/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Paralysis",
+      "url": "https://www.nhs.uk/symptoms/paralysis/",
+      "aliases": [],
+      "index_terms": [
+        "Paralysis"
+      ],
+      "index_entries": [
+        {
+          "letter": "P",
+          "label": "Paralysis",
+          "term": "Paralysis",
+          "url": "https://www.nhs.uk/symptoms/paralysis/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Pelvic pain",
+      "url": "https://www.nhs.uk/symptoms/pelvic-pain/",
+      "aliases": [],
+      "index_terms": [
+        "Pelvic pain"
+      ],
+      "index_entries": [
+        {
+          "letter": "P",
+          "label": "Pelvic pain",
+          "term": "Pelvic pain",
+          "url": "https://www.nhs.uk/symptoms/pelvic-pain/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Penis lumps and spots",
+      "url": "https://www.nhs.uk/symptoms/penis-lumps-and-spots/",
+      "aliases": [],
+      "index_terms": [
+        "Penis lumps and spots"
+      ],
+      "index_entries": [
+        {
+          "letter": "P",
+          "label": "Penis lumps and spots",
+          "term": "Penis lumps and spots",
+          "url": "https://www.nhs.uk/symptoms/penis-lumps-and-spots/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Pins and needles",
+      "url": "https://www.nhs.uk/symptoms/pins-and-needles/",
+      "aliases": [],
+      "index_terms": [
+        "Pins and needles"
+      ],
+      "index_entries": [
+        {
+          "letter": "P",
+          "label": "Pins and needles",
+          "term": "Pins and needles",
+          "url": "https://www.nhs.uk/symptoms/pins-and-needles/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Priapism (painful erections)",
+      "url": "https://www.nhs.uk/symptoms/priapism-painful-erections/",
+      "aliases": [],
+      "index_terms": [
+        "Priapism (painful erections)"
+      ],
+      "index_entries": [
+        {
+          "letter": "P",
+          "label": "Priapism (painful erections)",
+          "term": "Priapism (painful erections)",
+          "url": "https://www.nhs.uk/symptoms/priapism-painful-erections/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Rashes in babies and children",
+      "url": "https://www.nhs.uk/symptoms/rashes-babies-and-children/",
+      "aliases": [],
+      "index_terms": [
+        "Rashes in babies and children"
+      ],
+      "index_entries": [
+        {
+          "letter": "R",
+          "label": "Rashes in babies and children",
+          "term": "Rashes in babies and children",
+          "url": "https://www.nhs.uk/symptoms/rashes-babies-and-children/",
+          "cross_reference": false
+        }
+      ]
     },
     {
       "title": "Red eye",
-      "url": "https://www.nhs.uk/symptoms/red-eye/"
+      "url": "https://www.nhs.uk/symptoms/red-eye/",
+      "aliases": [],
+      "index_terms": [
+        "Red eye"
+      ],
+      "index_entries": [
+        {
+          "letter": "R",
+          "label": "Red eye",
+          "term": "Red eye",
+          "url": "https://www.nhs.uk/symptoms/red-eye/",
+          "cross_reference": false
+        }
+      ]
     },
     {
       "title": "Shortness of breath",
-      "url": "https://www.nhs.uk/symptoms/shortness-of-breath/"
+      "url": "https://www.nhs.uk/symptoms/shortness-of-breath/",
+      "aliases": [],
+      "index_terms": [
+        "Shortness of breath"
+      ],
+      "index_entries": [
+        {
+          "letter": "S",
+          "label": "Shortness of breath",
+          "term": "Shortness of breath",
+          "url": "https://www.nhs.uk/symptoms/shortness-of-breath/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Shoulder pain",
+      "url": "https://www.nhs.uk/symptoms/shoulder-pain/",
+      "aliases": [],
+      "index_terms": [
+        "Shoulder pain"
+      ],
+      "index_entries": [
+        {
+          "letter": "S",
+          "label": "Shoulder pain",
+          "term": "Shoulder pain",
+          "url": "https://www.nhs.uk/symptoms/shoulder-pain/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Smelly feet",
+      "url": "https://www.nhs.uk/symptoms/smelly-feet/",
+      "aliases": [],
+      "index_terms": [
+        "Smelly feet"
+      ],
+      "index_entries": [
+        {
+          "letter": "S",
+          "label": "Smelly feet",
+          "term": "Smelly feet",
+          "url": "https://www.nhs.uk/symptoms/smelly-feet/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Smelly urine",
+      "url": "https://www.nhs.uk/symptoms/smelly-urine/",
+      "aliases": [
+        "Urine (smelly)"
+      ],
+      "index_terms": [
+        "Smelly urine",
+        "Urine (smelly), see Smelly urine"
+      ],
+      "index_entries": [
+        {
+          "letter": "S",
+          "label": "Smelly urine",
+          "term": "Smelly urine",
+          "url": "https://www.nhs.uk/symptoms/smelly-urine/",
+          "cross_reference": false
+        },
+        {
+          "letter": "U",
+          "label": "Urine (smelly), see Smelly urine",
+          "term": "Urine (smelly)",
+          "url": "https://www.nhs.uk/symptoms/smelly-urine/",
+          "cross_reference": true
+        }
+      ]
+    },
+    {
+      "title": "Snoring",
+      "url": "https://www.nhs.uk/symptoms/snoring/",
+      "aliases": [],
+      "index_terms": [
+        "Snoring"
+      ],
+      "index_entries": [
+        {
+          "letter": "S",
+          "label": "Snoring",
+          "term": "Snoring",
+          "url": "https://www.nhs.uk/symptoms/snoring/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Soiling (child pooing their pants)",
+      "url": "https://www.nhs.uk/symptoms/soiling-child-pooing-their-pants/",
+      "aliases": [],
+      "index_terms": [
+        "Soiling (child pooing their pants)"
+      ],
+      "index_entries": [
+        {
+          "letter": "S",
+          "label": "Soiling (child pooing their pants)",
+          "term": "Soiling (child pooing their pants)",
+          "url": "https://www.nhs.uk/symptoms/soiling-child-pooing-their-pants/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Sore or white tongue",
+      "url": "https://www.nhs.uk/symptoms/sore-or-white-tongue/",
+      "aliases": [
+        "Tongue (sore or white)"
+      ],
+      "index_terms": [
+        "Sore or white tongue",
+        "Tongue (sore or white), see Sore or white tongue"
+      ],
+      "index_entries": [
+        {
+          "letter": "S",
+          "label": "Sore or white tongue",
+          "term": "Sore or white tongue",
+          "url": "https://www.nhs.uk/symptoms/sore-or-white-tongue/",
+          "cross_reference": false
+        },
+        {
+          "letter": "T",
+          "label": "Tongue (sore or white), see Sore or white tongue",
+          "term": "Tongue (sore or white)",
+          "url": "https://www.nhs.uk/symptoms/sore-or-white-tongue/",
+          "cross_reference": true
+        }
+      ]
     },
     {
       "title": "Sore throat",
-      "url": "https://www.nhs.uk/symptoms/sore-throat/"
+      "url": "https://www.nhs.uk/symptoms/sore-throat/",
+      "aliases": [
+        "Throat (sore)"
+      ],
+      "index_terms": [
+        "Sore throat",
+        "Throat (sore), see Sore throat"
+      ],
+      "index_entries": [
+        {
+          "letter": "S",
+          "label": "Sore throat",
+          "term": "Sore throat",
+          "url": "https://www.nhs.uk/symptoms/sore-throat/",
+          "cross_reference": false
+        },
+        {
+          "letter": "T",
+          "label": "Throat (sore), see Sore throat",
+          "term": "Throat (sore)",
+          "url": "https://www.nhs.uk/symptoms/sore-throat/",
+          "cross_reference": true
+        }
+      ]
     },
     {
       "title": "Stomach ache",
-      "url": "https://www.nhs.uk/symptoms/stomach-ache/"
+      "url": "https://www.nhs.uk/symptoms/stomach-ache/",
+      "aliases": [
+        "Tummy ache"
+      ],
+      "index_terms": [
+        "Stomach ache",
+        "Tummy ache, see Stomach ache"
+      ],
+      "index_entries": [
+        {
+          "letter": "S",
+          "label": "Stomach ache",
+          "term": "Stomach ache",
+          "url": "https://www.nhs.uk/symptoms/stomach-ache/",
+          "cross_reference": false
+        },
+        {
+          "letter": "T",
+          "label": "Tummy ache, see Stomach ache",
+          "term": "Tummy ache",
+          "url": "https://www.nhs.uk/symptoms/stomach-ache/",
+          "cross_reference": true
+        }
+      ]
+    },
+    {
+      "title": "Stress",
+      "url": "https://www.nhs.uk/mental-health/feelings-symptoms-behaviours/feelings-and-symptoms/stress/",
+      "aliases": [],
+      "index_terms": [
+        "Stress"
+      ],
+      "index_entries": [
+        {
+          "letter": "S",
+          "label": "Stress",
+          "term": "Stress",
+          "url": "https://www.nhs.uk/mental-health/feelings-symptoms-behaviours/feelings-and-symptoms/stress/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Stretch marks",
+      "url": "https://www.nhs.uk/conditions/stretch-marks/",
+      "aliases": [],
+      "index_terms": [
+        "Stretch marks"
+      ],
+      "index_entries": [
+        {
+          "letter": "S",
+          "label": "Stretch marks",
+          "term": "Stretch marks",
+          "url": "https://www.nhs.uk/conditions/stretch-marks/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Swollen arms and hands (oedema)",
+      "url": "https://www.nhs.uk/conditions/swollen-arms-and-hands-oedema/",
+      "aliases": [],
+      "index_terms": [
+        "Swollen arms and hands (oedema)"
+      ],
+      "index_entries": [
+        {
+          "letter": "S",
+          "label": "Swollen arms and hands (oedema)",
+          "term": "Swollen arms and hands (oedema)",
+          "url": "https://www.nhs.uk/conditions/swollen-arms-and-hands-oedema/",
+          "cross_reference": false
+        }
+      ]
     },
     {
       "title": "Swollen glands",
-      "url": "https://www.nhs.uk/symptoms/swollen-glands/"
+      "url": "https://www.nhs.uk/symptoms/swollen-glands/",
+      "aliases": [],
+      "index_terms": [
+        "Swollen glands"
+      ],
+      "index_entries": [
+        {
+          "letter": "S",
+          "label": "Swollen glands",
+          "term": "Swollen glands",
+          "url": "https://www.nhs.uk/symptoms/swollen-glands/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Testicle lumps and swellings",
+      "url": "https://www.nhs.uk/symptoms/testicle-lumps-and-swellings/",
+      "aliases": [],
+      "index_terms": [
+        "Testicle lumps and swellings"
+      ],
+      "index_entries": [
+        {
+          "letter": "T",
+          "label": "Testicle lumps and swellings",
+          "term": "Testicle lumps and swellings",
+          "url": "https://www.nhs.uk/symptoms/testicle-lumps-and-swellings/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Thumb pain",
+      "url": "https://www.nhs.uk/symptoms/hand-pain/thumb-pain/",
+      "aliases": [],
+      "index_terms": [
+        "Thumb pain"
+      ],
+      "index_entries": [
+        {
+          "letter": "T",
+          "label": "Thumb pain",
+          "term": "Thumb pain",
+          "url": "https://www.nhs.uk/symptoms/hand-pain/thumb-pain/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Tinnitus",
+      "url": "https://www.nhs.uk/conditions/tinnitus/",
+      "aliases": [],
+      "index_terms": [
+        "Tinnitus"
+      ],
+      "index_entries": [
+        {
+          "letter": "T",
+          "label": "Tinnitus",
+          "term": "Tinnitus",
+          "url": "https://www.nhs.uk/conditions/tinnitus/",
+          "cross_reference": false
+        }
+      ]
     },
     {
       "title": "Tiredness and fatigue",
-      "url": "https://www.nhs.uk/symptoms/tiredness-and-fatigue/"
+      "url": "https://www.nhs.uk/symptoms/tiredness-and-fatigue/",
+      "aliases": [],
+      "index_terms": [
+        "Tiredness and fatigue"
+      ],
+      "index_entries": [
+        {
+          "letter": "T",
+          "label": "Tiredness and fatigue",
+          "term": "Tiredness and fatigue",
+          "url": "https://www.nhs.uk/symptoms/tiredness-and-fatigue/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Twitching eyes and muscles",
+      "url": "https://www.nhs.uk/symptoms/twitching-eyes-and-muscles/",
+      "aliases": [],
+      "index_terms": [
+        "Twitching eyes and muscles"
+      ],
+      "index_entries": [
+        {
+          "letter": "T",
+          "label": "Twitching eyes and muscles",
+          "term": "Twitching eyes and muscles",
+          "url": "https://www.nhs.uk/symptoms/twitching-eyes-and-muscles/",
+          "cross_reference": false
+        }
+      ]
     },
     {
       "title": "Unintentional weight loss",
-      "url": "https://www.nhs.uk/symptoms/unintentional-weight-loss/"
+      "url": "https://www.nhs.uk/symptoms/unintentional-weight-loss/",
+      "aliases": [
+        "Weight loss (unintentional)"
+      ],
+      "index_terms": [
+        "Unintentional weight loss",
+        "Weight loss (unintentional), see Unintentional weight loss"
+      ],
+      "index_entries": [
+        {
+          "letter": "U",
+          "label": "Unintentional weight loss",
+          "term": "Unintentional weight loss",
+          "url": "https://www.nhs.uk/symptoms/unintentional-weight-loss/",
+          "cross_reference": false
+        },
+        {
+          "letter": "W",
+          "label": "Weight loss (unintentional), see Unintentional weight loss",
+          "term": "Weight loss (unintentional)",
+          "url": "https://www.nhs.uk/symptoms/unintentional-weight-loss/",
+          "cross_reference": true
+        }
+      ]
+    },
+    {
+      "title": "Vaginal discharge",
+      "url": "https://www.nhs.uk/symptoms/vaginal-discharge/",
+      "aliases": [],
+      "index_terms": [
+        "Vaginal discharge"
+      ],
+      "index_entries": [
+        {
+          "letter": "V",
+          "label": "Vaginal discharge",
+          "term": "Vaginal discharge",
+          "url": "https://www.nhs.uk/symptoms/vaginal-discharge/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Vaginal dryness",
+      "url": "https://www.nhs.uk/symptoms/vaginal-dryness/",
+      "aliases": [],
+      "index_terms": [
+        "Vaginal dryness"
+      ],
+      "index_entries": [
+        {
+          "letter": "V",
+          "label": "Vaginal dryness",
+          "term": "Vaginal dryness",
+          "url": "https://www.nhs.uk/symptoms/vaginal-dryness/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Vision loss",
+      "url": "https://www.nhs.uk/conditions/vision-loss/",
+      "aliases": [],
+      "index_terms": [
+        "Vision loss"
+      ],
+      "index_entries": [
+        {
+          "letter": "V",
+          "label": "Vision loss",
+          "term": "Vision loss",
+          "url": "https://www.nhs.uk/conditions/vision-loss/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Vomiting blood",
+      "url": "https://www.nhs.uk/symptoms/vomiting-blood/",
+      "aliases": [],
+      "index_terms": [
+        "Vomiting blood"
+      ],
+      "index_entries": [
+        {
+          "letter": "V",
+          "label": "Vomiting blood",
+          "term": "Vomiting blood",
+          "url": "https://www.nhs.uk/symptoms/vomiting-blood/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Watering eyes",
+      "url": "https://www.nhs.uk/symptoms/watering-eyes/",
+      "aliases": [],
+      "index_terms": [
+        "Watering eyes"
+      ],
+      "index_entries": [
+        {
+          "letter": "W",
+          "label": "Watering eyes",
+          "term": "Watering eyes",
+          "url": "https://www.nhs.uk/symptoms/watering-eyes/",
+          "cross_reference": false
+        }
+      ]
+    },
+    {
+      "title": "Wrist pain",
+      "url": "https://www.nhs.uk/symptoms/hand-pain/wrist-pain/",
+      "aliases": [],
+      "index_terms": [
+        "Wrist pain"
+      ],
+      "index_entries": [
+        {
+          "letter": "W",
+          "label": "Wrist pain",
+          "term": "Wrist pain",
+          "url": "https://www.nhs.uk/symptoms/hand-pain/wrist-pain/",
+          "cross_reference": false
+        }
+      ]
     }
   ]
 }

@@ -2,26 +2,25 @@
 
 ## 1. Product statement
 
-GuidePost Health is a research prototype that helps a person in England find and understand relevant guidance from a curated set of NHS symptom and condition guides.
+GuidePost Health is a local project for LLM testing and learning retrieval-augmented generation (RAG), using NHS symptom and condition guides as an example corpus. It is not designed or intended for any public use, personal health guidance or clinical use.
 
 The current product may summarise retrieved guidance, surface warning signs, suggest an official route such as NHS 111, and link to the original NHS pages. It must not diagnose, rule out a condition, claim that symptoms are harmless, or present generated wording as NHS-authored or clinically approved.
 
-This statement describes the prototype boundary, not a completed medical-device “intended purpose”. A qualified regulatory determination and a formally approved intended-purpose statement are required before public use.
+Public and clinical applications are outside the current scope. The review requirements below are conditional on a separate decision to change that scope; they are not planned release milestones.
 
 ## 2. Users and context
 
 ### Current research users
 
-- An adult seeking general information about their own symptoms.
-- A parent or carer seeking a relevant NHS page, where the curated corpus includes appropriate guidance.
-- Developers, clinicians, safety specialists, and researchers evaluating the prototype.
+- Developers, learners and researchers testing LLM and RAG behaviour locally.
+- Evaluators using fictional scenarios, not real patient information or personal health questions.
 
 ### Current context
 
 - England-focused because the interface refers to NHS 111 and the source material is from `nhs.uk`.
 - English language only.
 - Text-only, browser-based interaction.
-- Local development or controlled evaluation, not unsupervised public use.
+- Local learning and technical evaluation only; no public-facing service.
 
 ### Excluded uses
 
@@ -39,11 +38,11 @@ This statement describes the prototype boundary, not a completed medical-device 
 3. Turn evidence into short, understandable next-step guidance without inventing health facts.
 4. Keep original NHS sources visible and server-controlled.
 5. Fail safely to labelled source extracts when synthesis is unavailable or invalid.
-6. Keep the answer harness replaceable so a governed production workflow can be substituted later.
+6. Keep the answer harness replaceable to compare models and RAG approaches.
 
 ## 4. Primary journey
 
-1. The user reads the persistent 999 warning and enters a symptom description.
+1. The evaluator reads the local-learning notice and enters a fictional test scenario.
 2. The browser sends the latest message and recent chat history to the API.
 3. The API validates the request and confirms that the corpus index is ready.
 4. A deterministic rule intercepts a small set of obvious emergency phrases.
@@ -72,14 +71,14 @@ The readiness check currently happens before the emergency rule. This is a known
 | PR-011 | Keep chat state in React memory and provide a “New chat” action. | Implemented | `app/page.tsx` |
 | PR-012 | Show persistent 999, NHS 111, not-a-diagnosis, independent-project, and source-attribution copy. | Implemented | `app/page.tsx` |
 
-### Required before a public pilot
+### Conditional requirements if public use is separately proposed (out of scope)
 
 | ID | Requirement | Status |
 | --- | --- | --- |
 | PR-101 | Approve a precise intended purpose, target users, age ranges, geography, contraindications, and exclusions with clinical, legal, and regulatory owners. | Required |
-| PR-102 | Replace marketing phrases such as “current” and “reviewed” with defined, measurable freshness and review states. | Required |
-| PR-103 | Display live corpus availability, guide count, and visible copied/reviewed dates instead of the hard-coded “25 reviewed guides” label and tooltip-only date. | Required |
-| PR-104 | Make the privacy copy explain browser storage separately from API and external model processing. | Required |
+| PR-102 | Unsupported freshness/review claims have been removed. Define measurable freshness and review states for any separate public application. | Partly implemented; remaining work out of scope |
+| PR-103 | Copy dates are visible and the stale guide-count badge is removed. Live corpus availability/count remains future work. | Partly implemented; remaining work out of scope |
+| PR-104 | Transmission to the service and AI provider is disclosed. An operator-specific privacy notice would be needed for any separate public application. | Partly implemented; remaining work out of scope |
 | PR-105 | Complete formal accessibility, health-literacy, keyboard, screen-reader, zoom, mobile, and error-recovery testing. | Required |
 | PR-106 | Add a governed feedback and safety-incident route that does not invite users to send unnecessary health data. | Required |
 | PR-107 | Define supported languages and an evidence-backed translation process before adding localisation. | Required if multilingual support is planned |
@@ -92,7 +91,7 @@ The readiness check currently happens before the emergency rule. This is a known
 - The UI sends at most the last 8 rendered messages. Assistant history contains the prior summary, not the full structured response. The agent prompt uses at most the last 6 history items.
 - A successful response shows urgency, summary, next steps, warning signs, an optional follow-up question, source links, and the server notice.
 - `retrieval_only` responses receive an additional “Source extracts” label.
-- Citation links open the original page in a new tab. The copied-at date is currently available only in a hover tooltip; citation excerpts are returned by the API but not rendered.
+- Citation links open the original page in a new tab. The copied-at date is visible beneath each reference link; citation excerpts are returned by the API but not rendered.
 - Error responses are displayed in an amber card. There is no retry button, streaming, cancellation, durable conversation, authentication, or feedback control.
 - The layout becomes a chat-and-information two-column view on large screens and a single column on smaller screens.
 
@@ -108,4 +107,4 @@ The local engineering MVP is accepted when all of the following hold:
 - Unknown or missing evidence IDs in agent actions are rejected.
 - Backend tests, lint, and type checking pass, and the frontend lints and builds.
 
-These criteria are engineering acceptance only. They do not satisfy the public-pilot gate defined in [Safety and governance](safety-and-governance.md).
+These criteria are acceptance for a local learning project only. Public and clinical use remain outside scope; conditional governance requirements are retained in [Safety and governance](safety-and-governance.md).

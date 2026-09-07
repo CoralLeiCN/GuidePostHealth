@@ -16,13 +16,13 @@ export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000',
   ),
-  title: 'GuidePost Health — source-grounded health guidance',
+  title: 'GuidePost Health — LLM testing and RAG learning',
   description:
-    'A source-grounded guide for navigating published health information and understanding when to seek help.',
+    'A local project for LLM testing and learning RAG using NHS website text. Not designed for public or clinical use.',
   openGraph: {
-    title: 'GuidePost Health — source-grounded health guidance',
+    title: 'GuidePost Health — LLM testing and RAG learning',
     description:
-      'Navigate reviewed health guidance with clear source links and safety-focused information.',
+      'Local LLM and RAG experiments with fictional questions. Not designed for public or clinical use.',
     type: 'website',
     images: [
       { url: '/og.png', width: 1731, height: 909, alt: 'GuidePost Health' },
@@ -30,9 +30,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'GuidePost Health — source-grounded health guidance',
+    title: 'GuidePost Health — LLM testing and RAG learning',
     description:
-      'Navigate reviewed health guidance with clear source links and safety-focused information.',
+      'Local LLM and RAG experiments with fictional questions. Not designed for public or clinical use.',
     images: ['/og.png'],
   },
 };

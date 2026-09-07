@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import asyncio
-from datetime import UTC, datetime
 from typing import Literal
 from uuid import uuid4
 
@@ -84,20 +83,21 @@ class ChatService:
             follow_up_question=draft.follow_up_question,
             sources=sources,
             notice=(
-                "AI-generated guidance based on retrieved NHS information. It is not a diagnosis."
+                "AI-generated adaptation by GuidePost Health. "
                 if mode == "codex"
-                else "Extracts from retrieved NHS guidance. This is not a diagnosis."
+                else "Shortened extracts selected by GuidePost Health; context may be omitted. "
+            )
+            + (
+                "Not authored or approved by the NHS. This is not a diagnosis. "
+                "Contains public sector information licensed under the "
+                "Open Government Licence v3.0."
             ),
         )
 
     @staticmethod
     def _retrieval_fallback(evidence: list[RetrievedChunk]) -> AgentDraft:
-        general = [
-            chunk for chunk in evidence if chunk.urgency not in {"emergency", "urgent"}
-        ]
-        warnings = [
-            chunk for chunk in evidence if chunk.urgency in {"emergency", "urgent"}
-        ]
+        general = [chunk for chunk in evidence if chunk.urgency not in {"emergency", "urgent"}]
+        warnings = [chunk for chunk in evidence if chunk.urgency in {"emergency", "urgent"}]
         return AgentDraft(
             summary=(
                 "I found NHS guidance that may be relevant, but the answer agent was not "
@@ -157,7 +157,7 @@ class ChatService:
                     url=HttpUrl(
                         "https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-call-999/"
                     ),
-                    fetched_at=datetime.now(UTC),
+                    fetched_at=None,
                     excerpt="Use 999 for a life-threatening emergency.",
                 )
             ],
