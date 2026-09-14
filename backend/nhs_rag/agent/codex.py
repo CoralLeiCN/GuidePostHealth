@@ -67,6 +67,8 @@ class CodexAnswerAgent:
 
         prompt = build_prompt(question=question, history=history, evidence=evidence)
         codex_config = CodexConfig(
+            client_name="guidepost_health",
+            client_title="GuidePost Health",
             config_overrides=self._provider_overrides(),
             env=(
                 {_CUSTOM_PROVIDER_API_KEY_ENV: self._api_key} if self._api_key is not None else None
