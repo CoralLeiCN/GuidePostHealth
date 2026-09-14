@@ -1,8 +1,6 @@
 from __future__ import annotations
 
 import asyncio
-import gzip
-import hashlib
 import json
 from dataclasses import dataclass
 from datetime import UTC, datetime
@@ -15,9 +13,10 @@ from nhs_rag.models import GuideDocument
 
 from cronjobs.nhs_dataset.parser import parse_nhs_page
 from cronjobs.nhs_dataset.urls import validate_nhs_url as validate_nhs_url
+from cronjobs.raw_archive import RAW_ARCHIVE_VERSION as RAW_ARCHIVE_VERSION
+from cronjobs.raw_archive import archive_http_response, read_archive
 
 ROBOTS_URL = "https://www.nhs.uk/robots.txt"
-RAW_ARCHIVE_VERSION = "1"
 
 
 @dataclass(frozen=True)
@@ -116,62 +115,24 @@ def archive_response(
     fetched_at: datetime,
     user_agent: str,
 ) -> None:
-    """Atomically retain decoded response bytes and provenance for offline reparsing."""
-
-    raw_dir.mkdir(parents=True, exist_ok=True)
-    content = response.content
-    html_path = raw_dir / raw_html_filename(source)
-    html_temporary = html_path.with_name(html_path.name + ".tmp")
-    with gzip.open(html_temporary, "wb", compresslevel=9) as handle:
-        handle.write(content)
-    html_temporary.replace(html_path)
-
-    metadata = {
-        "archive_version": RAW_ARCHIVE_VERSION,
-        "requested_url": source.url,
-        "final_url": str(response.url),
-        "redirect_chain": [str(item.url) for item in response.history],
-        "status_code": response.status_code,
-        "fetched_at": fetched_at.isoformat(),
-        "encoding": response.encoding or "utf-8",
-        "media_type": response.headers.get("Content-Type"),
-        "content_sha256": hashlib.sha256(content).hexdigest(),
-        "content_length": len(content),
-        "request_user_agent": user_agent,
-        "response_headers": {key.lower(): value for key, value in response.headers.items()},
-    }
-    metadata_path = raw_dir / raw_metadata_filename(source)
-    metadata_temporary = metadata_path.with_name(metadata_path.name + ".tmp")
-    metadata_temporary.write_text(
-        json.dumps(metadata, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+    """Retain the HTTP response in the shared raw guide archive format."""
+    archive_http_response(
+        raw_dir=raw_dir,
+        stem=_source_slug(source),
+        requested_url=source.url,
+        response=response,
+        fetched_at=fetched_at,
+        user_agent=user_agent,
     )
-    metadata_temporary.replace(metadata_path)
 
 
 def _load_raw_snapshot(source: SourceSpec, raw_dir: Path) -> tuple[str, dict[str, object]]:
-    html_path = raw_dir / raw_html_filename(source)
-    metadata_path = raw_dir / raw_metadata_filename(source)
-    if not html_path.exists() or not metadata_path.exists():
-        raise FileNotFoundError(f"Raw snapshot is incomplete for {source.title}")
-
-    metadata: dict[str, object] = json.loads(metadata_path.read_text(encoding="utf-8"))
-    if metadata.get("archive_version") != RAW_ARCHIVE_VERSION:
-        raise ValueError(f"Unsupported raw archive version for {source.title}")
-    if metadata.get("requested_url") != source.url:
-        raise ValueError(f"Raw snapshot URL does not match manifest for {source.title}")
-    final_url = metadata.get("final_url")
-    if not isinstance(final_url, str):
-        raise ValueError(f"Raw snapshot has no final URL for {source.title}")
-    validate_nhs_url(final_url)
-
-    with gzip.open(html_path, "rb") as handle:
-        content = handle.read()
-    if hashlib.sha256(content).hexdigest() != metadata.get("content_sha256"):
-        raise ValueError(f"Raw snapshot checksum failed for {source.title}")
-    encoding = metadata.get("encoding", "utf-8")
-    if not isinstance(encoding, str):
-        raise ValueError(f"Raw snapshot encoding is invalid for {source.title}")
-    return content.decode(encoding), metadata
+    return read_archive(
+        raw_dir=raw_dir,
+        stem=_source_slug(source),
+        requested_url=source.url,
+        validate_url=validate_nhs_url,
+    )
 
 
 def reparse_sources_from_raw(

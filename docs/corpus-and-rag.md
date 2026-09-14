@@ -191,3 +191,11 @@ Primary references:
 - [NHS website terms and conditions](https://www.nhs.uk/our-policies/terms-and-conditions/)
 - [NHS content not licensed for re-use](https://www.nhs.uk/our-policies/terms-and-conditions/content-not-licensed-for-re-use/)
 - [Open Government Licence v3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/)
+
+## 12. Separate Mayo collection
+
+The Mayo Symptom Checker collection has its own [usage and compliance review](mayo-dataset-compliance.md)
+and [per-source inventory](mayo-content-inventory.json). The NHS/OGL rules above do not
+license Mayo data. Clearance for acquisition, retention, transformations and AI use remains
+unresolved, including local experiments. The shared [raw archive workflow](guide-data-workflow.md)
+does not combine content rights or authorize Mayo retrieval integration.

@@ -41,6 +41,7 @@ yarn-error.log*
 /data/raw/
 /data/nhs/
 /data/huggingface/
+/data/mayo/
 /.cache/
 /.codex-runtime/
 

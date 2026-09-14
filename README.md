@@ -157,6 +157,39 @@ and reuse obligations differ from the application source code.
 
 The fetcher uses an explicit allowlist, checks `robots.txt`, sends conditional requests, validates redirects, waits between pages, strips media and navigation, and keeps the previous file if a refresh fails. It does not recursively crawl links.
 
+## Mayo Clinic raw sources
+
+Mayo acquisition follows the NHS raw archive format: full HTML in `.html.gz` plus a
+`.metadata.json` file recording provenance, byte length and checksum. The tracked manifest
+contains 45 adult/child guides. Downloading stops at raw sources; guide processing is separate.
+
+**Usage clearance is unresolved.** Read the [Mayo compliance review](docs/mayo-dataset-compliance.md)
+before using this collection. It records the acquisition and reuse restrictions, local/AI
+use requirements, and pending decisions for existing copies. The commands below document
+the implementation; further Mayo acquisition or processing requires recorded clearance.
+The commands do not enforce that requirement themselves.
+
+```bash
+uv run python -m cronjobs.mayo_dataset --contact "mailto:you@example.com"
+
+# Offline import of the full browser captures in this workspace
+uv run python -m cronjobs.mayo_dataset --from-browser data/raw/mayo/browser-captures
+```
+
+Archives and the download report live under Git-ignored `data/raw/mayo/`, alongside the
+existing `data/raw/nhs/` convention. All 45 Mayo pages were captured as full browser HTML
+because direct HTTP access returned 403 here. Metadata explicitly distinguishes browser DOM
+from HTTP response content. Previous extracted fragments and experimental processed records
+under `data/mayo/` remain unchanged; the raw download job does not rebuild them.
+This acquisition history does not establish permission or recommend browser capture as a
+workaround for denied access.
+
+See the separate [NHS](docs/guide-data-workflow.md#nhs-processing-graph) and
+[Mayo](docs/guide-data-workflow.md#mayo-processing-graph) processing graphs for the stages,
+commands and handoffs from source selection through guide datasets and retrieval. Each
+publisher keeps its own processing rules and content attribution; Mayo material does not
+inherit the NHS Open Government Licence.
+
 ## API
 
 - `POST /api/v1/chat` — retrieve evidence and return structured guidance.

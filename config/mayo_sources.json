@@ -1,0 +1,235 @@
+{
+  "schema_version": "1",
+  "publisher": "Mayo Clinic",
+  "licence": "Copyright Mayo Foundation for Medical Education and Research. All rights reserved.",
+  "discovery_source": "https://www.mayoclinic.org/symptom-checker/select-symptom/itt-20009075",
+  "discovered_on": "2026-09-07",
+  "scope": "45 adult and child symptom checker related-factor pages; no inferred cause mappings",
+  "sources": [
+    {
+      "title": "Abdominal pain in adults",
+      "url": "https://www.mayoclinic.org/symptom-checker/abdominal-pain-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult"
+    },
+    {
+      "title": "Blood in stool in adults",
+      "url": "https://www.mayoclinic.org/symptom-checker/blood-in-stool-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult"
+    },
+    {
+      "title": "Chest pain in adults",
+      "url": "https://www.mayoclinic.org/symptom-checker/chest-pain-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult"
+    },
+    {
+      "title": "Constipation in adults",
+      "url": "https://www.mayoclinic.org/symptom-checker/constipation-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult"
+    },
+    {
+      "title": "Cough in adults",
+      "url": "https://www.mayoclinic.org/symptom-checker/cough-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult"
+    },
+    {
+      "title": "Diarrhea in adults",
+      "url": "https://www.mayoclinic.org/symptom-checker/diarrhea-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult"
+    },
+    {
+      "title": "Difficulty swallowing in adults",
+      "url": "https://www.mayoclinic.org/symptom-checker/difficulty-swallowing-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult"
+    },
+    {
+      "title": "Dizziness in adults",
+      "url": "https://www.mayoclinic.org/symptom-checker/dizziness-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult"
+    },
+    {
+      "title": "Eye discomfort and redness in adults",
+      "url": "https://www.mayoclinic.org/symptom-checker/eye-discomfort-and-redness-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult"
+    },
+    {
+      "title": "Eye problems in adults",
+      "url": "https://www.mayoclinic.org/symptom-checker/eye-problems-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult"
+    },
+    {
+      "title": "Foot pain or ankle pain in adults",
+      "url": "https://www.mayoclinic.org/symptom-checker/foot-pain-or-ankle-pain-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult"
+    },
+    {
+      "title": "Foot swelling or leg swelling in adults",
+      "url": "https://www.mayoclinic.org/symptom-checker/foot-swelling-or-leg-swelling-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult"
+    },
+    {
+      "title": "Headaches in adults",
+      "url": "https://www.mayoclinic.org/symptom-checker/headaches-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult"
+    },
+    {
+      "title": "Heart palpitations in adults",
+      "url": "https://www.mayoclinic.org/symptom-checker/heart-palpitations-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult"
+    },
+    {
+      "title": "Hip pain in adults",
+      "url": "https://www.mayoclinic.org/symptom-checker/hip-pain-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult"
+    },
+    {
+      "title": "Knee pain in adults",
+      "url": "https://www.mayoclinic.org/symptom-checker/knee-pain-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult"
+    },
+    {
+      "title": "Low back pain in adults",
+      "url": "https://www.mayoclinic.org/symptom-checker/low-back-pain-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult"
+    },
+    {
+      "title": "Nasal congestion in adults",
+      "url": "https://www.mayoclinic.org/symptom-checker/nasal-congestion-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult"
+    },
+    {
+      "title": "Nausea or vomiting in adults",
+      "url": "https://www.mayoclinic.org/symptom-checker/nausea-or-vomiting-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult"
+    },
+    {
+      "title": "Neck pain in adults",
+      "url": "https://www.mayoclinic.org/symptom-checker/neck-pain-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult"
+    },
+    {
+      "title": "Numbness or tingling in hands in adults",
+      "url": "https://www.mayoclinic.org/symptom-checker/numbness-or-tingling-in-hands-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult"
+    },
+    {
+      "title": "Pelvic pain in adult females",
+      "url": "https://www.mayoclinic.org/symptom-checker/pelvic-pain-in-adult-females-adult/related-factors/itt-20009075",
+      "population": "adult"
+    },
+    {
+      "title": "Pelvic pain in adult males",
+      "url": "https://www.mayoclinic.org/symptom-checker/pelvic-pain-in-adult-males-adult/related-factors/itt-20009075",
+      "population": "adult"
+    },
+    {
+      "title": "Shortness of breath in adults",
+      "url": "https://www.mayoclinic.org/symptom-checker/shortness-of-breath-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult"
+    },
+    {
+      "title": "Shoulder pain in adults",
+      "url": "https://www.mayoclinic.org/symptom-checker/shoulder-pain-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult"
+    },
+    {
+      "title": "Sore throat in adults",
+      "url": "https://www.mayoclinic.org/symptom-checker/sore-throat-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult"
+    },
+    {
+      "title": "Urinary problems in adults",
+      "url": "https://www.mayoclinic.org/symptom-checker/urinary-problems-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult"
+    },
+    {
+      "title": "Wheezing in adults",
+      "url": "https://www.mayoclinic.org/symptom-checker/wheezing-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult"
+    },
+    {
+      "title": "Abdominal pain in children",
+      "url": "https://www.mayoclinic.org/symptom-checker/abdominal-pain-in-children-child/related-factors/itt-20009075",
+      "population": "child"
+    },
+    {
+      "title": "Constipation in children",
+      "url": "https://www.mayoclinic.org/symptom-checker/constipation-in-children-child/related-factors/itt-20009075",
+      "population": "child"
+    },
+    {
+      "title": "Cough in children",
+      "url": "https://www.mayoclinic.org/symptom-checker/cough-in-children-child/related-factors/itt-20009075",
+      "population": "child"
+    },
+    {
+      "title": "Diarrhea in children",
+      "url": "https://www.mayoclinic.org/symptom-checker/diarrhea-in-children-child/related-factors/itt-20009075",
+      "population": "child"
+    },
+    {
+      "title": "Ear problems in children",
+      "url": "https://www.mayoclinic.org/symptom-checker/ear-problems-in-children-child/related-factors/itt-20009075",
+      "population": "child"
+    },
+    {
+      "title": "Earache in children",
+      "url": "https://www.mayoclinic.org/symptom-checker/earache-in-children-child/related-factors/itt-20009075",
+      "population": "child"
+    },
+    {
+      "title": "Eye discomfort and redness in children",
+      "url": "https://www.mayoclinic.org/symptom-checker/eye-discomfort-and-redness-in-children-child/related-factors/itt-20009075",
+      "population": "child"
+    },
+    {
+      "title": "Eye problems in children",
+      "url": "https://www.mayoclinic.org/symptom-checker/eye-problems-in-children-child/related-factors/itt-20009075",
+      "population": "child"
+    },
+    {
+      "title": "Fever in children",
+      "url": "https://www.mayoclinic.org/symptom-checker/fever-in-children-child/related-factors/itt-20009075",
+      "population": "child"
+    },
+    {
+      "title": "Headaches in children",
+      "url": "https://www.mayoclinic.org/symptom-checker/headaches-in-children-child/related-factors/itt-20009075",
+      "population": "child"
+    },
+    {
+      "title": "Joint pain or muscle pain in children",
+      "url": "https://www.mayoclinic.org/symptom-checker/joint-pain-or-muscle-pain-in-children-child/related-factors/itt-20009075",
+      "population": "child"
+    },
+    {
+      "title": "Nasal congestion in children",
+      "url": "https://www.mayoclinic.org/symptom-checker/nasal-congestion-in-children-child/related-factors/itt-20009075",
+      "population": "child"
+    },
+    {
+      "title": "Nausea or vomiting in children",
+      "url": "https://www.mayoclinic.org/symptom-checker/nausea-or-vomiting-in-children-child/related-factors/itt-20009075",
+      "population": "child"
+    },
+    {
+      "title": "Skin rashes in children",
+      "url": "https://www.mayoclinic.org/symptom-checker/skin-rashes-in-children-child/related-factors/itt-20009075",
+      "population": "child"
+    },
+    {
+      "title": "Sore throat in children",
+      "url": "https://www.mayoclinic.org/symptom-checker/sore-throat-in-children-child/related-factors/itt-20009075",
+      "population": "child"
+    },
+    {
+      "title": "Urinary problems in children",
+      "url": "https://www.mayoclinic.org/symptom-checker/urinary-problems-in-children-child/related-factors/itt-20009075",
+      "population": "child"
+    },
+    {
+      "title": "Wheezing in children",
+      "url": "https://www.mayoclinic.org/symptom-checker/wheezing-in-children-child/related-factors/itt-20009075",
+      "population": "child"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # Project backlog
 
-Last updated: 7 September 2026.
+Last updated: 8 September 2026.
 
 This is the central tracker for known unfinished work. Technical specifications describe the
 behavior and evidence; this file owns work status. Existing requirement IDs are retained as
@@ -58,6 +58,31 @@ lost. They are not planned releases or prerequisites for documenting local exper
 | BL-019 | Conditional / out of scope | Real health-data processing and conversation persistence. | Actual operator/provider roles, lawful basis, assessment and agreements, retention/region/rights procedures, privacy notice and evidence of logging/minimization controls. Existing transmission disclosure is only a partial fix. | PR-104; SG-009; PG-101–107; operations open decisions. |
 | BL-020 | Conditional / out of scope | Production hosting, security, availability and recovery. | Approved hosting/audience, authentication/abuse controls, TLS/secrets/network isolation, Qdrant security/backup/restore, signed artifact promotion, monitoring, load/security tests, rollback and recovery exercises. No deployment is authorized by this item. | CR-104, CR-108; operations milestones 2–4 and open decisions. |
 | BL-021 | Conditional / out of scope | Public accessibility, feedback/incident routes and localization. | Audience-appropriate accessibility/health-literacy evaluation; governed feedback without unnecessary health-data collection; explicitly selected languages and reviewed translation process. | PR-105–107. |
+
+## Mayo acquisition alignment
+
+- **BL-022 — Done:** align Mayo acquisition with the NHS raw format through a shared archive
+  writer/reader and an independent offline job. Full-page `.html.gz` plus provenance metadata
+  is stored under `data/raw/mayo/`; browser acquisition is explicitly labelled. The job does
+  not parse, export or index. See [workflow and graph](docs/guide-data-workflow.md).
+  This completion describes archive functionality, not authorization to acquire or use Mayo
+  content. The documented clearance hold and unresolved acquisition history are in BL-024.
+- **BL-023 — Proposed, not selected:** connect verified Mayo raw archives to source-specific
+  guide processing, validation and any later exports/consumers. The current user-selected
+  scope stops at acquisition; extraction details depend on the source data. Existing
+  experimental processing code and outputs remain separate. Acceptance: offline replay from
+  verified raw pages, original acquisition dates preserved, explicit failures, and complete
+  export handling when export work is selected. BL-003–011 remain the shared review references.
+  Mayo use must also satisfy BL-024 before this path is operated.
+- **BL-024 — Proposed; required before further Mayo acquisition or use:** resolve permission
+  for existing and future Symptom Checker copies and intended transformations/AI use. Acceptance:
+  recorded permission or reviewed legal basis with scope/expiry; decisions for all 45
+  page versions; disposition of existing copies and derivatives; required notices and rights
+  metadata; and a selected, verified enforcement approach. No owner or target date assigned.
+  The current hold is documented, not enforced by code. Evidence:
+  [8 September usage review](docs/mayo-dataset-compliance.md) and
+  [per-source inventory](docs/mayo-content-inventory.json). Documentation is complete;
+  rights clearance and operational controls remain open.
 
 ## Completed corrections and migration notes
 
