@@ -157,54 +157,38 @@ and reuse obligations differ from the application source code.
 
 The fetcher uses an explicit allowlist, checks `robots.txt`, sends conditional requests, validates redirects, waits between pages, strips media and navigation, and keeps the previous file if a refresh fails. It does not recursively crawl links.
 
-## Mayo Clinic symptom-checker dataset
+## Mayo Clinic raw sources
 
-A separate dataset covers all 45 related-factor pages linked from the
-[Mayo Clinic symptom checker](https://www.mayoclinic.org/symptom-checker/select-symptom/itt-20009075).
-The source inventory is tracked in `config/mayo_sources.json`. The initial September 7, 2026
-capture contains 28 adult guides, 17 child guides, 184 factor groups and 1,140 factor options.
+Mayo acquisition follows the NHS raw archive format: full HTML in `.html.gz` plus a
+`.metadata.json` file recording provenance, byte length and checksum. The tracked manifest
+contains 45 adult/child guides. Downloading stops at raw sources; guide processing is separate.
+
+**Usage clearance is unresolved.** Read the [Mayo compliance review](docs/mayo-dataset-compliance.md)
+before using this collection. It records the acquisition and reuse restrictions, local/AI
+use requirements, and pending decisions for existing copies. The commands below document
+the implementation; further Mayo acquisition or processing requires recorded clearance.
+The commands do not enforce that requirement themselves.
 
 ```bash
-# Refresh over HTTP where Mayo permits access from your network
-uv run python -m nhs_rag.ingestion.mayo.cli --contact "mailto:you@example.com"
+uv run python -m cronjobs.mayo_dataset --contact "mailto:you@example.com"
 
-# Rebuild from the browser snapshots collected in this workspace
-uv run python -m nhs_rag.ingestion.mayo.cli --snapshot-dir data/mayo/raw
+# Offline import of the full browser captures in this workspace
+uv run python -m cronjobs.mayo_dataset --from-browser data/raw/mayo/browser-captures
 ```
 
-Outputs are local and gitignored, like the NHS corpus:
+Archives and the download report live under Git-ignored `data/raw/mayo/`, alongside the
+existing `data/raw/nhs/` convention. All 45 Mayo pages were captured as full browser HTML
+because direct HTTP access returned 403 here. Metadata explicitly distinguishes browser DOM
+from HTTP response content. Previous extracted fragments and experimental processed records
+under `data/mayo/` remain unchanged; the raw download job does not rebuild them.
+This acquisition history does not establish permission or recommend browser capture as a
+workaround for denied access.
 
-- `data/mayo/documents/<symptom-slug>.json`: one validated record per adult/child guide.
-- `data/mayo/dataset.jsonl`: all available records in manifest order.
-- `data/mayo/report.json`: coverage, counts and per-source refresh errors. A failed refresh
-  retains the previous valid document but sets `complete` to false and exits with status 1.
-- `data/mayo/raw/<symptom-slug>.json`: initial browser captures for reproducible parsing.
-
-Records retain NHS-style document metadata (`requested_url`, `canonical_url`, `fetched_at`,
-`content_sha256`, `parser_version`, `sections`) and add the publisher, population, symptom slug,
-acquisition method, and ordered `factor_groups` containing labels and Mayo's source IDs.
-Advice paragraphs and warning lists remain together in source order. Factors stay separate
-from advice: for example, an option under “Relieved by” is an input to the checker, not a
-treatment recommendation. The parser strips navigation, advertisements and bibliography.
-Unknown review dates stay null; bibliography and copyright years are not clinical review dates.
-
-This captures the symptom/factor and advice layer. Interactive cause results, factor-to-cause
-relationships, scoring, and diagnoses are **not collected or inferred**. Advice urgency is
-**not classified** (`urgency_classification: "not_performed"`); inherited section value `general`
-is a schema placeholder, not a clinical assessment. The NHS-only chat, prompt, index and
-England-specific escalation logic do not load this dataset.
-
-HTTP ingestion checks robots.txt, refuses redirects, uses conditional requests, spaces requests,
-retries rate limits/server errors, validates page identity and factor completeness, and writes
-documents atomically. Mayo rejected direct HTTP downloads in the initial environment, so the
-initial records use browser snapshots. These contain `requested_url`, a timezone-aware ISO
-`fetched_at`, and the rendered `.symptomchecker.step2` HTML in `html`. Import only snapshots
-captured from the corresponding source page; errors and missing snapshots are reported.
-
-Mayo material carries its own copyright attribution, **not the NHS Open Government Licence**.
-Local storage or robots permission does not grant redistribution rights. See
-[Mayo's terms](https://www.mayoclinic.org/about-this-site/terms-conditions-use-policy)
-before reuse or redistribution.
+See the separate [NHS](docs/guide-data-workflow.md#nhs-processing-graph) and
+[Mayo](docs/guide-data-workflow.md#mayo-processing-graph) processing graphs for the stages,
+commands and handoffs from source selection through guide datasets and retrieval. Each
+publisher keeps its own processing rules and content attribution; Mayo material does not
+inherit the NHS Open Government Licence.
 
 ## API
 

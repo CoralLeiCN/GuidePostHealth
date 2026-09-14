@@ -1,0 +1,2038 @@
+{
+  "schema_version": "1",
+  "audit_date": "2026-09-08",
+  "scope": "Metadata and integrity inventory of existing local Mayo copies; not permission, page-level rights clearance, or clinical validation.",
+  "publisher": "Mayo Clinic",
+  "copyright_notice": "Copyright Mayo Foundation for Medical Education and Research. All rights reserved.",
+  "manifest_path": "config/mayo_sources.json",
+  "manifest_file_sha256": "b133bc3dc34c4b8c788ba32ffe1a27dc9d6cccac32b0f1105a46ce91a79f531c",
+  "compliance_review": "docs/mayo-dataset-compliance.md",
+  "policy_review_date": "2026-09-08",
+  "terms_displayed_update_date": "2024-04-12",
+  "policy_urls": [
+    "https://www.mayoclinic.org/about-this-site/terms-conditions-use-policy",
+    "https://www.mayoclinic.org/about-this-site/reprint-permissions",
+    "https://www.mayoclinic.org/about-this-site/terms-use-licensed-content",
+    "https://www.mayoclinic.org/about-this-site/guidelines-sites-linking-to-mayo-clinic",
+    "https://gbs.mayoclinic.org/licensable-content/"
+  ],
+  "rights_review_status": "pending_permission_and_manual_review",
+  "permission_reference": null,
+  "runtime_permission_gate": "not_implemented",
+  "summary": {
+    "sources": 45,
+    "populations": {
+      "adult": 28,
+      "child": 17
+    },
+    "raw_integrity_verified": 45,
+    "legacy_parsed_records": 45,
+    "legacy_dataset_rows": 45,
+    "factor_groups": 184,
+    "factor_options": 1140
+  },
+  "other_local_artifacts": [
+    {
+      "path": "data/mayo/dataset.jsonl",
+      "file_sha256": "e3d39db992972f872354b9a6f7712515aacab50d7f4a222bf4a3113a370ac57e",
+      "rights_review_status": "pending_permission_and_manual_review"
+    },
+    {
+      "path": "data/mayo/report.json",
+      "file_sha256": "35e61f158a469df8e973a2a609db9cf72b28a525c8d00f406c4d18dfef21999f",
+      "rights_review_status": "pending_permission_and_manual_review"
+    },
+    {
+      "path": "data/raw/mayo/download-report.json",
+      "file_sha256": "1ca215a966d42d42b3d2a96dde22363c77f2cd44bac5415e9fa5e40de13c22ef",
+      "rights_review_status": "pending_permission_and_manual_review"
+    },
+    {
+      "path": "data/mayo/raw/sources.json",
+      "file_sha256": "3805af75adeb15fd1ab45706d5995927f36dfa2cceacd4e50a5c82c35556ea3b",
+      "rights_review_status": "pending_permission_and_manual_review"
+    }
+  ],
+  "records": [
+    {
+      "requested_url": "https://www.mayoclinic.org/symptom-checker/abdominal-pain-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult",
+      "raw_archive": {
+        "path": "data/raw/mayo/abdominal-pain-in-adults-adult.html.gz",
+        "metadata_path": "data/raw/mayo/abdominal-pain-in-adults-adult.metadata.json",
+        "final_url": "https://www.mayoclinic.org/symptom-checker/abdominal-pain-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T22:52:23.977000+00:00",
+        "acquisition": "browser_dom",
+        "content_scope": "full_document",
+        "content_length": 623710,
+        "decompressed_html_sha256": "5506096a975c8eeb0400740bc852b25c38d922183357243b6edd1ec6f02f020c",
+        "file_sha256": "adcf068de4005753b5e8447173f7b296168de37ffac30452e0deda5fe1280765",
+        "metadata_file_sha256": "73882bd87f41bf447b5fc3b937a0ab794f5c01892baf2b9d2bbcf95c5050058b",
+        "integrity_status": "verified"
+      },
+      "browser_capture": {
+        "path": "data/raw/mayo/browser-captures/abdominal-pain-in-adults-adult.json",
+        "file_sha256": "15ecb9184b63713651bbea39edd7c02fbcada60345ea25cc0e29d468a7fe625d"
+      },
+      "legacy_snapshot": {
+        "path": "data/mayo/raw/abdominal-pain-in-adults-adult.json",
+        "file_sha256": "23d67259a0784660d2a888de124c3e50c41befaa03a31515c447f0885ed61455"
+      },
+      "legacy_parsed_record": {
+        "path": "data/mayo/documents/abdominal-pain-in-adults-adult.json",
+        "file_sha256": "67f26f74ac282b92de80b0f5f6258996ae4f9526d833845afdff47dbe8776d70",
+        "canonical_url": "https://www.mayoclinic.org/symptom-checker/abdominal-pain-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T01:54:05.855000Z",
+        "acquisition": "browser_snapshot",
+        "parser_version": "mayo-1",
+        "content_sha256": "6e28c8cbdd5d25884fa2c83f1652c04c3fae201b60f73ebfa6204839f492ac2d",
+        "factor_group_count": 5,
+        "factor_option_count": 41,
+        "lineage_to_full_raw_archive": "not_established_predates_full_raw_archive"
+      },
+      "rights_review_status": "pending_permission_and_manual_review",
+      "permission_reference": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision_evidence": null,
+      "allowed_uses": [],
+      "retention_decision": "pending"
+    },
+    {
+      "requested_url": "https://www.mayoclinic.org/symptom-checker/blood-in-stool-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult",
+      "raw_archive": {
+        "path": "data/raw/mayo/blood-in-stool-in-adults-adult.html.gz",
+        "metadata_path": "data/raw/mayo/blood-in-stool-in-adults-adult.metadata.json",
+        "final_url": "https://www.mayoclinic.org/symptom-checker/blood-in-stool-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T22:52:24.280000+00:00",
+        "acquisition": "browser_dom",
+        "content_scope": "full_document",
+        "content_length": 596805,
+        "decompressed_html_sha256": "51628cd977012ec5066b38ea307a60cab6e1b9e72217f0bf07acdefc3a519789",
+        "file_sha256": "9bce1050e1a13229c4b7e8be33c5fda19166e8c61beb20b00322cca857d419f2",
+        "metadata_file_sha256": "452d6869b3ff5a75d3b09792674efd98de6d30d40299f73d21fa6fd6670f8ef6",
+        "integrity_status": "verified"
+      },
+      "browser_capture": {
+        "path": "data/raw/mayo/browser-captures/blood-in-stool-in-adults-adult.json",
+        "file_sha256": "897d41b20c6713be6ec6d6ba64aecbc4571593fd054ee4c74b8194d43d1e291c"
+      },
+      "legacy_snapshot": {
+        "path": "data/mayo/raw/blood-in-stool-in-adults-adult.json",
+        "file_sha256": "fce6163185eb5a5a1086f11318b42df89aae12d78d8591ca477e4e6a5e661a21"
+      },
+      "legacy_parsed_record": {
+        "path": "data/mayo/documents/blood-in-stool-in-adults-adult.json",
+        "file_sha256": "0ca69c7b9aebd5cdd123aedb061d0056ef98b58889f76879c3dbffcf54de8e56",
+        "canonical_url": "https://www.mayoclinic.org/symptom-checker/blood-in-stool-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T01:54:16.957000Z",
+        "acquisition": "browser_snapshot",
+        "parser_version": "mayo-1",
+        "content_sha256": "719931089c1ffc9c1c0707d9343e53c739474f26ee515b22f0c1e527b746dab5",
+        "factor_group_count": 4,
+        "factor_option_count": 23,
+        "lineage_to_full_raw_archive": "not_established_predates_full_raw_archive"
+      },
+      "rights_review_status": "pending_permission_and_manual_review",
+      "permission_reference": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision_evidence": null,
+      "allowed_uses": [],
+      "retention_decision": "pending"
+    },
+    {
+      "requested_url": "https://www.mayoclinic.org/symptom-checker/chest-pain-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult",
+      "raw_archive": {
+        "path": "data/raw/mayo/chest-pain-in-adults-adult.html.gz",
+        "metadata_path": "data/raw/mayo/chest-pain-in-adults-adult.metadata.json",
+        "final_url": "https://www.mayoclinic.org/symptom-checker/chest-pain-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T22:52:24.636000+00:00",
+        "acquisition": "browser_dom",
+        "content_scope": "full_document",
+        "content_length": 607288,
+        "decompressed_html_sha256": "66aedcb5100db7718158862f5aa8e8b018f86a29711d37bdcc2fe209d64a3e65",
+        "file_sha256": "568cf96c7fca76faeb36f26fcf3e42d2b0089823af3d1ff3beb82fa6e69643a2",
+        "metadata_file_sha256": "db76940610fe8debb371027b3b3be6e933591ebac403ab7297cfd441be412f19",
+        "integrity_status": "verified"
+      },
+      "browser_capture": {
+        "path": "data/raw/mayo/browser-captures/chest-pain-in-adults-adult.json",
+        "file_sha256": "2fc7ed3ad4c1c3f00beb308e239fd39e1fb2ea90cbeb605084d5d02a36f67427"
+      },
+      "legacy_snapshot": {
+        "path": "data/mayo/raw/chest-pain-in-adults-adult.json",
+        "file_sha256": "fca64d412d0fee52442ec93a061ee0fac3b3a803f03d4e940eaee0a444dff699"
+      },
+      "legacy_parsed_record": {
+        "path": "data/mayo/documents/chest-pain-in-adults-adult.json",
+        "file_sha256": "a4589dbc90237e73274833c8ba38c76979b116c0608d34d89d41e8d41bb612b4",
+        "canonical_url": "https://www.mayoclinic.org/symptom-checker/chest-pain-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T01:54:17.475000Z",
+        "acquisition": "browser_snapshot",
+        "parser_version": "mayo-1",
+        "content_sha256": "39f9ad8050369168e0b59463c5e8cdc95f8e0ffce41cb9c1cd7a59065c9f3637",
+        "factor_group_count": 5,
+        "factor_option_count": 37,
+        "lineage_to_full_raw_archive": "not_established_predates_full_raw_archive"
+      },
+      "rights_review_status": "pending_permission_and_manual_review",
+      "permission_reference": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision_evidence": null,
+      "allowed_uses": [],
+      "retention_decision": "pending"
+    },
+    {
+      "requested_url": "https://www.mayoclinic.org/symptom-checker/constipation-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult",
+      "raw_archive": {
+        "path": "data/raw/mayo/constipation-in-adults-adult.html.gz",
+        "metadata_path": "data/raw/mayo/constipation-in-adults-adult.metadata.json",
+        "final_url": "https://www.mayoclinic.org/symptom-checker/constipation-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T22:52:24.942000+00:00",
+        "acquisition": "browser_dom",
+        "content_scope": "full_document",
+        "content_length": 611600,
+        "decompressed_html_sha256": "e47c1a1fa081ac7ce417a7c8c9c6e51b4841ec4134b52f15b13da9e1311bfbd9",
+        "file_sha256": "03b936fb77549a9c3fb8389a6cea0ca2eab57a9e14a9fe35bcc7dcaef91a633c",
+        "metadata_file_sha256": "8186fc9df26dc5d1f9dc7900fc8c4e12ded26e969cdd57c8ffd928fcafe4c668",
+        "integrity_status": "verified"
+      },
+      "browser_capture": {
+        "path": "data/raw/mayo/browser-captures/constipation-in-adults-adult.json",
+        "file_sha256": "b14f9327f0d955173262ded0ccce402cb8e3ddce0d37196630c9da022c05942c"
+      },
+      "legacy_snapshot": {
+        "path": "data/mayo/raw/constipation-in-adults-adult.json",
+        "file_sha256": "54d1d83cbaf55dd96b34df4a9744f1bf26b9b5b4cf700e4fe527c799b5d680ff"
+      },
+      "legacy_parsed_record": {
+        "path": "data/mayo/documents/constipation-in-adults-adult.json",
+        "file_sha256": "26f512eb4c4ab5adda842e01713938215bfb4b68da8f8a0c34c6a11b64e87e40",
+        "canonical_url": "https://www.mayoclinic.org/symptom-checker/constipation-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T01:54:17.913000Z",
+        "acquisition": "browser_snapshot",
+        "parser_version": "mayo-1",
+        "content_sha256": "45a3f50a0b8ae427e82199d376edd6e16770a92ae69d2461ebe34aa15ad85c0c",
+        "factor_group_count": 3,
+        "factor_option_count": 26,
+        "lineage_to_full_raw_archive": "not_established_predates_full_raw_archive"
+      },
+      "rights_review_status": "pending_permission_and_manual_review",
+      "permission_reference": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision_evidence": null,
+      "allowed_uses": [],
+      "retention_decision": "pending"
+    },
+    {
+      "requested_url": "https://www.mayoclinic.org/symptom-checker/cough-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult",
+      "raw_archive": {
+        "path": "data/raw/mayo/cough-in-adults-adult.html.gz",
+        "metadata_path": "data/raw/mayo/cough-in-adults-adult.metadata.json",
+        "final_url": "https://www.mayoclinic.org/symptom-checker/cough-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T22:52:25.370000+00:00",
+        "acquisition": "browser_dom",
+        "content_scope": "full_document",
+        "content_length": 608665,
+        "decompressed_html_sha256": "03132050808ef7e46baf39e3c9eb42104d2f7729d073424688e3e3fe7095df6b",
+        "file_sha256": "23566ff5b33791a6125c35eefd13c96d9ab139636901dd3b8a85deb5c2ed09bb",
+        "metadata_file_sha256": "1f75c69ad64d1390bcfe8c138aed02067e607625edf8919a1d94ec0775aa1bb8",
+        "integrity_status": "verified"
+      },
+      "browser_capture": {
+        "path": "data/raw/mayo/browser-captures/cough-in-adults-adult.json",
+        "file_sha256": "b196b5774eda096769894918348ced0e74599a981d7842ea8b0117195b741193"
+      },
+      "legacy_snapshot": {
+        "path": "data/mayo/raw/cough-in-adults-adult.json",
+        "file_sha256": "321e0f6084b59314d93896edf3ebbd7ccbf2050ca8838343f0a4da50eb658ec7"
+      },
+      "legacy_parsed_record": {
+        "path": "data/mayo/documents/cough-in-adults-adult.json",
+        "file_sha256": "643d3183bc1301b107d682f8aeb5e3315a2281849bffa20acd870cb80c25e569",
+        "canonical_url": "https://www.mayoclinic.org/symptom-checker/cough-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T01:54:18.371000Z",
+        "acquisition": "browser_snapshot",
+        "parser_version": "mayo-1",
+        "content_sha256": "5736abf1dd67b53281b6596603aafb89cdb71ee3f09ed6542041a7728cb1e2c4",
+        "factor_group_count": 4,
+        "factor_option_count": 21,
+        "lineage_to_full_raw_archive": "not_established_predates_full_raw_archive"
+      },
+      "rights_review_status": "pending_permission_and_manual_review",
+      "permission_reference": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision_evidence": null,
+      "allowed_uses": [],
+      "retention_decision": "pending"
+    },
+    {
+      "requested_url": "https://www.mayoclinic.org/symptom-checker/diarrhea-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult",
+      "raw_archive": {
+        "path": "data/raw/mayo/diarrhea-in-adults-adult.html.gz",
+        "metadata_path": "data/raw/mayo/diarrhea-in-adults-adult.metadata.json",
+        "final_url": "https://www.mayoclinic.org/symptom-checker/diarrhea-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T22:52:25.643000+00:00",
+        "acquisition": "browser_dom",
+        "content_scope": "full_document",
+        "content_length": 607338,
+        "decompressed_html_sha256": "d130f04c9114dfb1a2d40e19f2c5a602c58e5fbc07221bd3d30b9d03f70b97cc",
+        "file_sha256": "e86a0111d0f7dc9ab1250339df4610b00afcfa904410a876a64cbe6c55fa5d49",
+        "metadata_file_sha256": "a5eb864a42eddfe367393bf9c6191ccb6fa9b2698b03b58c20c246fe494c2bd4",
+        "integrity_status": "verified"
+      },
+      "browser_capture": {
+        "path": "data/raw/mayo/browser-captures/diarrhea-in-adults-adult.json",
+        "file_sha256": "847ccb3d54c93915d7b895cc172396458a018a41339ac26597e24b4f4c594aec"
+      },
+      "legacy_snapshot": {
+        "path": "data/mayo/raw/diarrhea-in-adults-adult.json",
+        "file_sha256": "1685b2d3804173ecfb880dce9abe0d1597d79d12f64cffa91dd52336f55545d8"
+      },
+      "legacy_parsed_record": {
+        "path": "data/mayo/documents/diarrhea-in-adults-adult.json",
+        "file_sha256": "28c8bee206b279d4d073eec9bae7af6dd82acda8e041326825d70526922f302f",
+        "canonical_url": "https://www.mayoclinic.org/symptom-checker/diarrhea-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T01:54:18.776000Z",
+        "acquisition": "browser_snapshot",
+        "parser_version": "mayo-1",
+        "content_sha256": "3b2e2d038b8760318c86db0d02311d6e95ea96b61f52ea697d2311266fb3e92f",
+        "factor_group_count": 5,
+        "factor_option_count": 18,
+        "lineage_to_full_raw_archive": "not_established_predates_full_raw_archive"
+      },
+      "rights_review_status": "pending_permission_and_manual_review",
+      "permission_reference": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision_evidence": null,
+      "allowed_uses": [],
+      "retention_decision": "pending"
+    },
+    {
+      "requested_url": "https://www.mayoclinic.org/symptom-checker/difficulty-swallowing-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult",
+      "raw_archive": {
+        "path": "data/raw/mayo/difficulty-swallowing-in-adults-adult.html.gz",
+        "metadata_path": "data/raw/mayo/difficulty-swallowing-in-adults-adult.metadata.json",
+        "final_url": "https://www.mayoclinic.org/symptom-checker/difficulty-swallowing-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T22:52:25.910000+00:00",
+        "acquisition": "browser_dom",
+        "content_scope": "full_document",
+        "content_length": 594405,
+        "decompressed_html_sha256": "c09a675207b5f248f408dd3791be13e3fd8e4169f451b218815bbf860dd3b8e6",
+        "file_sha256": "363d744fc448d21c788545cbc71869cd7e0baed9deccb4d4e14861d68b393c47",
+        "metadata_file_sha256": "8c6b93f9e52b9309b30857238a36116a08da826bd7113302e35f00874193b002",
+        "integrity_status": "verified"
+      },
+      "browser_capture": {
+        "path": "data/raw/mayo/browser-captures/difficulty-swallowing-in-adults-adult.json",
+        "file_sha256": "d92a4b41d580d079f6b9bdf65fe6a9bf889d0ac74d34d10a340b6e623792c77f"
+      },
+      "legacy_snapshot": {
+        "path": "data/mayo/raw/difficulty-swallowing-in-adults-adult.json",
+        "file_sha256": "63edb59b882d4058591fd2ec1754b4b1ee2daa7ee2a1d07a377acc79cc3657a8"
+      },
+      "legacy_parsed_record": {
+        "path": "data/mayo/documents/difficulty-swallowing-in-adults-adult.json",
+        "file_sha256": "75313bb7f88202810cd57fe115e070dbbc228e2af868c302ff0c68c5058e1087",
+        "canonical_url": "https://www.mayoclinic.org/symptom-checker/difficulty-swallowing-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T01:54:19.202000Z",
+        "acquisition": "browser_snapshot",
+        "parser_version": "mayo-1",
+        "content_sha256": "96696a6d69e84d4d984cff168703ba627c601a1f325ac5e4676ec6ed757a8048",
+        "factor_group_count": 3,
+        "factor_option_count": 20,
+        "lineage_to_full_raw_archive": "not_established_predates_full_raw_archive"
+      },
+      "rights_review_status": "pending_permission_and_manual_review",
+      "permission_reference": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision_evidence": null,
+      "allowed_uses": [],
+      "retention_decision": "pending"
+    },
+    {
+      "requested_url": "https://www.mayoclinic.org/symptom-checker/dizziness-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult",
+      "raw_archive": {
+        "path": "data/raw/mayo/dizziness-in-adults-adult.html.gz",
+        "metadata_path": "data/raw/mayo/dizziness-in-adults-adult.metadata.json",
+        "final_url": "https://www.mayoclinic.org/symptom-checker/dizziness-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T22:52:26.553000+00:00",
+        "acquisition": "browser_dom",
+        "content_scope": "full_document",
+        "content_length": 614947,
+        "decompressed_html_sha256": "142545e12e21d5d2437e1d1e334be5d9d083e680cfe374a27e1fd0e60450c177",
+        "file_sha256": "ef01c6aa7893aca948b5506227c2c1d7b0ac640609312e90649c8ffc7b4ad412",
+        "metadata_file_sha256": "91adc4ff49525c30317e0f4929ac88dec32da43d27a3507c763ac849add3cbc5",
+        "integrity_status": "verified"
+      },
+      "browser_capture": {
+        "path": "data/raw/mayo/browser-captures/dizziness-in-adults-adult.json",
+        "file_sha256": "e300ca2c12e43c3e5967146ff73b29255033e25a0f0da39313642872011d0a59"
+      },
+      "legacy_snapshot": {
+        "path": "data/mayo/raw/dizziness-in-adults-adult.json",
+        "file_sha256": "04da77f95f4e337e1b31ce4054209ae4a13b30eceb74c6892741463b68e86762"
+      },
+      "legacy_parsed_record": {
+        "path": "data/mayo/documents/dizziness-in-adults-adult.json",
+        "file_sha256": "309395532f88c27ce7fe2fbb4ee096ac0296ababbd6194f5df8c7c1f5015e86d",
+        "canonical_url": "https://www.mayoclinic.org/symptom-checker/dizziness-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T01:54:19.639000Z",
+        "acquisition": "browser_snapshot",
+        "parser_version": "mayo-1",
+        "content_sha256": "74e73322cb54a3ae7ae679700487b5229f5fd492040878b85bcba0508a942db9",
+        "factor_group_count": 4,
+        "factor_option_count": 23,
+        "lineage_to_full_raw_archive": "not_established_predates_full_raw_archive"
+      },
+      "rights_review_status": "pending_permission_and_manual_review",
+      "permission_reference": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision_evidence": null,
+      "allowed_uses": [],
+      "retention_decision": "pending"
+    },
+    {
+      "requested_url": "https://www.mayoclinic.org/symptom-checker/eye-discomfort-and-redness-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult",
+      "raw_archive": {
+        "path": "data/raw/mayo/eye-discomfort-and-redness-in-adults-adult.html.gz",
+        "metadata_path": "data/raw/mayo/eye-discomfort-and-redness-in-adults-adult.metadata.json",
+        "final_url": "https://www.mayoclinic.org/symptom-checker/eye-discomfort-and-redness-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T22:52:26.856000+00:00",
+        "acquisition": "browser_dom",
+        "content_scope": "full_document",
+        "content_length": 597673,
+        "decompressed_html_sha256": "b8ce5492499c0d1d21df45ead92bf4c885f576c8a7d086c06fd8f2f06fe31112",
+        "file_sha256": "88dc1b154da3ff115ec55df57e9c866aaed06683260466d45e71e6f7e054451f",
+        "metadata_file_sha256": "3d261f31befbaeb0c8a3cb3f5046da6adf0c3e353da1500f5783eeb8e83cfdf3",
+        "integrity_status": "verified"
+      },
+      "browser_capture": {
+        "path": "data/raw/mayo/browser-captures/eye-discomfort-and-redness-in-adults-adult.json",
+        "file_sha256": "5b865369efba9182513cbec782e36902011e8c3fdfd766487363e9f471607db7"
+      },
+      "legacy_snapshot": {
+        "path": "data/mayo/raw/eye-discomfort-and-redness-in-adults-adult.json",
+        "file_sha256": "62fad2c8869dc86c09b802a90656e9ec870710a231e35ec87d605498e46aa239"
+      },
+      "legacy_parsed_record": {
+        "path": "data/mayo/documents/eye-discomfort-and-redness-in-adults-adult.json",
+        "file_sha256": "3978203204ae38bdfa1e5963eda0063ed8d82abd21de75545e435fa542e36690",
+        "canonical_url": "https://www.mayoclinic.org/symptom-checker/eye-discomfort-and-redness-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T01:54:20.102000Z",
+        "acquisition": "browser_snapshot",
+        "parser_version": "mayo-1",
+        "content_sha256": "7a59fd4734980b5b4158dbfe6e5b299005bdf1b48797ab33f65fd4340241375f",
+        "factor_group_count": 6,
+        "factor_option_count": 22,
+        "lineage_to_full_raw_archive": "not_established_predates_full_raw_archive"
+      },
+      "rights_review_status": "pending_permission_and_manual_review",
+      "permission_reference": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision_evidence": null,
+      "allowed_uses": [],
+      "retention_decision": "pending"
+    },
+    {
+      "requested_url": "https://www.mayoclinic.org/symptom-checker/eye-problems-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult",
+      "raw_archive": {
+        "path": "data/raw/mayo/eye-problems-in-adults-adult.html.gz",
+        "metadata_path": "data/raw/mayo/eye-problems-in-adults-adult.metadata.json",
+        "final_url": "https://www.mayoclinic.org/symptom-checker/eye-problems-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T22:52:27.197000+00:00",
+        "acquisition": "browser_dom",
+        "content_scope": "full_document",
+        "content_length": 612453,
+        "decompressed_html_sha256": "e374b4537b6c82544c8591541f84316f52a31760d074984a99e68ef069381c78",
+        "file_sha256": "0518b9c16073f276f73328fd1cc87bd0f09f3cc90ee580938bc7ddf71b749ae7",
+        "metadata_file_sha256": "0c7fb2f5322418dc7934218b7320ee99cba9260d487e2f2ad301e35c450330a2",
+        "integrity_status": "verified"
+      },
+      "browser_capture": {
+        "path": "data/raw/mayo/browser-captures/eye-problems-in-adults-adult.json",
+        "file_sha256": "aeae58b57ef0ad025b12dc550d46e489a7fb999ca82750a1b6388d5789c60353"
+      },
+      "legacy_snapshot": {
+        "path": "data/mayo/raw/eye-problems-in-adults-adult.json",
+        "file_sha256": "f40d6ebd6306f106a5b8d321a2c664efa435484dbc0a6ee4f53b5c3110ad1d7c"
+      },
+      "legacy_parsed_record": {
+        "path": "data/mayo/documents/eye-problems-in-adults-adult.json",
+        "file_sha256": "6526d2ad9cb183b3a165fb5fa2a6f7dda1f3d845616a247ca6640322747345e4",
+        "canonical_url": "https://www.mayoclinic.org/symptom-checker/eye-problems-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T01:54:20.341000Z",
+        "acquisition": "browser_snapshot",
+        "parser_version": "mayo-1",
+        "content_sha256": "dcea96d6b4c554389064609e36ac44842030f644dc70e2499635a5b3b9cb20e9",
+        "factor_group_count": 6,
+        "factor_option_count": 42,
+        "lineage_to_full_raw_archive": "not_established_predates_full_raw_archive"
+      },
+      "rights_review_status": "pending_permission_and_manual_review",
+      "permission_reference": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision_evidence": null,
+      "allowed_uses": [],
+      "retention_decision": "pending"
+    },
+    {
+      "requested_url": "https://www.mayoclinic.org/symptom-checker/foot-pain-or-ankle-pain-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult",
+      "raw_archive": {
+        "path": "data/raw/mayo/foot-pain-or-ankle-pain-in-adults-adult.html.gz",
+        "metadata_path": "data/raw/mayo/foot-pain-or-ankle-pain-in-adults-adult.metadata.json",
+        "final_url": "https://www.mayoclinic.org/symptom-checker/foot-pain-or-ankle-pain-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T22:52:27.573000+00:00",
+        "acquisition": "browser_dom",
+        "content_scope": "full_document",
+        "content_length": 611407,
+        "decompressed_html_sha256": "0d45c3a05147600d97f21e31ca8b1fe484c1a3065502a9296f4e79f0b21d0c5f",
+        "file_sha256": "32677abb5739e0fde8c468e5d8a5d0f14b6e882e62d4c24fb07236e958697e1d",
+        "metadata_file_sha256": "5e78015122a7f6a6516ec8bcc53c523e7d086160881d26fde4c2087ab530743f",
+        "integrity_status": "verified"
+      },
+      "browser_capture": {
+        "path": "data/raw/mayo/browser-captures/foot-pain-or-ankle-pain-in-adults-adult.json",
+        "file_sha256": "cf82e4240b04e593bd305f8d6984f7c12037ea6173784b37f4aef8a29c6b8ab6"
+      },
+      "legacy_snapshot": {
+        "path": "data/mayo/raw/foot-pain-or-ankle-pain-in-adults-adult.json",
+        "file_sha256": "3df66cd25c8e09d0eb356020536a0d6096aed10bc0b67d652b79784256312928"
+      },
+      "legacy_parsed_record": {
+        "path": "data/mayo/documents/foot-pain-or-ankle-pain-in-adults-adult.json",
+        "file_sha256": "5f5a81102e4d66734743065217b3c0bcc2a156adaef94fa66f4f99d79aa41623",
+        "canonical_url": "https://www.mayoclinic.org/symptom-checker/foot-pain-or-ankle-pain-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T01:54:20.976000Z",
+        "acquisition": "browser_snapshot",
+        "parser_version": "mayo-1",
+        "content_sha256": "d1592bac651a9a440563d8b288b785c6b6ecfed2f672d011c8e3790756f5a7d9",
+        "factor_group_count": 3,
+        "factor_option_count": 25,
+        "lineage_to_full_raw_archive": "not_established_predates_full_raw_archive"
+      },
+      "rights_review_status": "pending_permission_and_manual_review",
+      "permission_reference": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision_evidence": null,
+      "allowed_uses": [],
+      "retention_decision": "pending"
+    },
+    {
+      "requested_url": "https://www.mayoclinic.org/symptom-checker/foot-swelling-or-leg-swelling-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult",
+      "raw_archive": {
+        "path": "data/raw/mayo/foot-swelling-or-leg-swelling-in-adults-adult.html.gz",
+        "metadata_path": "data/raw/mayo/foot-swelling-or-leg-swelling-in-adults-adult.metadata.json",
+        "final_url": "https://www.mayoclinic.org/symptom-checker/foot-swelling-or-leg-swelling-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T22:52:27.863000+00:00",
+        "acquisition": "browser_dom",
+        "content_scope": "full_document",
+        "content_length": 603633,
+        "decompressed_html_sha256": "de968daf89b8a675887ede76c71516d7947ce8bd148c3f73eed0165a46226ad4",
+        "file_sha256": "de1f7aafff455568834444dbb5a62a8ff24e0aa5f609985e09a40628c3791bc1",
+        "metadata_file_sha256": "58d38dffe03c1b3e006c620ca3190508e937084d9531f97ddb8614c410002ae1",
+        "integrity_status": "verified"
+      },
+      "browser_capture": {
+        "path": "data/raw/mayo/browser-captures/foot-swelling-or-leg-swelling-in-adults-adult.json",
+        "file_sha256": "d68c5bdb01831dcebba69bfebc831aa86cd75db43abb94636f63150bdc277fb7"
+      },
+      "legacy_snapshot": {
+        "path": "data/mayo/raw/foot-swelling-or-leg-swelling-in-adults-adult.json",
+        "file_sha256": "bbedc4f9c69ee9431f5b7fadabf215c5b237ac3d84e7941f0258e0849b7e8e0d"
+      },
+      "legacy_parsed_record": {
+        "path": "data/mayo/documents/foot-swelling-or-leg-swelling-in-adults-adult.json",
+        "file_sha256": "c41a86a7b0a8ade2cfafa6ea010debc84a77aef6a3f0c27f4369b7ac5e46ef94",
+        "canonical_url": "https://www.mayoclinic.org/symptom-checker/foot-swelling-or-leg-swelling-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T01:54:21.405000Z",
+        "acquisition": "browser_snapshot",
+        "parser_version": "mayo-1",
+        "content_sha256": "84347faeea943b220ba0ccc1eb12c3444474a826ec6225e884ae9bcd214fb066",
+        "factor_group_count": 6,
+        "factor_option_count": 30,
+        "lineage_to_full_raw_archive": "not_established_predates_full_raw_archive"
+      },
+      "rights_review_status": "pending_permission_and_manual_review",
+      "permission_reference": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision_evidence": null,
+      "allowed_uses": [],
+      "retention_decision": "pending"
+    },
+    {
+      "requested_url": "https://www.mayoclinic.org/symptom-checker/headaches-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult",
+      "raw_archive": {
+        "path": "data/raw/mayo/headaches-in-adults-adult.html.gz",
+        "metadata_path": "data/raw/mayo/headaches-in-adults-adult.metadata.json",
+        "final_url": "https://www.mayoclinic.org/symptom-checker/headaches-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T22:52:28.135000+00:00",
+        "acquisition": "browser_dom",
+        "content_scope": "full_document",
+        "content_length": 630800,
+        "decompressed_html_sha256": "bd31c8a07389276965f790d2c608a41ba4f47ed004011a1967bcd279f4ab93de",
+        "file_sha256": "efbca5a69a32e09488506a56aa74098da55a7a9e5419517c4fde07a1214cc8de",
+        "metadata_file_sha256": "a65f8261817216d43d0d1f1129aacad445f71d6c196faa248f85a759bc8cba23",
+        "integrity_status": "verified"
+      },
+      "browser_capture": {
+        "path": "data/raw/mayo/browser-captures/headaches-in-adults-adult.json",
+        "file_sha256": "da3e4d0d0288c9aa541c1ad2201b2a49d82c626cbb636c54b22beaba85a22951"
+      },
+      "legacy_snapshot": {
+        "path": "data/mayo/raw/headaches-in-adults-adult.json",
+        "file_sha256": "b6879c71c2456ed61909ac647bf5678c8a0fde7d304d5a5515c4924fbf64b128"
+      },
+      "legacy_parsed_record": {
+        "path": "data/mayo/documents/headaches-in-adults-adult.json",
+        "file_sha256": "d2299a87b97c438a7dc9907089cd195dbd70e6cc481aa3d72c2efacee4c75805",
+        "canonical_url": "https://www.mayoclinic.org/symptom-checker/headaches-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T01:54:55.018000Z",
+        "acquisition": "browser_snapshot",
+        "parser_version": "mayo-1",
+        "content_sha256": "dc2266cdb48323febd0ea8311ad15fa8d780b325a65772290d04d8aa3ee29a0e",
+        "factor_group_count": 8,
+        "factor_option_count": 48,
+        "lineage_to_full_raw_archive": "not_established_predates_full_raw_archive"
+      },
+      "rights_review_status": "pending_permission_and_manual_review",
+      "permission_reference": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision_evidence": null,
+      "allowed_uses": [],
+      "retention_decision": "pending"
+    },
+    {
+      "requested_url": "https://www.mayoclinic.org/symptom-checker/heart-palpitations-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult",
+      "raw_archive": {
+        "path": "data/raw/mayo/heart-palpitations-in-adults-adult.html.gz",
+        "metadata_path": "data/raw/mayo/heart-palpitations-in-adults-adult.metadata.json",
+        "final_url": "https://www.mayoclinic.org/symptom-checker/heart-palpitations-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T22:52:28.410000+00:00",
+        "acquisition": "browser_dom",
+        "content_scope": "full_document",
+        "content_length": 595522,
+        "decompressed_html_sha256": "0ead0ece46f9de7c6d629f8bb2aac98d585e5d632b46722ce24bcc640c643759",
+        "file_sha256": "5acc96bcf443c7c15e8f0711773e305b6b3f8a8631aa1df0442e32d33ef9ae16",
+        "metadata_file_sha256": "cfae78ed062997120e18cbfb07a3e547f380947f1bff61a75b0d5de38c0c70c6",
+        "integrity_status": "verified"
+      },
+      "browser_capture": {
+        "path": "data/raw/mayo/browser-captures/heart-palpitations-in-adults-adult.json",
+        "file_sha256": "39129fc16b24ec7e26eaf85f829b3755d67cf628fbd6bd379188323ab4a71372"
+      },
+      "legacy_snapshot": {
+        "path": "data/mayo/raw/heart-palpitations-in-adults-adult.json",
+        "file_sha256": "1dee1994420fe8145c9bb11a11edb1264de335e5bbd6bf4ceddedb52625c17d4"
+      },
+      "legacy_parsed_record": {
+        "path": "data/mayo/documents/heart-palpitations-in-adults-adult.json",
+        "file_sha256": "0dea81246eaf2865766b677367cf5f0de5e9633572eb807759cb9d74b4db121d",
+        "canonical_url": "https://www.mayoclinic.org/symptom-checker/heart-palpitations-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T01:54:55.515000Z",
+        "acquisition": "browser_snapshot",
+        "parser_version": "mayo-1",
+        "content_sha256": "f204ad58a4d2d9b3f9ba3fbeed94119b7348de63c351cdffa28de893aba86734",
+        "factor_group_count": 4,
+        "factor_option_count": 21,
+        "lineage_to_full_raw_archive": "not_established_predates_full_raw_archive"
+      },
+      "rights_review_status": "pending_permission_and_manual_review",
+      "permission_reference": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision_evidence": null,
+      "allowed_uses": [],
+      "retention_decision": "pending"
+    },
+    {
+      "requested_url": "https://www.mayoclinic.org/symptom-checker/hip-pain-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult",
+      "raw_archive": {
+        "path": "data/raw/mayo/hip-pain-in-adults-adult.html.gz",
+        "metadata_path": "data/raw/mayo/hip-pain-in-adults-adult.metadata.json",
+        "final_url": "https://www.mayoclinic.org/symptom-checker/hip-pain-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T22:52:28.695000+00:00",
+        "acquisition": "browser_dom",
+        "content_scope": "full_document",
+        "content_length": 603958,
+        "decompressed_html_sha256": "aa9d96930704e958dacd17a57a998f20a7233c5bb51d425773754129d3e8358c",
+        "file_sha256": "8f821504297626dbd297390ae2f87a21e80c832d00d3f17ce5859a6670921a6b",
+        "metadata_file_sha256": "ee859c48e8de5f30eb173f841f76369cb428c9d56b3a5da72f6559f30bd0834c",
+        "integrity_status": "verified"
+      },
+      "browser_capture": {
+        "path": "data/raw/mayo/browser-captures/hip-pain-in-adults-adult.json",
+        "file_sha256": "091edad77aefe7978c645729da5b30fcc2bad39221f5548d3b260e6ae0da971d"
+      },
+      "legacy_snapshot": {
+        "path": "data/mayo/raw/hip-pain-in-adults-adult.json",
+        "file_sha256": "c93514dae7f7d37a001be98e84b6df51548eb3b7023826ad157b607ebdfd7952"
+      },
+      "legacy_parsed_record": {
+        "path": "data/mayo/documents/hip-pain-in-adults-adult.json",
+        "file_sha256": "3b3f3304e8fe3b8099300388f3b54c3fabddf1796bc945c252b7e16c02ab9910",
+        "canonical_url": "https://www.mayoclinic.org/symptom-checker/hip-pain-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T01:54:56.033000Z",
+        "acquisition": "browser_snapshot",
+        "parser_version": "mayo-1",
+        "content_sha256": "bae4b785a91536876eb16fce4fedac900e6c42874ad6213f9607d223ab55cc81",
+        "factor_group_count": 3,
+        "factor_option_count": 15,
+        "lineage_to_full_raw_archive": "not_established_predates_full_raw_archive"
+      },
+      "rights_review_status": "pending_permission_and_manual_review",
+      "permission_reference": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision_evidence": null,
+      "allowed_uses": [],
+      "retention_decision": "pending"
+    },
+    {
+      "requested_url": "https://www.mayoclinic.org/symptom-checker/knee-pain-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult",
+      "raw_archive": {
+        "path": "data/raw/mayo/knee-pain-in-adults-adult.html.gz",
+        "metadata_path": "data/raw/mayo/knee-pain-in-adults-adult.metadata.json",
+        "final_url": "https://www.mayoclinic.org/symptom-checker/knee-pain-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T22:52:35.874000+00:00",
+        "acquisition": "browser_dom",
+        "content_scope": "full_document",
+        "content_length": 613763,
+        "decompressed_html_sha256": "96106cbae594efba7d2feb6996727a7fe3958acf56eafcaf57260357addfe0fa",
+        "file_sha256": "27b9e865a064b83c4d0819ecbd0d5360862bc7d26d8457f5cd07d5080dc7246e",
+        "metadata_file_sha256": "c7251f89f5037db0010cc099f4b4161363267011020727dc0ac891b53f88278e",
+        "integrity_status": "verified"
+      },
+      "browser_capture": {
+        "path": "data/raw/mayo/browser-captures/knee-pain-in-adults-adult.json",
+        "file_sha256": "68114908372b11586a0f88130d089e9493f4c3ea8419a3d3671c03e583c79419"
+      },
+      "legacy_snapshot": {
+        "path": "data/mayo/raw/knee-pain-in-adults-adult.json",
+        "file_sha256": "b0615500a537a8cd70d266b1c7ec74b3f5586386392fa459d344063225c307cc"
+      },
+      "legacy_parsed_record": {
+        "path": "data/mayo/documents/knee-pain-in-adults-adult.json",
+        "file_sha256": "3e35f5d5263a8a817c84a77f54942393e79aab8ff59c83b69c4d527d8b7a60d2",
+        "canonical_url": "https://www.mayoclinic.org/symptom-checker/knee-pain-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T01:54:56.395000Z",
+        "acquisition": "browser_snapshot",
+        "parser_version": "mayo-1",
+        "content_sha256": "c335894585519ae0240dd5ca27bccc9834895611b7088754329abb7ec23cfe0e",
+        "factor_group_count": 5,
+        "factor_option_count": 27,
+        "lineage_to_full_raw_archive": "not_established_predates_full_raw_archive"
+      },
+      "rights_review_status": "pending_permission_and_manual_review",
+      "permission_reference": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision_evidence": null,
+      "allowed_uses": [],
+      "retention_decision": "pending"
+    },
+    {
+      "requested_url": "https://www.mayoclinic.org/symptom-checker/low-back-pain-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult",
+      "raw_archive": {
+        "path": "data/raw/mayo/low-back-pain-in-adults-adult.html.gz",
+        "metadata_path": "data/raw/mayo/low-back-pain-in-adults-adult.metadata.json",
+        "final_url": "https://www.mayoclinic.org/symptom-checker/low-back-pain-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T22:52:36.273000+00:00",
+        "acquisition": "browser_dom",
+        "content_scope": "full_document",
+        "content_length": 608769,
+        "decompressed_html_sha256": "d650c11e1835f343df9268132e0e1050c912907999dd4dbe1d855ccae2a2b704",
+        "file_sha256": "37d41736e2cced1e69e3744e0e79068946a6e2b5a3de702efda1eedda269e5f6",
+        "metadata_file_sha256": "1d3a5321103c4a762b48f519eabb1dbba09803a975c14380b2eda3361778991b",
+        "integrity_status": "verified"
+      },
+      "browser_capture": {
+        "path": "data/raw/mayo/browser-captures/low-back-pain-in-adults-adult.json",
+        "file_sha256": "8722f07cb13330a1ed281833e08468d61b5dfa00def9cf9d18bba8e002f09781"
+      },
+      "legacy_snapshot": {
+        "path": "data/mayo/raw/low-back-pain-in-adults-adult.json",
+        "file_sha256": "fcae362a0a337a6eb13d6ed32df49c2993017fd3a5e28f512196271f14a330fb"
+      },
+      "legacy_parsed_record": {
+        "path": "data/mayo/documents/low-back-pain-in-adults-adult.json",
+        "file_sha256": "9546d9c167f319b623869e3d572dcfeb27a0e079aa87342ceb70865f3890fd71",
+        "canonical_url": "https://www.mayoclinic.org/symptom-checker/low-back-pain-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T01:54:56.892000Z",
+        "acquisition": "browser_snapshot",
+        "parser_version": "mayo-1",
+        "content_sha256": "99ef239860c99ec9275751e74d6b3952b6faec4fb684598d0356430d1c802d2f",
+        "factor_group_count": 4,
+        "factor_option_count": 20,
+        "lineage_to_full_raw_archive": "not_established_predates_full_raw_archive"
+      },
+      "rights_review_status": "pending_permission_and_manual_review",
+      "permission_reference": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision_evidence": null,
+      "allowed_uses": [],
+      "retention_decision": "pending"
+    },
+    {
+      "requested_url": "https://www.mayoclinic.org/symptom-checker/nasal-congestion-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult",
+      "raw_archive": {
+        "path": "data/raw/mayo/nasal-congestion-in-adults-adult.html.gz",
+        "metadata_path": "data/raw/mayo/nasal-congestion-in-adults-adult.metadata.json",
+        "final_url": "https://www.mayoclinic.org/symptom-checker/nasal-congestion-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T22:52:36.558000+00:00",
+        "acquisition": "browser_dom",
+        "content_scope": "full_document",
+        "content_length": 607412,
+        "decompressed_html_sha256": "2062fb22cc91e822200a79edba59887c288f9e8d98305e66b3191e890cae11bb",
+        "file_sha256": "77326cff28f42a519203648a94156941221141ba6d21ec2dd5f4e0717c0f5e1d",
+        "metadata_file_sha256": "5181c9fde05b0d25dfe03af69b4038f7ff2b2c7a60210f9f8c815c3e13b3687a",
+        "integrity_status": "verified"
+      },
+      "browser_capture": {
+        "path": "data/raw/mayo/browser-captures/nasal-congestion-in-adults-adult.json",
+        "file_sha256": "cff8d2bdcfa33a9140f07a84580057af82f82e410887d4f727034b807bf07418"
+      },
+      "legacy_snapshot": {
+        "path": "data/mayo/raw/nasal-congestion-in-adults-adult.json",
+        "file_sha256": "eca18ce00b1cb7dab5df878bee2f534df8d4cc786422ab1b32bd4f394c79d15e"
+      },
+      "legacy_parsed_record": {
+        "path": "data/mayo/documents/nasal-congestion-in-adults-adult.json",
+        "file_sha256": "fe0b17a69c8529c3bf8fb98e29bb017ad662d88e551c6ef3c18fb26fcb0136b5",
+        "canonical_url": "https://www.mayoclinic.org/symptom-checker/nasal-congestion-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T01:54:57.465000Z",
+        "acquisition": "browser_snapshot",
+        "parser_version": "mayo-1",
+        "content_sha256": "92f279eb96f3b4b36e8891d456eb4b7d2e54de25f1aeefa908da614cdb93eac3",
+        "factor_group_count": 3,
+        "factor_option_count": 20,
+        "lineage_to_full_raw_archive": "not_established_predates_full_raw_archive"
+      },
+      "rights_review_status": "pending_permission_and_manual_review",
+      "permission_reference": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision_evidence": null,
+      "allowed_uses": [],
+      "retention_decision": "pending"
+    },
+    {
+      "requested_url": "https://www.mayoclinic.org/symptom-checker/nausea-or-vomiting-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult",
+      "raw_archive": {
+        "path": "data/raw/mayo/nausea-or-vomiting-in-adults-adult.html.gz",
+        "metadata_path": "data/raw/mayo/nausea-or-vomiting-in-adults-adult.metadata.json",
+        "final_url": "https://www.mayoclinic.org/symptom-checker/nausea-or-vomiting-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T22:52:36.884000+00:00",
+        "acquisition": "browser_dom",
+        "content_scope": "full_document",
+        "content_length": 611313,
+        "decompressed_html_sha256": "5c8a5295bab1472e10a96fa94e205dbd9c8d303648c39bc39b53584ad07c6569",
+        "file_sha256": "e90a63a3a4378c5005091daa5f4731d8b23c77f7da4c1fcf7243169df93859ac",
+        "metadata_file_sha256": "e2ad5ed537ebd1dda6093402281ac1a2d286785c84e2334d3b7a83649b338d79",
+        "integrity_status": "verified"
+      },
+      "browser_capture": {
+        "path": "data/raw/mayo/browser-captures/nausea-or-vomiting-in-adults-adult.json",
+        "file_sha256": "316ee1ed52159e54ceb7ca0c02c2bfcbc9c34d8411d8c498686734bb220e76e2"
+      },
+      "legacy_snapshot": {
+        "path": "data/mayo/raw/nausea-or-vomiting-in-adults-adult.json",
+        "file_sha256": "b2490c9323c32a5c54c5d1a5f3ca557a0a21597b2de0905971879f2668075746"
+      },
+      "legacy_parsed_record": {
+        "path": "data/mayo/documents/nausea-or-vomiting-in-adults-adult.json",
+        "file_sha256": "f2fc734bb74c04d01ddb8f75dfc949b836bbdeb79fa3f115c73557f9c31df719",
+        "canonical_url": "https://www.mayoclinic.org/symptom-checker/nausea-or-vomiting-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T01:54:57.963000Z",
+        "acquisition": "browser_snapshot",
+        "parser_version": "mayo-1",
+        "content_sha256": "1b0ce3d3f010d112d1e8fc5dcd302204595351de765a924be90ea5fb6c227db6",
+        "factor_group_count": 3,
+        "factor_option_count": 24,
+        "lineage_to_full_raw_archive": "not_established_predates_full_raw_archive"
+      },
+      "rights_review_status": "pending_permission_and_manual_review",
+      "permission_reference": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision_evidence": null,
+      "allowed_uses": [],
+      "retention_decision": "pending"
+    },
+    {
+      "requested_url": "https://www.mayoclinic.org/symptom-checker/neck-pain-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult",
+      "raw_archive": {
+        "path": "data/raw/mayo/neck-pain-in-adults-adult.html.gz",
+        "metadata_path": "data/raw/mayo/neck-pain-in-adults-adult.metadata.json",
+        "final_url": "https://www.mayoclinic.org/symptom-checker/neck-pain-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T22:52:37.134000+00:00",
+        "acquisition": "browser_dom",
+        "content_scope": "full_document",
+        "content_length": 589024,
+        "decompressed_html_sha256": "ebb80b8f71066ae2a7ef06cc26bcf6af5c07b88fed15657f0732a431dc1a17a2",
+        "file_sha256": "e1d16207393a40cba6276cc72ca0a2eb2bb85c1d0081593b1453870fd64ebe75",
+        "metadata_file_sha256": "6c71f4a38ff0d0ba348febe79664e5895fc3edaec818742b12930218536251a7",
+        "integrity_status": "verified"
+      },
+      "browser_capture": {
+        "path": "data/raw/mayo/browser-captures/neck-pain-in-adults-adult.json",
+        "file_sha256": "dc04a57df0996e5e28d9382e1b89e5082115c84464312d62a5ebb61ead064368"
+      },
+      "legacy_snapshot": {
+        "path": "data/mayo/raw/neck-pain-in-adults-adult.json",
+        "file_sha256": "d169687cdad91391584b6bd32324824cd7c43cf3df8793377705d96f2fb555b3"
+      },
+      "legacy_parsed_record": {
+        "path": "data/mayo/documents/neck-pain-in-adults-adult.json",
+        "file_sha256": "1a60a4f26948362ca011929f17a3079f08c8d8d827d2b9b6bb49455de6124502",
+        "canonical_url": "https://www.mayoclinic.org/symptom-checker/neck-pain-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T01:54:58.723000Z",
+        "acquisition": "browser_snapshot",
+        "parser_version": "mayo-1",
+        "content_sha256": "585e66483c5c9055b7082682bcd0f67087731c48cfb14fa179380e62dbe928f1",
+        "factor_group_count": 3,
+        "factor_option_count": 13,
+        "lineage_to_full_raw_archive": "not_established_predates_full_raw_archive"
+      },
+      "rights_review_status": "pending_permission_and_manual_review",
+      "permission_reference": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision_evidence": null,
+      "allowed_uses": [],
+      "retention_decision": "pending"
+    },
+    {
+      "requested_url": "https://www.mayoclinic.org/symptom-checker/numbness-or-tingling-in-hands-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult",
+      "raw_archive": {
+        "path": "data/raw/mayo/numbness-or-tingling-in-hands-in-adults-adult.html.gz",
+        "metadata_path": "data/raw/mayo/numbness-or-tingling-in-hands-in-adults-adult.metadata.json",
+        "final_url": "https://www.mayoclinic.org/symptom-checker/numbness-or-tingling-in-hands-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T22:52:37.488000+00:00",
+        "acquisition": "browser_dom",
+        "content_scope": "full_document",
+        "content_length": 596696,
+        "decompressed_html_sha256": "bc6cffe657957cfe5c14589d5d6f8e0d79f3fde70f2b5b85fd62ae2239bb6b31",
+        "file_sha256": "22d80982df04b846754e7b27bab76c8214304e9c0c6afb5550df40bbc2177389",
+        "metadata_file_sha256": "0b653385f0bf17955b7ce0d7e554e538a30294f3cb34b582fc2dc47d4db1b282",
+        "integrity_status": "verified"
+      },
+      "browser_capture": {
+        "path": "data/raw/mayo/browser-captures/numbness-or-tingling-in-hands-in-adults-adult.json",
+        "file_sha256": "e28f6b198c897e9380637c1040c37fde0b97875eeaec0de3b33613c877715d2d"
+      },
+      "legacy_snapshot": {
+        "path": "data/mayo/raw/numbness-or-tingling-in-hands-in-adults-adult.json",
+        "file_sha256": "e5ccdc7d2e82063a4b1c22ce0196cb43f4138a3bc9b78b3d61c1cb1236317242"
+      },
+      "legacy_parsed_record": {
+        "path": "data/mayo/documents/numbness-or-tingling-in-hands-in-adults-adult.json",
+        "file_sha256": "5e0968860426d3927cc9413b7fc2b5a9278cb4df660e4c246ff8887611701690",
+        "canonical_url": "https://www.mayoclinic.org/symptom-checker/numbness-or-tingling-in-hands-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T01:54:58.956000Z",
+        "acquisition": "browser_snapshot",
+        "parser_version": "mayo-1",
+        "content_sha256": "d1858e31554c1221fdf43d3743ad1c9c104d26dff61e35b15812be1c175e6591",
+        "factor_group_count": 5,
+        "factor_option_count": 21,
+        "lineage_to_full_raw_archive": "not_established_predates_full_raw_archive"
+      },
+      "rights_review_status": "pending_permission_and_manual_review",
+      "permission_reference": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision_evidence": null,
+      "allowed_uses": [],
+      "retention_decision": "pending"
+    },
+    {
+      "requested_url": "https://www.mayoclinic.org/symptom-checker/pelvic-pain-in-adult-females-adult/related-factors/itt-20009075",
+      "population": "adult",
+      "raw_archive": {
+        "path": "data/raw/mayo/pelvic-pain-in-adult-females-adult.html.gz",
+        "metadata_path": "data/raw/mayo/pelvic-pain-in-adult-females-adult.metadata.json",
+        "final_url": "https://www.mayoclinic.org/symptom-checker/pelvic-pain-in-adult-females-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T22:52:37.790000+00:00",
+        "acquisition": "browser_dom",
+        "content_scope": "full_document",
+        "content_length": 615273,
+        "decompressed_html_sha256": "886e65f3e59c2693fc6dd0800ded2c15dd2e9c1773f73606d8f7d6accc2491a2",
+        "file_sha256": "412c04594ff70120c77b86484b3ec4999012013b2322514546a2b8ed2c8cec80",
+        "metadata_file_sha256": "bba10ca2bb9cedb3e79f3bedc785e5a05d38402c1e8418524912144f5b3c0f4f",
+        "integrity_status": "verified"
+      },
+      "browser_capture": {
+        "path": "data/raw/mayo/browser-captures/pelvic-pain-in-adult-females-adult.json",
+        "file_sha256": "15317cef1e508412e821aadb75386620da4d9d9489c91fba773fdfb6b26e27a8"
+      },
+      "legacy_snapshot": {
+        "path": "data/mayo/raw/pelvic-pain-in-adult-females-adult.json",
+        "file_sha256": "be1bdcac17d648208ee81be9d2569393883e5e6089a820ad4a3615ba248d7916"
+      },
+      "legacy_parsed_record": {
+        "path": "data/mayo/documents/pelvic-pain-in-adult-females-adult.json",
+        "file_sha256": "6743585f5b85a2f987de543d5237b945bf0dfe153b72800445b516660f4a0d1c",
+        "canonical_url": "https://www.mayoclinic.org/symptom-checker/pelvic-pain-in-adult-females-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T01:54:59.219000Z",
+        "acquisition": "browser_snapshot",
+        "parser_version": "mayo-1",
+        "content_sha256": "c51c4165c9d1fb3198c368875486b84ae1dd35dbd52ca15c98b9ccaddd30f10e",
+        "factor_group_count": 3,
+        "factor_option_count": 31,
+        "lineage_to_full_raw_archive": "not_established_predates_full_raw_archive"
+      },
+      "rights_review_status": "pending_permission_and_manual_review",
+      "permission_reference": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision_evidence": null,
+      "allowed_uses": [],
+      "retention_decision": "pending"
+    },
+    {
+      "requested_url": "https://www.mayoclinic.org/symptom-checker/pelvic-pain-in-adult-males-adult/related-factors/itt-20009075",
+      "population": "adult",
+      "raw_archive": {
+        "path": "data/raw/mayo/pelvic-pain-in-adult-males-adult.html.gz",
+        "metadata_path": "data/raw/mayo/pelvic-pain-in-adult-males-adult.metadata.json",
+        "final_url": "https://www.mayoclinic.org/symptom-checker/pelvic-pain-in-adult-males-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T22:52:38.037000+00:00",
+        "acquisition": "browser_dom",
+        "content_scope": "full_document",
+        "content_length": 591704,
+        "decompressed_html_sha256": "d5b6f0b5b2d15cd7e1e7dceb63799caf446d8529a7dc3ff4a04757005d5d87b9",
+        "file_sha256": "bb333366eeb3f902fa7302472f1aab7bac78a05484dc6fc8b1611141e9ce5acb",
+        "metadata_file_sha256": "1b9ee8a3531a1557967493631594a410034cead2d503e89830784e6df279954d",
+        "integrity_status": "verified"
+      },
+      "browser_capture": {
+        "path": "data/raw/mayo/browser-captures/pelvic-pain-in-adult-males-adult.json",
+        "file_sha256": "adb6a56d2b2d82bdace6057cd313fbebe941949de59ec7eba37bf1971a8d98f2"
+      },
+      "legacy_snapshot": {
+        "path": "data/mayo/raw/pelvic-pain-in-adult-males-adult.json",
+        "file_sha256": "42bb9eb500ad2e98305733b1c6f4b886c03ff533c2d958d170613b9ebab7785e"
+      },
+      "legacy_parsed_record": {
+        "path": "data/mayo/documents/pelvic-pain-in-adult-males-adult.json",
+        "file_sha256": "8753cd3133d3584aee162dcb90f6dba8d7176eb99dc60c85a9b624874af3dc11",
+        "canonical_url": "https://www.mayoclinic.org/symptom-checker/pelvic-pain-in-adult-males-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T01:54:59.654000Z",
+        "acquisition": "browser_snapshot",
+        "parser_version": "mayo-1",
+        "content_sha256": "7e5dbd8ace1f9572383cc80b208bf8c35087a7d38741cc6d80a2185abd02434f",
+        "factor_group_count": 2,
+        "factor_option_count": 17,
+        "lineage_to_full_raw_archive": "not_established_predates_full_raw_archive"
+      },
+      "rights_review_status": "pending_permission_and_manual_review",
+      "permission_reference": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision_evidence": null,
+      "allowed_uses": [],
+      "retention_decision": "pending"
+    },
+    {
+      "requested_url": "https://www.mayoclinic.org/symptom-checker/shortness-of-breath-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult",
+      "raw_archive": {
+        "path": "data/raw/mayo/shortness-of-breath-in-adults-adult.html.gz",
+        "metadata_path": "data/raw/mayo/shortness-of-breath-in-adults-adult.metadata.json",
+        "final_url": "https://www.mayoclinic.org/symptom-checker/shortness-of-breath-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T22:52:38.500000+00:00",
+        "acquisition": "browser_dom",
+        "content_scope": "full_document",
+        "content_length": 612466,
+        "decompressed_html_sha256": "f9360651dae0b54535edb86a6550e55c20f7040c5c33fcd46eaf458c7ab0f38c",
+        "file_sha256": "2744cd4b7192337abeb4d43ccde76dc8278cd363d478ff071dcecab2d0cd038e",
+        "metadata_file_sha256": "9cafe42098bcf745c48f81af0bc9519ff538e01893ffc727d23c98a058317dbf",
+        "integrity_status": "verified"
+      },
+      "browser_capture": {
+        "path": "data/raw/mayo/browser-captures/shortness-of-breath-in-adults-adult.json",
+        "file_sha256": "94c79069cbb97aef1150b8c297de4aa111c350de99f1f5de0ded5a16abc4d49c"
+      },
+      "legacy_snapshot": {
+        "path": "data/mayo/raw/shortness-of-breath-in-adults-adult.json",
+        "file_sha256": "36eb5dcc0a914d3b5c7c1d54355860063812fa86bbe02661b7f4bd032d04ca06"
+      },
+      "legacy_parsed_record": {
+        "path": "data/mayo/documents/shortness-of-breath-in-adults-adult.json",
+        "file_sha256": "df771bee82477beb2f4d3276b37ae32669bca4c87dc8a9578f954b7e3f820269",
+        "canonical_url": "https://www.mayoclinic.org/symptom-checker/shortness-of-breath-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T01:54:59.880000Z",
+        "acquisition": "browser_snapshot",
+        "parser_version": "mayo-1",
+        "content_sha256": "9004c9b887f16df6e0243ef02564f29e51dc6ab7f8d8c9c15b1da7b9cf363dbe",
+        "factor_group_count": 4,
+        "factor_option_count": 26,
+        "lineage_to_full_raw_archive": "not_established_predates_full_raw_archive"
+      },
+      "rights_review_status": "pending_permission_and_manual_review",
+      "permission_reference": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision_evidence": null,
+      "allowed_uses": [],
+      "retention_decision": "pending"
+    },
+    {
+      "requested_url": "https://www.mayoclinic.org/symptom-checker/shoulder-pain-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult",
+      "raw_archive": {
+        "path": "data/raw/mayo/shoulder-pain-in-adults-adult.html.gz",
+        "metadata_path": "data/raw/mayo/shoulder-pain-in-adults-adult.metadata.json",
+        "final_url": "https://www.mayoclinic.org/symptom-checker/shoulder-pain-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T22:52:38.801000+00:00",
+        "acquisition": "browser_dom",
+        "content_scope": "full_document",
+        "content_length": 604400,
+        "decompressed_html_sha256": "dc214575eda02de439908d5e0fbbfa341d5d6a8ca16d9ddf7a8142e78adc36de",
+        "file_sha256": "9785749ff3521008c097559147a7c6e66deae886e0662813d954d90deb4431a8",
+        "metadata_file_sha256": "e412b2f6ca262ced28ab75c9efc0a36954f3dfb668382d5be55baf7b4528beb0",
+        "integrity_status": "verified"
+      },
+      "browser_capture": {
+        "path": "data/raw/mayo/browser-captures/shoulder-pain-in-adults-adult.json",
+        "file_sha256": "8e86530a0020994813cde6abc3eae6f7ee3e086b48c145d8186107d0e230c49e"
+      },
+      "legacy_snapshot": {
+        "path": "data/mayo/raw/shoulder-pain-in-adults-adult.json",
+        "file_sha256": "57fdb12a6256eb1fbe3f959677c052b69b93a10e9d809fc5140a1986c650c2f1"
+      },
+      "legacy_parsed_record": {
+        "path": "data/mayo/documents/shoulder-pain-in-adults-adult.json",
+        "file_sha256": "86b9bfca45aa3b1068665a0029fff36d265cec1456628697b7a28b66e9b4a7fa",
+        "canonical_url": "https://www.mayoclinic.org/symptom-checker/shoulder-pain-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T01:55:00.322000Z",
+        "acquisition": "browser_snapshot",
+        "parser_version": "mayo-1",
+        "content_sha256": "e95cc9b07dd36301f3f54728e6f14b4d5bad2c76ca59a87658bf87dc7002793b",
+        "factor_group_count": 4,
+        "factor_option_count": 15,
+        "lineage_to_full_raw_archive": "not_established_predates_full_raw_archive"
+      },
+      "rights_review_status": "pending_permission_and_manual_review",
+      "permission_reference": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision_evidence": null,
+      "allowed_uses": [],
+      "retention_decision": "pending"
+    },
+    {
+      "requested_url": "https://www.mayoclinic.org/symptom-checker/sore-throat-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult",
+      "raw_archive": {
+        "path": "data/raw/mayo/sore-throat-in-adults-adult.html.gz",
+        "metadata_path": "data/raw/mayo/sore-throat-in-adults-adult.metadata.json",
+        "final_url": "https://www.mayoclinic.org/symptom-checker/sore-throat-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T22:52:39.097000+00:00",
+        "acquisition": "browser_dom",
+        "content_scope": "full_document",
+        "content_length": 591732,
+        "decompressed_html_sha256": "93d0d8e775f0ec25baac6e41da02f9bb96f504841c03c8251d84933dd332c29b",
+        "file_sha256": "089c014e33854bfe9b62e43373db816d418bf9341c39b27b020d80451d1ebf52",
+        "metadata_file_sha256": "f1714e614e29a118e19817fc8edd11b5e05dc3cafb6b86144be1541d0607b299",
+        "integrity_status": "verified"
+      },
+      "browser_capture": {
+        "path": "data/raw/mayo/browser-captures/sore-throat-in-adults-adult.json",
+        "file_sha256": "83227b52401cb03111d2923b275ea9696f561b332aa05b3f4c154281a9ee3006"
+      },
+      "legacy_snapshot": {
+        "path": "data/mayo/raw/sore-throat-in-adults-adult.json",
+        "file_sha256": "a2113a5ddd855c1350cb5adbed86825942cb82300b9274083fe307c571a5cf69"
+      },
+      "legacy_parsed_record": {
+        "path": "data/mayo/documents/sore-throat-in-adults-adult.json",
+        "file_sha256": "c260847a89193f828cf5274d8350df3c244210c3bff64925ac5e6b386cebcc53",
+        "canonical_url": "https://www.mayoclinic.org/symptom-checker/sore-throat-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T01:55:00.906000Z",
+        "acquisition": "browser_snapshot",
+        "parser_version": "mayo-1",
+        "content_sha256": "f1860c7cd573c4d4f47463c8e15c902ee96c6ec7c56551e462867a33149b55a0",
+        "factor_group_count": 1,
+        "factor_option_count": 18,
+        "lineage_to_full_raw_archive": "not_established_predates_full_raw_archive"
+      },
+      "rights_review_status": "pending_permission_and_manual_review",
+      "permission_reference": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision_evidence": null,
+      "allowed_uses": [],
+      "retention_decision": "pending"
+    },
+    {
+      "requested_url": "https://www.mayoclinic.org/symptom-checker/urinary-problems-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult",
+      "raw_archive": {
+        "path": "data/raw/mayo/urinary-problems-in-adults-adult.html.gz",
+        "metadata_path": "data/raw/mayo/urinary-problems-in-adults-adult.metadata.json",
+        "final_url": "https://www.mayoclinic.org/symptom-checker/urinary-problems-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T22:52:39.373000+00:00",
+        "acquisition": "browser_dom",
+        "content_scope": "full_document",
+        "content_length": 613933,
+        "decompressed_html_sha256": "1ed0f1a9b214755178523b2fb346bf315e51b6fb35a2f106e14b6caf9577c5e0",
+        "file_sha256": "075fc7df523d3f22c98e60494ae75bb85250d168df164be17aeaeeeebe0bfefc",
+        "metadata_file_sha256": "a41abd29a1bd0dc0ac9bf4a63e0a28ac05ec1b9331a126dbe5acb3cd00067121",
+        "integrity_status": "verified"
+      },
+      "browser_capture": {
+        "path": "data/raw/mayo/browser-captures/urinary-problems-in-adults-adult.json",
+        "file_sha256": "1f224e1a5993eb7af496ed933b38d0b712f3fddbe7238bdcd4d9609b634ff9ff"
+      },
+      "legacy_snapshot": {
+        "path": "data/mayo/raw/urinary-problems-in-adults-adult.json",
+        "file_sha256": "5cf1003c51f87353b01f863afb0f31ac5fd306c547f21bb4c74306997e5ee217"
+      },
+      "legacy_parsed_record": {
+        "path": "data/mayo/documents/urinary-problems-in-adults-adult.json",
+        "file_sha256": "48fc3bb944cdcd62d86593284e0558a1dedf48702e000ae0bd8b7ffdfbc68731",
+        "canonical_url": "https://www.mayoclinic.org/symptom-checker/urinary-problems-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T01:55:01.338000Z",
+        "acquisition": "browser_snapshot",
+        "parser_version": "mayo-1",
+        "content_sha256": "2946899d6039c4510d4369826db76bd3d8b9d39ee28fe5c3d31379415fc25e5b",
+        "factor_group_count": 4,
+        "factor_option_count": 28,
+        "lineage_to_full_raw_archive": "not_established_predates_full_raw_archive"
+      },
+      "rights_review_status": "pending_permission_and_manual_review",
+      "permission_reference": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision_evidence": null,
+      "allowed_uses": [],
+      "retention_decision": "pending"
+    },
+    {
+      "requested_url": "https://www.mayoclinic.org/symptom-checker/wheezing-in-adults-adult/related-factors/itt-20009075",
+      "population": "adult",
+      "raw_archive": {
+        "path": "data/raw/mayo/wheezing-in-adults-adult.html.gz",
+        "metadata_path": "data/raw/mayo/wheezing-in-adults-adult.metadata.json",
+        "final_url": "https://www.mayoclinic.org/symptom-checker/wheezing-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T22:52:39.649000+00:00",
+        "acquisition": "browser_dom",
+        "content_scope": "full_document",
+        "content_length": 606243,
+        "decompressed_html_sha256": "203364a29c513ff8db155f4685adec3bcfc3bf60bd3e15f8329d128ad2cdaeea",
+        "file_sha256": "8c275d5cf60cd597a118069ab4492c0a9f4a04393f040844eb60b296a4ca9317",
+        "metadata_file_sha256": "3dec69be4139d0956c0d252e7816974aa060d0a26ebf1e21110656f9dc298551",
+        "integrity_status": "verified"
+      },
+      "browser_capture": {
+        "path": "data/raw/mayo/browser-captures/wheezing-in-adults-adult.json",
+        "file_sha256": "71b9499d15dd6a49b4db2fca14ffacfb0c52e9f110f2510c940e43c3624b5488"
+      },
+      "legacy_snapshot": {
+        "path": "data/mayo/raw/wheezing-in-adults-adult.json",
+        "file_sha256": "722d7e1ff35ac4e1378992e17652be47d73be52aee286ebe547fa88355f5ecec"
+      },
+      "legacy_parsed_record": {
+        "path": "data/mayo/documents/wheezing-in-adults-adult.json",
+        "file_sha256": "83351cf6a9fb15b45deec75bd03b4b973edc033fb765ddd0ed622400e27ecd26",
+        "canonical_url": "https://www.mayoclinic.org/symptom-checker/wheezing-in-adults-adult/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T01:55:01.790000Z",
+        "acquisition": "browser_snapshot",
+        "parser_version": "mayo-1",
+        "content_sha256": "087796007e5d1032a9919fefaf6a8b70e468e0068253235008e4fb1686874586",
+        "factor_group_count": 4,
+        "factor_option_count": 17,
+        "lineage_to_full_raw_archive": "not_established_predates_full_raw_archive"
+      },
+      "rights_review_status": "pending_permission_and_manual_review",
+      "permission_reference": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision_evidence": null,
+      "allowed_uses": [],
+      "retention_decision": "pending"
+    },
+    {
+      "requested_url": "https://www.mayoclinic.org/symptom-checker/abdominal-pain-in-children-child/related-factors/itt-20009075",
+      "population": "child",
+      "raw_archive": {
+        "path": "data/raw/mayo/abdominal-pain-in-children-child.html.gz",
+        "metadata_path": "data/raw/mayo/abdominal-pain-in-children-child.metadata.json",
+        "final_url": "https://www.mayoclinic.org/symptom-checker/abdominal-pain-in-children-child/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T22:52:40.012000+00:00",
+        "acquisition": "browser_dom",
+        "content_scope": "full_document",
+        "content_length": 603178,
+        "decompressed_html_sha256": "7e55994b57d8dc2ed93f9d827453dc3432dd94a3f8a85aec5178fdb424f94f3f",
+        "file_sha256": "58628f7209bcbec9a707c820dd4e1e84e32c77842a2c63608ce64baa9e28c18d",
+        "metadata_file_sha256": "cdb86edf221bb0203b6c7c6cffbd553fe46d83eb0994f3a58562cab0cd226a9e",
+        "integrity_status": "verified"
+      },
+      "browser_capture": {
+        "path": "data/raw/mayo/browser-captures/abdominal-pain-in-children-child.json",
+        "file_sha256": "ab9601c82bf30e3e5afcb4d04c6a26ee03d6d02e275179f9d7a0a3e22240e4b8"
+      },
+      "legacy_snapshot": {
+        "path": "data/mayo/raw/abdominal-pain-in-children-child.json",
+        "file_sha256": "ecdc6e3abfec2993635fa12ce94f6df70e17095c4d11960544c52b6cb063bfde"
+      },
+      "legacy_parsed_record": {
+        "path": "data/mayo/documents/abdominal-pain-in-children-child.json",
+        "file_sha256": "fe4692d234876693100a52b6e63cffb863189124a77bef815f54cb25fdd3d361",
+        "canonical_url": "https://www.mayoclinic.org/symptom-checker/abdominal-pain-in-children-child/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T01:55:10.229000Z",
+        "acquisition": "browser_snapshot",
+        "parser_version": "mayo-1",
+        "content_sha256": "72fb9b9eaed3ad4fe18cac743e74b4879f4759f0e74cc27aa2d7c18c17bfeec1",
+        "factor_group_count": 6,
+        "factor_option_count": 30,
+        "lineage_to_full_raw_archive": "not_established_predates_full_raw_archive"
+      },
+      "rights_review_status": "pending_permission_and_manual_review",
+      "permission_reference": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision_evidence": null,
+      "allowed_uses": [],
+      "retention_decision": "pending"
+    },
+    {
+      "requested_url": "https://www.mayoclinic.org/symptom-checker/constipation-in-children-child/related-factors/itt-20009075",
+      "population": "child",
+      "raw_archive": {
+        "path": "data/raw/mayo/constipation-in-children-child.html.gz",
+        "metadata_path": "data/raw/mayo/constipation-in-children-child.metadata.json",
+        "final_url": "https://www.mayoclinic.org/symptom-checker/constipation-in-children-child/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T22:52:40.278000+00:00",
+        "acquisition": "browser_dom",
+        "content_scope": "full_document",
+        "content_length": 589530,
+        "decompressed_html_sha256": "cc7b5c8a0341607c01125537d91e7908f4511575a36b307a796d917579d55932",
+        "file_sha256": "eb6e92bc33562945195b00550aac849875771143b7feb9e9bedeb18be6accc72",
+        "metadata_file_sha256": "7beaf2122644fb6fad477a388f4dd3f1049498b5040b19fda3df5b5450061319",
+        "integrity_status": "verified"
+      },
+      "browser_capture": {
+        "path": "data/raw/mayo/browser-captures/constipation-in-children-child.json",
+        "file_sha256": "7e6c86dcc87afb2d846266ab61b064f4e7077d1b477ed3580225e2bb6af4768f"
+      },
+      "legacy_snapshot": {
+        "path": "data/mayo/raw/constipation-in-children-child.json",
+        "file_sha256": "7ee84dc0edd1a6514f3d2cd23767b0361364e61d7dd5c2a01ef77ba16897beaa"
+      },
+      "legacy_parsed_record": {
+        "path": "data/mayo/documents/constipation-in-children-child.json",
+        "file_sha256": "f80cea01b4c5b3ed23661c1d425412e66e78d5867caf18651118e7e637d1ebfb",
+        "canonical_url": "https://www.mayoclinic.org/symptom-checker/constipation-in-children-child/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T01:55:10.685000Z",
+        "acquisition": "browser_snapshot",
+        "parser_version": "mayo-1",
+        "content_sha256": "5cb7d63d7031749415cf9b61544f7d84f9e382be73406ec45fb713a497a18045",
+        "factor_group_count": 3,
+        "factor_option_count": 13,
+        "lineage_to_full_raw_archive": "not_established_predates_full_raw_archive"
+      },
+      "rights_review_status": "pending_permission_and_manual_review",
+      "permission_reference": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision_evidence": null,
+      "allowed_uses": [],
+      "retention_decision": "pending"
+    },
+    {
+      "requested_url": "https://www.mayoclinic.org/symptom-checker/cough-in-children-child/related-factors/itt-20009075",
+      "population": "child",
+      "raw_archive": {
+        "path": "data/raw/mayo/cough-in-children-child.html.gz",
+        "metadata_path": "data/raw/mayo/cough-in-children-child.metadata.json",
+        "final_url": "https://www.mayoclinic.org/symptom-checker/cough-in-children-child/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T22:52:49.631000+00:00",
+        "acquisition": "browser_dom",
+        "content_scope": "full_document",
+        "content_length": 613911,
+        "decompressed_html_sha256": "ef25ee73b90fdc819a28b50d95924630bb9247ca41dd4ccc2d23592150aa4e1d",
+        "file_sha256": "2001b60478fc274d207a858b713d6fc4f83778e851765bbe3299904b57302206",
+        "metadata_file_sha256": "de8657dfc6ac257aa0e3d6ec73609191083899138e36a5b5ce65c11c05f1e2b7",
+        "integrity_status": "verified"
+      },
+      "browser_capture": {
+        "path": "data/raw/mayo/browser-captures/cough-in-children-child.json",
+        "file_sha256": "6ced89b39d8ca3ff2a6b68aee98ed16eb39108b1df97deb6d8bd4f273f25230b"
+      },
+      "legacy_snapshot": {
+        "path": "data/mayo/raw/cough-in-children-child.json",
+        "file_sha256": "15ef156362a3c7c6f6dc2348007489b12c645da3a0e3e3884be317e9ca698929"
+      },
+      "legacy_parsed_record": {
+        "path": "data/mayo/documents/cough-in-children-child.json",
+        "file_sha256": "c342869beb3cad9c8b54ff2b5e8696298a4e3e0d8bb8d6fd4ee9b5d23660c9a3",
+        "canonical_url": "https://www.mayoclinic.org/symptom-checker/cough-in-children-child/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T01:55:11.122000Z",
+        "acquisition": "browser_snapshot",
+        "parser_version": "mayo-1",
+        "content_sha256": "d15aa1be2b38f09c6c247117d585797be153b2dfc032342b30864ad8a46af042",
+        "factor_group_count": 4,
+        "factor_option_count": 28,
+        "lineage_to_full_raw_archive": "not_established_predates_full_raw_archive"
+      },
+      "rights_review_status": "pending_permission_and_manual_review",
+      "permission_reference": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision_evidence": null,
+      "allowed_uses": [],
+      "retention_decision": "pending"
+    },
+    {
+      "requested_url": "https://www.mayoclinic.org/symptom-checker/diarrhea-in-children-child/related-factors/itt-20009075",
+      "population": "child",
+      "raw_archive": {
+        "path": "data/raw/mayo/diarrhea-in-children-child.html.gz",
+        "metadata_path": "data/raw/mayo/diarrhea-in-children-child.metadata.json",
+        "final_url": "https://www.mayoclinic.org/symptom-checker/diarrhea-in-children-child/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T22:52:50.011000+00:00",
+        "acquisition": "browser_dom",
+        "content_scope": "full_document",
+        "content_length": 595597,
+        "decompressed_html_sha256": "8eb96ef5883eba28a4cc2d8c52f4aa747001f24ca1824e51ec01e6b1070558d4",
+        "file_sha256": "1d77cbcede7de11c3228131a4c5a6d510e1d129f57ce290481260b951aacd961",
+        "metadata_file_sha256": "3bf245ea094b8074e89ba108bf2c3412d87dcca1e309dfa1f903ae59e01d2383",
+        "integrity_status": "verified"
+      },
+      "browser_capture": {
+        "path": "data/raw/mayo/browser-captures/diarrhea-in-children-child.json",
+        "file_sha256": "b5eb4950cb68808c61729a815dabf1626ea22f040bc59edcf92abd3b2b787ba2"
+      },
+      "legacy_snapshot": {
+        "path": "data/mayo/raw/diarrhea-in-children-child.json",
+        "file_sha256": "2251653a4a051d21cb0fb45559ff38f18f6ec19e5e4eaab0c855dcdaa2b543f6"
+      },
+      "legacy_parsed_record": {
+        "path": "data/mayo/documents/diarrhea-in-children-child.json",
+        "file_sha256": "c9a3044c3ad15416dde022e6f466aa1e0eceaa8c8d1055072e5a4516585c1bb6",
+        "canonical_url": "https://www.mayoclinic.org/symptom-checker/diarrhea-in-children-child/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T01:55:11.557000Z",
+        "acquisition": "browser_snapshot",
+        "parser_version": "mayo-1",
+        "content_sha256": "d798bd2e284b60f32f3d0179825ca9d9aa019ee0395ef926603a9a9fae287118",
+        "factor_group_count": 5,
+        "factor_option_count": 20,
+        "lineage_to_full_raw_archive": "not_established_predates_full_raw_archive"
+      },
+      "rights_review_status": "pending_permission_and_manual_review",
+      "permission_reference": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision_evidence": null,
+      "allowed_uses": [],
+      "retention_decision": "pending"
+    },
+    {
+      "requested_url": "https://www.mayoclinic.org/symptom-checker/ear-problems-in-children-child/related-factors/itt-20009075",
+      "population": "child",
+      "raw_archive": {
+        "path": "data/raw/mayo/ear-problems-in-children-child.html.gz",
+        "metadata_path": "data/raw/mayo/ear-problems-in-children-child.metadata.json",
+        "final_url": "https://www.mayoclinic.org/symptom-checker/ear-problems-in-children-child/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T22:52:50.314000+00:00",
+        "acquisition": "browser_dom",
+        "content_scope": "full_document",
+        "content_length": 590769,
+        "decompressed_html_sha256": "259bce1ddb0ec22888059c87392f88e5ab6a90d576e670b81f41d09b9d71f3b8",
+        "file_sha256": "9eb110ba686b2876cd9c2933213cacd9db117df224ab250c074d94d3fc290949",
+        "metadata_file_sha256": "964a9f45ce7dbf6476e857480cd6a1c82aca2050a378af44bcbf62570a65f2f6",
+        "integrity_status": "verified"
+      },
+      "browser_capture": {
+        "path": "data/raw/mayo/browser-captures/ear-problems-in-children-child.json",
+        "file_sha256": "64be9e90ee2d92fed6e35a39e819d173f5b317a003eeb2dbca08fe43765a9147"
+      },
+      "legacy_snapshot": {
+        "path": "data/mayo/raw/ear-problems-in-children-child.json",
+        "file_sha256": "30e522c3b01559f9ea0aba55e0479a5e4f6591eaa6d33cae423c642a9715533d"
+      },
+      "legacy_parsed_record": {
+        "path": "data/mayo/documents/ear-problems-in-children-child.json",
+        "file_sha256": "3f3624f107a2624bdb647b0d01dd3c682fd4d3f9bab0e44b8bf27797e1bf6c37",
+        "canonical_url": "https://www.mayoclinic.org/symptom-checker/ear-problems-in-children-child/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T01:55:12.016000Z",
+        "acquisition": "browser_snapshot",
+        "parser_version": "mayo-1",
+        "content_sha256": "afb2bf88e3268155e067fe72dba5f128c429678606b3101c2891c632adef62fa",
+        "factor_group_count": 3,
+        "factor_option_count": 15,
+        "lineage_to_full_raw_archive": "not_established_predates_full_raw_archive"
+      },
+      "rights_review_status": "pending_permission_and_manual_review",
+      "permission_reference": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision_evidence": null,
+      "allowed_uses": [],
+      "retention_decision": "pending"
+    },
+    {
+      "requested_url": "https://www.mayoclinic.org/symptom-checker/earache-in-children-child/related-factors/itt-20009075",
+      "population": "child",
+      "raw_archive": {
+        "path": "data/raw/mayo/earache-in-children-child.html.gz",
+        "metadata_path": "data/raw/mayo/earache-in-children-child.metadata.json",
+        "final_url": "https://www.mayoclinic.org/symptom-checker/earache-in-children-child/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T22:52:50.601000+00:00",
+        "acquisition": "browser_dom",
+        "content_scope": "full_document",
+        "content_length": 597713,
+        "decompressed_html_sha256": "5ef487920366279931f48b148272e5f3058a0444dc8593525e5e66ea71582145",
+        "file_sha256": "c9b3dfd752a0cc0df1deca8d3766120c99e131cbe23b7eff5b5d932ce92730cc",
+        "metadata_file_sha256": "48cfc780ae7363bcf57803c8c6c148d881b772715acd15f750ebb9c912529464",
+        "integrity_status": "verified"
+      },
+      "browser_capture": {
+        "path": "data/raw/mayo/browser-captures/earache-in-children-child.json",
+        "file_sha256": "6cd0937ad2071072e3b94a147c1704f1fab57e880c44f61b132e1da9b6934269"
+      },
+      "legacy_snapshot": {
+        "path": "data/mayo/raw/earache-in-children-child.json",
+        "file_sha256": "e1d58390ff54dd8ba3e3ffa3e97ded82969e8ff40fafb26882ac2abc0f4e9e4e"
+      },
+      "legacy_parsed_record": {
+        "path": "data/mayo/documents/earache-in-children-child.json",
+        "file_sha256": "8810ba05223f2d616d33980b38251eca3f860c32b901e61197a23cb8c0b86acf",
+        "canonical_url": "https://www.mayoclinic.org/symptom-checker/earache-in-children-child/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T01:55:12.436000Z",
+        "acquisition": "browser_snapshot",
+        "parser_version": "mayo-1",
+        "content_sha256": "85a42cbbe086fb7679430e210621d6d8bc4d6f026f2489d0ba72b2cd5f8daac0",
+        "factor_group_count": 2,
+        "factor_option_count": 26,
+        "lineage_to_full_raw_archive": "not_established_predates_full_raw_archive"
+      },
+      "rights_review_status": "pending_permission_and_manual_review",
+      "permission_reference": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision_evidence": null,
+      "allowed_uses": [],
+      "retention_decision": "pending"
+    },
+    {
+      "requested_url": "https://www.mayoclinic.org/symptom-checker/eye-discomfort-and-redness-in-children-child/related-factors/itt-20009075",
+      "population": "child",
+      "raw_archive": {
+        "path": "data/raw/mayo/eye-discomfort-and-redness-in-children-child.html.gz",
+        "metadata_path": "data/raw/mayo/eye-discomfort-and-redness-in-children-child.metadata.json",
+        "final_url": "https://www.mayoclinic.org/symptom-checker/eye-discomfort-and-redness-in-children-child/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T22:52:50.916000+00:00",
+        "acquisition": "browser_dom",
+        "content_scope": "full_document",
+        "content_length": 610309,
+        "decompressed_html_sha256": "2de15148c783f6981b3c7cf75173dae9de7f8c4d11cbbe10963701eb0253cfa7",
+        "file_sha256": "e63bdbefd3a6902fc13afa54915bd3ae751afc60cf9e1c1d949751b3c8edec90",
+        "metadata_file_sha256": "17dfcab83dde5bc117f4b155bfd0597bb6cc79107677fb580ab756cf9cbdb022",
+        "integrity_status": "verified"
+      },
+      "browser_capture": {
+        "path": "data/raw/mayo/browser-captures/eye-discomfort-and-redness-in-children-child.json",
+        "file_sha256": "952f9e497dc32e3e5273ae60c1e4dfa583868d856425dd7698bd8ca0db30675e"
+      },
+      "legacy_snapshot": {
+        "path": "data/mayo/raw/eye-discomfort-and-redness-in-children-child.json",
+        "file_sha256": "a6bf2ec63a853abda8b07f76a463c9aff5c0bd37b14a205e48f7ac463ab581b8"
+      },
+      "legacy_parsed_record": {
+        "path": "data/mayo/documents/eye-discomfort-and-redness-in-children-child.json",
+        "file_sha256": "6c1fd195990ed7b016dc6375bd2f9a60d6843fe3f29d0949987eed6686016a9a",
+        "canonical_url": "https://www.mayoclinic.org/symptom-checker/eye-discomfort-and-redness-in-children-child/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T01:55:12.874000Z",
+        "acquisition": "browser_snapshot",
+        "parser_version": "mayo-1",
+        "content_sha256": "64d8a81ef511b345f0abc5ed2d227b42fcf4cd3b6b34d8441e93b465972a6a05",
+        "factor_group_count": 6,
+        "factor_option_count": 21,
+        "lineage_to_full_raw_archive": "not_established_predates_full_raw_archive"
+      },
+      "rights_review_status": "pending_permission_and_manual_review",
+      "permission_reference": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision_evidence": null,
+      "allowed_uses": [],
+      "retention_decision": "pending"
+    },
+    {
+      "requested_url": "https://www.mayoclinic.org/symptom-checker/eye-problems-in-children-child/related-factors/itt-20009075",
+      "population": "child",
+      "raw_archive": {
+        "path": "data/raw/mayo/eye-problems-in-children-child.html.gz",
+        "metadata_path": "data/raw/mayo/eye-problems-in-children-child.metadata.json",
+        "final_url": "https://www.mayoclinic.org/symptom-checker/eye-problems-in-children-child/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T22:52:51.205000+00:00",
+        "acquisition": "browser_dom",
+        "content_scope": "full_document",
+        "content_length": 602097,
+        "decompressed_html_sha256": "3f7ceed5a8633987404b03670ff0e5a4c06a3862b0f3b1374c08539fab8a9f54",
+        "file_sha256": "28e88c9fb27ea91cff5f69aca6bc50b87c8fc30f12d7ecb6de3918bdf597aa4b",
+        "metadata_file_sha256": "73ff1bff88c8e70b4b5dd25cf0bb48dd4fc8558231ba0cfe930a41ae195102d5",
+        "integrity_status": "verified"
+      },
+      "browser_capture": {
+        "path": "data/raw/mayo/browser-captures/eye-problems-in-children-child.json",
+        "file_sha256": "0cf05fb7ec8e89845856f4aa1dcd667b01bb3b03ccbde6d2a0b3c2036f0842bf"
+      },
+      "legacy_snapshot": {
+        "path": "data/mayo/raw/eye-problems-in-children-child.json",
+        "file_sha256": "6599cc35823173155b7e51eef84dd7e7c33aabcc77a3e82776ae23b3d1686422"
+      },
+      "legacy_parsed_record": {
+        "path": "data/mayo/documents/eye-problems-in-children-child.json",
+        "file_sha256": "417a4dd22c5769c9b7be38889fa8c0d6c3ab12dbceaac86469754ca2f65faec6",
+        "canonical_url": "https://www.mayoclinic.org/symptom-checker/eye-problems-in-children-child/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T01:55:13.349000Z",
+        "acquisition": "browser_snapshot",
+        "parser_version": "mayo-1",
+        "content_sha256": "0919be316ea2e3c6ab7e7b2d7d433af5c42d6bd26d6e33c1a41a9793281b8cb7",
+        "factor_group_count": 6,
+        "factor_option_count": 28,
+        "lineage_to_full_raw_archive": "not_established_predates_full_raw_archive"
+      },
+      "rights_review_status": "pending_permission_and_manual_review",
+      "permission_reference": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision_evidence": null,
+      "allowed_uses": [],
+      "retention_decision": "pending"
+    },
+    {
+      "requested_url": "https://www.mayoclinic.org/symptom-checker/fever-in-children-child/related-factors/itt-20009075",
+      "population": "child",
+      "raw_archive": {
+        "path": "data/raw/mayo/fever-in-children-child.html.gz",
+        "metadata_path": "data/raw/mayo/fever-in-children-child.metadata.json",
+        "final_url": "https://www.mayoclinic.org/symptom-checker/fever-in-children-child/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T22:52:51.520000+00:00",
+        "acquisition": "browser_dom",
+        "content_scope": "full_document",
+        "content_length": 612383,
+        "decompressed_html_sha256": "6b5bd9b351d6b91c9214d8cfd66d2ac2ca3e52a47286af57409ea097fd8b0d4b",
+        "file_sha256": "9e7a86054bb97b1261b687ba39c05290815a2c0427049211e7ea0b988e6e7523",
+        "metadata_file_sha256": "be643628131dc8ee81c4eceb130970f32c19a84d4bd5c8d03d0f00b8d2a4cc14",
+        "integrity_status": "verified"
+      },
+      "browser_capture": {
+        "path": "data/raw/mayo/browser-captures/fever-in-children-child.json",
+        "file_sha256": "3b352166f9b01c9cabe6aa03c5c4713bd32e344b36ec87342f352d5eedc6700c"
+      },
+      "legacy_snapshot": {
+        "path": "data/mayo/raw/fever-in-children-child.json",
+        "file_sha256": "528df374ef801532166a25e3689c0634d52c28f6809cc409b226ee214dc7c54b"
+      },
+      "legacy_parsed_record": {
+        "path": "data/mayo/documents/fever-in-children-child.json",
+        "file_sha256": "25a351d7e36cb5eb736a8116e245b476870db6469a04d1e80156aa031f1e73bf",
+        "canonical_url": "https://www.mayoclinic.org/symptom-checker/fever-in-children-child/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T01:55:13.818000Z",
+        "acquisition": "browser_snapshot",
+        "parser_version": "mayo-1",
+        "content_sha256": "fc7f12b130c9300e46a1a989b1e892ecd7d4830ac127b187bd249558d5ecaacf",
+        "factor_group_count": 1,
+        "factor_option_count": 28,
+        "lineage_to_full_raw_archive": "not_established_predates_full_raw_archive"
+      },
+      "rights_review_status": "pending_permission_and_manual_review",
+      "permission_reference": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision_evidence": null,
+      "allowed_uses": [],
+      "retention_decision": "pending"
+    },
+    {
+      "requested_url": "https://www.mayoclinic.org/symptom-checker/headaches-in-children-child/related-factors/itt-20009075",
+      "population": "child",
+      "raw_archive": {
+        "path": "data/raw/mayo/headaches-in-children-child.html.gz",
+        "metadata_path": "data/raw/mayo/headaches-in-children-child.metadata.json",
+        "final_url": "https://www.mayoclinic.org/symptom-checker/headaches-in-children-child/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T22:52:51.824000+00:00",
+        "acquisition": "browser_dom",
+        "content_scope": "full_document",
+        "content_length": 628671,
+        "decompressed_html_sha256": "e90c22c799d7accbdca91a8054d1161e91e74e4f518c384a8c905603b099ec4b",
+        "file_sha256": "4060ec1515a4a33bbf1730c95bc556539be565f931026adefc2a27620c468a82",
+        "metadata_file_sha256": "f41ba4d26955d15272a661e2a3962bdb3ad2267563611be8be33209d2b5dd455",
+        "integrity_status": "verified"
+      },
+      "browser_capture": {
+        "path": "data/raw/mayo/browser-captures/headaches-in-children-child.json",
+        "file_sha256": "94fa2f07561a23eb849a7a4e77a70e631a5ef7f4c1c0774eedea806d7fac1a15"
+      },
+      "legacy_snapshot": {
+        "path": "data/mayo/raw/headaches-in-children-child.json",
+        "file_sha256": "f49c9a0e125aa6aacaf8383428b07986cdc01980617d583ccdf075b682cb7c4e"
+      },
+      "legacy_parsed_record": {
+        "path": "data/mayo/documents/headaches-in-children-child.json",
+        "file_sha256": "8f152b6252b03ea88439e053f9e3d2a1ed775bffe913e10d356c55700910f636",
+        "canonical_url": "https://www.mayoclinic.org/symptom-checker/headaches-in-children-child/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T01:55:14.318000Z",
+        "acquisition": "browser_snapshot",
+        "parser_version": "mayo-1",
+        "content_sha256": "41d30ee6124636dea89405e7ef4ab1f4e1c2a0b101a767cc3212bc378e537078",
+        "factor_group_count": 8,
+        "factor_option_count": 45,
+        "lineage_to_full_raw_archive": "not_established_predates_full_raw_archive"
+      },
+      "rights_review_status": "pending_permission_and_manual_review",
+      "permission_reference": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision_evidence": null,
+      "allowed_uses": [],
+      "retention_decision": "pending"
+    },
+    {
+      "requested_url": "https://www.mayoclinic.org/symptom-checker/joint-pain-or-muscle-pain-in-children-child/related-factors/itt-20009075",
+      "population": "child",
+      "raw_archive": {
+        "path": "data/raw/mayo/joint-pain-or-muscle-pain-in-children-child.html.gz",
+        "metadata_path": "data/raw/mayo/joint-pain-or-muscle-pain-in-children-child.metadata.json",
+        "final_url": "https://www.mayoclinic.org/symptom-checker/joint-pain-or-muscle-pain-in-children-child/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T22:52:52.127000+00:00",
+        "acquisition": "browser_dom",
+        "content_scope": "full_document",
+        "content_length": 626690,
+        "decompressed_html_sha256": "dfeba97fbab0af76d43845ca12529305c4c71ba274cc8c433fad0e0b2ee42670",
+        "file_sha256": "6390c8d67d8ef29e15c8763c16667eb6d86350f269b410d4c6c15b2f170a2df7",
+        "metadata_file_sha256": "0d87454007bad17912f9937d867d006816569b95de7adc6a0449d41c3a3e4513",
+        "integrity_status": "verified"
+      },
+      "browser_capture": {
+        "path": "data/raw/mayo/browser-captures/joint-pain-or-muscle-pain-in-children-child.json",
+        "file_sha256": "1da69bee387c8a877119666cbb7116e89fcee873b46a615734c36bedb0cb8af8"
+      },
+      "legacy_snapshot": {
+        "path": "data/mayo/raw/joint-pain-or-muscle-pain-in-children-child.json",
+        "file_sha256": "d853ffe62b5cc33490db7cb6469339dc651f7bb59afed1b4cb15b67ed19f56d5"
+      },
+      "legacy_parsed_record": {
+        "path": "data/mayo/documents/joint-pain-or-muscle-pain-in-children-child.json",
+        "file_sha256": "95a1c9a26cec9445e2c08a6ad085d578804fca3f7d1df64ea0e675c1a70c4bce",
+        "canonical_url": "https://www.mayoclinic.org/symptom-checker/joint-pain-or-muscle-pain-in-children-child/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T01:55:14.748000Z",
+        "acquisition": "browser_snapshot",
+        "parser_version": "mayo-1",
+        "content_sha256": "008360d99a5ea271fa4b6036e03f241936401fbdd1ba4b9f06f7ea000a9d7fa6",
+        "factor_group_count": 8,
+        "factor_option_count": 42,
+        "lineage_to_full_raw_archive": "not_established_predates_full_raw_archive"
+      },
+      "rights_review_status": "pending_permission_and_manual_review",
+      "permission_reference": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision_evidence": null,
+      "allowed_uses": [],
+      "retention_decision": "pending"
+    },
+    {
+      "requested_url": "https://www.mayoclinic.org/symptom-checker/nasal-congestion-in-children-child/related-factors/itt-20009075",
+      "population": "child",
+      "raw_archive": {
+        "path": "data/raw/mayo/nasal-congestion-in-children-child.html.gz",
+        "metadata_path": "data/raw/mayo/nasal-congestion-in-children-child.metadata.json",
+        "final_url": "https://www.mayoclinic.org/symptom-checker/nasal-congestion-in-children-child/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T22:52:52.415000+00:00",
+        "acquisition": "browser_dom",
+        "content_scope": "full_document",
+        "content_length": 615499,
+        "decompressed_html_sha256": "f90dccd78d6b175ad36a33935a6a42324d692353e084363c733e008400c0d7d9",
+        "file_sha256": "b453f924414ef27ca1c5dce8319180b85f954af0a618b3480efbcf098ac9fdf8",
+        "metadata_file_sha256": "961ee76764a3e90fced6468d5166faf9389970c72023d82223dacec07d76f4c0",
+        "integrity_status": "verified"
+      },
+      "browser_capture": {
+        "path": "data/raw/mayo/browser-captures/nasal-congestion-in-children-child.json",
+        "file_sha256": "ed8f8fd40f7d92a846a50848a70e7e341bb2e1c5a0d474963b6b8c5f4d0e1cf2"
+      },
+      "legacy_snapshot": {
+        "path": "data/mayo/raw/nasal-congestion-in-children-child.json",
+        "file_sha256": "1fa4c4c1598c2ccdd5c0574d26ce553ee8311f8644d1bad1f07b978aa8e34b87"
+      },
+      "legacy_parsed_record": {
+        "path": "data/mayo/documents/nasal-congestion-in-children-child.json",
+        "file_sha256": "5638e0bf29528a77109e80712d87f1b708cf6447053873184302b0a158ebc10e",
+        "canonical_url": "https://www.mayoclinic.org/symptom-checker/nasal-congestion-in-children-child/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T01:57:16.417000Z",
+        "acquisition": "browser_snapshot",
+        "parser_version": "mayo-1",
+        "content_sha256": "c0fe31ed8858858e06fb290a1d5456b950b61650a5dc855780909a77082f0696",
+        "factor_group_count": 3,
+        "factor_option_count": 31,
+        "lineage_to_full_raw_archive": "not_established_predates_full_raw_archive"
+      },
+      "rights_review_status": "pending_permission_and_manual_review",
+      "permission_reference": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision_evidence": null,
+      "allowed_uses": [],
+      "retention_decision": "pending"
+    },
+    {
+      "requested_url": "https://www.mayoclinic.org/symptom-checker/nausea-or-vomiting-in-children-child/related-factors/itt-20009075",
+      "population": "child",
+      "raw_archive": {
+        "path": "data/raw/mayo/nausea-or-vomiting-in-children-child.html.gz",
+        "metadata_path": "data/raw/mayo/nausea-or-vomiting-in-children-child.metadata.json",
+        "final_url": "https://www.mayoclinic.org/symptom-checker/nausea-or-vomiting-in-children-child/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T22:52:52.730000+00:00",
+        "acquisition": "browser_dom",
+        "content_scope": "full_document",
+        "content_length": 608955,
+        "decompressed_html_sha256": "422fc4f5f2add174b9e803b12d5dda7c39f7aa5de3c068eb0cb5fbd7e686ed03",
+        "file_sha256": "e3688b84d5b5c9644c027a8999462effe3b945ffc031967c947a1e5692663817",
+        "metadata_file_sha256": "c85976b7fce92e93c983a6434215f52460c34b47053d03b1b2d8b0ecf988e0e3",
+        "integrity_status": "verified"
+      },
+      "browser_capture": {
+        "path": "data/raw/mayo/browser-captures/nausea-or-vomiting-in-children-child.json",
+        "file_sha256": "e8116e9f3cc66296c6d8f071f069669984002dd9879074050ac5341c92d42232"
+      },
+      "legacy_snapshot": {
+        "path": "data/mayo/raw/nausea-or-vomiting-in-children-child.json",
+        "file_sha256": "730dba120743ff66aac03913fc256586b97043a72216ddd644afcd3b6ddb60b4"
+      },
+      "legacy_parsed_record": {
+        "path": "data/mayo/documents/nausea-or-vomiting-in-children-child.json",
+        "file_sha256": "a70308ca9a8dc6763a8068b0618e6ced3eac2123de437a85cb1957d78309c48f",
+        "canonical_url": "https://www.mayoclinic.org/symptom-checker/nausea-or-vomiting-in-children-child/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T01:57:16.990000Z",
+        "acquisition": "browser_snapshot",
+        "parser_version": "mayo-1",
+        "content_sha256": "762ba1c9d7c5d8507c2abf579728e5d6a9b858ebf2d012b4160a8523c8e39148",
+        "factor_group_count": 3,
+        "factor_option_count": 20,
+        "lineage_to_full_raw_archive": "not_established_predates_full_raw_archive"
+      },
+      "rights_review_status": "pending_permission_and_manual_review",
+      "permission_reference": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision_evidence": null,
+      "allowed_uses": [],
+      "retention_decision": "pending"
+    },
+    {
+      "requested_url": "https://www.mayoclinic.org/symptom-checker/skin-rashes-in-children-child/related-factors/itt-20009075",
+      "population": "child",
+      "raw_archive": {
+        "path": "data/raw/mayo/skin-rashes-in-children-child.html.gz",
+        "metadata_path": "data/raw/mayo/skin-rashes-in-children-child.metadata.json",
+        "final_url": "https://www.mayoclinic.org/symptom-checker/skin-rashes-in-children-child/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T22:52:53.032000+00:00",
+        "acquisition": "browser_dom",
+        "content_scope": "full_document",
+        "content_length": 609787,
+        "decompressed_html_sha256": "7fd56989076ce2fcebaec50a1d74114e2a2761fc35f0c5ae2f68a4042d820229",
+        "file_sha256": "db58d13c1fecb81389ff8ffca38722b0c0fda4d18177f6af58920b1e43bf51df",
+        "metadata_file_sha256": "4b79650b2619ddaea7ef583e474bf1f48c9709c0a681e690a8134d9bda91aee0",
+        "integrity_status": "verified"
+      },
+      "browser_capture": {
+        "path": "data/raw/mayo/browser-captures/skin-rashes-in-children-child.json",
+        "file_sha256": "7b8f01371aef8336f734f93924b0a52d9074ee77f531f2248a80a96b6c6f6493"
+      },
+      "legacy_snapshot": {
+        "path": "data/mayo/raw/skin-rashes-in-children-child.json",
+        "file_sha256": "799346159a1114396f10d03f397693416c23f53cb9417738030001d66cf9d548"
+      },
+      "legacy_parsed_record": {
+        "path": "data/mayo/documents/skin-rashes-in-children-child.json",
+        "file_sha256": "f01f0da92644268fa8bbb5899198faf73ab648cf9943e52b5f7caed28028e2ce",
+        "canonical_url": "https://www.mayoclinic.org/symptom-checker/skin-rashes-in-children-child/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T01:57:17.448000Z",
+        "acquisition": "browser_snapshot",
+        "parser_version": "mayo-1",
+        "content_sha256": "b6c56f93e6193294eed50b1aa8b43c64f04ee5140b0b7befa102fbb8f53e363b",
+        "factor_group_count": 4,
+        "factor_option_count": 41,
+        "lineage_to_full_raw_archive": "not_established_predates_full_raw_archive"
+      },
+      "rights_review_status": "pending_permission_and_manual_review",
+      "permission_reference": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision_evidence": null,
+      "allowed_uses": [],
+      "retention_decision": "pending"
+    },
+    {
+      "requested_url": "https://www.mayoclinic.org/symptom-checker/sore-throat-in-children-child/related-factors/itt-20009075",
+      "population": "child",
+      "raw_archive": {
+        "path": "data/raw/mayo/sore-throat-in-children-child.html.gz",
+        "metadata_path": "data/raw/mayo/sore-throat-in-children-child.metadata.json",
+        "final_url": "https://www.mayoclinic.org/symptom-checker/sore-throat-in-children-child/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T22:52:53.332000+00:00",
+        "acquisition": "browser_dom",
+        "content_scope": "full_document",
+        "content_length": 605142,
+        "decompressed_html_sha256": "8de974dadad24c579664624540a7a76bb894345b812c5654585d8648c7b7343a",
+        "file_sha256": "85723dbc04e8ba0992b1b95e553e0bb00b285cb41b6f6eb8cb138670b40d4046",
+        "metadata_file_sha256": "8e64d6c71b7b2370f2d8cf9a83c49cbb3bceddeb913942fe6e685578cb03a1e9",
+        "integrity_status": "verified"
+      },
+      "browser_capture": {
+        "path": "data/raw/mayo/browser-captures/sore-throat-in-children-child.json",
+        "file_sha256": "868d890a2aa57c1b5a23c672a874ac6210d52b141f17a98bdc47f6affa04f116"
+      },
+      "legacy_snapshot": {
+        "path": "data/mayo/raw/sore-throat-in-children-child.json",
+        "file_sha256": "a81585bba23a1ded953aeeb0e2e33c3f7709b289aa2c4b8905207ecede68164f"
+      },
+      "legacy_parsed_record": {
+        "path": "data/mayo/documents/sore-throat-in-children-child.json",
+        "file_sha256": "950be3cb3f7068b126fd849fc85ebaccd73a59bf11954a74a934dc8420a8adf0",
+        "canonical_url": "https://www.mayoclinic.org/symptom-checker/sore-throat-in-children-child/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T01:57:17.930000Z",
+        "acquisition": "browser_snapshot",
+        "parser_version": "mayo-1",
+        "content_sha256": "931a7d1245a0e11d0cfd191cca6aed219c5ace419df42c6d3ad5662b09f7f1f8",
+        "factor_group_count": 1,
+        "factor_option_count": 18,
+        "lineage_to_full_raw_archive": "not_established_predates_full_raw_archive"
+      },
+      "rights_review_status": "pending_permission_and_manual_review",
+      "permission_reference": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision_evidence": null,
+      "allowed_uses": [],
+      "retention_decision": "pending"
+    },
+    {
+      "requested_url": "https://www.mayoclinic.org/symptom-checker/urinary-problems-in-children-child/related-factors/itt-20009075",
+      "population": "child",
+      "raw_archive": {
+        "path": "data/raw/mayo/urinary-problems-in-children-child.html.gz",
+        "metadata_path": "data/raw/mayo/urinary-problems-in-children-child.metadata.json",
+        "final_url": "https://www.mayoclinic.org/symptom-checker/urinary-problems-in-children-child/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T22:52:53.637000+00:00",
+        "acquisition": "browser_dom",
+        "content_scope": "full_document",
+        "content_length": 592812,
+        "decompressed_html_sha256": "90a798812ee4bfa58e5d9c55be1a6d1b21d7157a36cc86319a4967a5bf25e80d",
+        "file_sha256": "e251e07791c2fd285210666ace07b19c56b8be7502906c3488510cafc201ceba",
+        "metadata_file_sha256": "ce34d3e3ab1c47afcf72d2dd25c0d92a7e6bf329a6412d391a99e114b7c22f75",
+        "integrity_status": "verified"
+      },
+      "browser_capture": {
+        "path": "data/raw/mayo/browser-captures/urinary-problems-in-children-child.json",
+        "file_sha256": "104a4acf56289b0bc6df80a2a6315a6cb2eaa2205afae23b82563f03f98ac23c"
+      },
+      "legacy_snapshot": {
+        "path": "data/mayo/raw/urinary-problems-in-children-child.json",
+        "file_sha256": "5b00b080232d73afe544034947614e47a5d7c85aafbc03dd3c3c35e2f502d5f0"
+      },
+      "legacy_parsed_record": {
+        "path": "data/mayo/documents/urinary-problems-in-children-child.json",
+        "file_sha256": "f383400111c2ef8147ce6f777877342b85edb6669b93c7025dc5664efd3c0e1d",
+        "canonical_url": "https://www.mayoclinic.org/symptom-checker/urinary-problems-in-children-child/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T01:57:18.337000Z",
+        "acquisition": "browser_snapshot",
+        "parser_version": "mayo-1",
+        "content_sha256": "134252affaed5848666adf06b5c1d5ea175519845ea9eca6a85b664d218d37ae",
+        "factor_group_count": 3,
+        "factor_option_count": 18,
+        "lineage_to_full_raw_archive": "not_established_predates_full_raw_archive"
+      },
+      "rights_review_status": "pending_permission_and_manual_review",
+      "permission_reference": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision_evidence": null,
+      "allowed_uses": [],
+      "retention_decision": "pending"
+    },
+    {
+      "requested_url": "https://www.mayoclinic.org/symptom-checker/wheezing-in-children-child/related-factors/itt-20009075",
+      "population": "child",
+      "raw_archive": {
+        "path": "data/raw/mayo/wheezing-in-children-child.html.gz",
+        "metadata_path": "data/raw/mayo/wheezing-in-children-child.metadata.json",
+        "final_url": "https://www.mayoclinic.org/symptom-checker/wheezing-in-children-child/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T22:52:54.142000+00:00",
+        "acquisition": "browser_dom",
+        "content_scope": "full_document",
+        "content_length": 600185,
+        "decompressed_html_sha256": "264c9c1e4df5277db52d3d1210beef4541250cb588c96aa781787df146de5492",
+        "file_sha256": "553480890e496ba61aa07f1615dd7617428d18a299fd10bc7272428e41273ae5",
+        "metadata_file_sha256": "bc25be4093bac9dfea959910be9b96aa19cadcbf1cb27e02db57fb391ce1a385",
+        "integrity_status": "verified"
+      },
+      "browser_capture": {
+        "path": "data/raw/mayo/browser-captures/wheezing-in-children-child.json",
+        "file_sha256": "9e4a4266cbffdaee3e58b0041bbbc2913c0da19ad2e9622d117f59b7c25e688e"
+      },
+      "legacy_snapshot": {
+        "path": "data/mayo/raw/wheezing-in-children-child.json",
+        "file_sha256": "da3f7ddb17f148d034e74d3e620c7c209ae6adf48caa5dfc1afa726cfe1007a1"
+      },
+      "legacy_parsed_record": {
+        "path": "data/mayo/documents/wheezing-in-children-child.json",
+        "file_sha256": "98c24df63193b0e0c2c819164a608e09b6782ec98a1437d75052c3c13c222849",
+        "canonical_url": "https://www.mayoclinic.org/symptom-checker/wheezing-in-children-child/related-factors/itt-20009075",
+        "fetched_at": "2026-09-07T01:57:18.761000Z",
+        "acquisition": "browser_snapshot",
+        "parser_version": "mayo-1",
+        "content_sha256": "a25a1f94fb5bce14404fdc1b2dee6c998470c2136bad2d7a4446f88c61d02b99",
+        "factor_group_count": 4,
+        "factor_option_count": 27,
+        "lineage_to_full_raw_archive": "not_established_predates_full_raw_archive"
+      },
+      "rights_review_status": "pending_permission_and_manual_review",
+      "permission_reference": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision_evidence": null,
+      "allowed_uses": [],
+      "retention_decision": "pending"
+    }
+  ]
+}

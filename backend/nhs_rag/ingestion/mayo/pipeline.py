@@ -11,18 +11,9 @@ import httpx
 from nhs_rag.ingestion.mayo.models import PARSER_VERSION, MayoDocument, MayoSource
 from nhs_rag.ingestion.mayo.parser import parse_page, validate_url
 
+from cronjobs.mayo_dataset.sources import load_sources as load_sources
+
 ROBOTS_URL = "https://www.mayoclinic.org/robots.txt"
-
-
-def load_sources(path: Path) -> list[MayoSource]:
-    sources = [MayoSource.model_validate(s) for s in json.loads(path.read_text())["sources"]]
-    for source in sources:
-        validate_url(source.url)
-        if not source.slug.endswith(f"-{source.population}"):
-            raise ValueError("Source population does not match URL")
-    if not sources or len({s.url for s in sources}) != len(sources):
-        raise ValueError("Manifest must contain distinct sources")
-    return sources
 
 
 def write_atomic(path: Path, content: str) -> None:

@@ -6,6 +6,12 @@ The repository is a local project for LLM testing and learning RAG. It is not de
 
 Public and clinical services are outside the project scope. The public-use requirements below are retained only for a separately proposed change of scope, which would need appropriate privacy, clinical and other reviews; they are not a release plan for this learning project.
 
+Content-use obligations also apply to local experiments. See the
+[NHS compliance review](nhs-dataset-compliance.md) and
+[Mayo usage and compliance review](mayo-dataset-compliance.md). Mayo clearance remains
+unresolved for acquisition, existing copies and downstream use; its documented hold is
+not enforced by the current code. This is separate from the conditional public-use gates.
+
 ## 2. Implemented safeguards
 
 | Control | As-built behaviour | Limit |

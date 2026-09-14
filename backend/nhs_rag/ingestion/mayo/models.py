@@ -5,19 +5,11 @@ from typing import Literal
 from nhs_rag.models import GuideDocument
 from pydantic import BaseModel, Field
 
+from cronjobs.mayo_dataset.sources import MayoSource as MayoSource
+
 LICENCE = "Copyright Mayo Foundation for Medical Education and Research. All rights reserved."
 INDEX_URL = "https://www.mayoclinic.org/symptom-checker/select-symptom/itt-20009075"
 PARSER_VERSION = "mayo-1"
-
-
-class MayoSource(BaseModel):
-    title: str
-    url: str
-    population: Literal["adult", "child"]
-
-    @property
-    def slug(self) -> str:
-        return self.url.split("/")[4]
 
 
 class FactorOption(BaseModel):

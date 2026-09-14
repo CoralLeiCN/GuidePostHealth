@@ -3,6 +3,27 @@
 This package contains scheduled ETL and one-off data-build workflows. It is deliberately
 separate from the FastAPI service in `backend/nhs_rag/`.
 
+## Shared guide workflow
+
+See the separate [NHS](../docs/guide-data-workflow.md#nhs-processing-graph) and
+[Mayo](../docs/guide-data-workflow.md#mayo-processing-graph) processing graphs for acquisition,
+raw archives, guide processing, exports and retrieval. `raw_archive.py` owns
+the HTML-plus-metadata format used by both NHS and Mayo download jobs.
+
+Mayo acquisition only (implementation reference): read the
+[Mayo compliance review](../docs/mayo-dataset-compliance.md) first. Further acquisition,
+imports or processing require recorded clearance; the current commands do not enforce it.
+Browser capture is not a permission or access-restriction workaround.
+
+```bash
+uv run python -m cronjobs.mayo_dataset --contact "mailto:you@example.com"
+uv run python -m cronjobs.mayo_dataset --from-browser data/raw/mayo/browser-captures
+```
+
+This writes `data/raw/mayo/` and exits without parsing guides, exporting datasets or indexing.
+The existing experimental Mayo parser remains separate; its integration with the new raw
+archive is future work. Neither job is automatically scheduled by being in this directory.
+
 ## NHS symptom dataset
 
 For the full technical contract and human review procedure, see the

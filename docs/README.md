@@ -50,6 +50,10 @@ must be corrected in the same change.
 
 ## Documents
 
+Start with the [complete guide data workflow](guide-data-workflow.md), with separate
+[NHS](guide-data-workflow.md#nhs-processing-graph) and
+[Mayo](guide-data-workflow.md#mayo-processing-graph) processing graphs and their shared raw archive format.
+
 The root [backlog.md](../backlog.md) is the central status tracker for unfinished work,
 deferred decisions and conditional items outside the local-learning scope.
 
@@ -62,6 +66,12 @@ deferred decisions and conditional items outside the local-learning scope.
 7. [Dataset creation workflow and extraction specification](nhs-dataset-workflow.md) — complete
    commands, schemas, parsing decisions, multimedia/context losses, downstream contracts and
    human review criteria; current implementation is distinguished from proposed changes.
+8. [NHS dataset compliance review](nhs-dataset-compliance.md) — NHS/OGL obligations,
+   implemented disclosures and pending page-level clearance.
+9. [Mayo dataset usage and compliance review](mayo-dataset-compliance.md) — acquisition,
+   retention, transformations, AI use, attribution and distribution requirements, with a
+   [per-source inventory](mayo-content-inventory.json). Mayo usage clearance is unresolved;
+   local-only use and the shared archive format do not supply permission.
 
 ## Decision summary
 

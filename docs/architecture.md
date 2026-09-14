@@ -24,6 +24,12 @@ Browser chat ──► FastAPI ──► readiness ──► emergency floor ─
 
 The ingestion and indexing paths are run explicitly. API startup loads the local corpus and validates the existing standalone Qdrant collection.
 
+For data acquisition and processing, see the separate
+[NHS processing graph](guide-data-workflow.md#nhs-processing-graph) and
+[Mayo processing graph](guide-data-workflow.md#mayo-processing-graph).
+The runtime overview above uses NHS data; Mayo's proposed downstream processing is shown
+in its own graph.
+
 ## 2. Component responsibilities
 
 | Component | Responsibility |

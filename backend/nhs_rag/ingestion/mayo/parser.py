@@ -2,10 +2,9 @@ from __future__ import annotations
 
 import hashlib
 import json
-import re
 from datetime import UTC, datetime
 from typing import Literal
-from urllib.parse import urljoin, urlsplit
+from urllib.parse import urljoin
 from uuid import UUID
 
 from bs4 import BeautifulSoup, Tag
@@ -13,19 +12,7 @@ from nhs_rag.ingestion.mayo.models import FactorGroup, FactorOption, MayoDocumen
 from nhs_rag.models import GuideSection
 from pydantic import HttpUrl
 
-_PATH = re.compile(r"/symptom-checker/[a-z0-9-]+-(adult|child)/related-factors/itt-20009075")
-
-
-def validate_url(url: str) -> None:
-    parsed = urlsplit(url)
-    if (
-        parsed.scheme != "https"
-        or parsed.netloc != "www.mayoclinic.org"
-        or parsed.query
-        or parsed.fragment
-        or not _PATH.fullmatch(parsed.path)
-    ):
-        raise ValueError(f"Not an allowed Mayo symptom-checker URL: {url}")
+from cronjobs.mayo_dataset.sources import validate_url as validate_url
 
 
 def clean(element: Tag) -> str:

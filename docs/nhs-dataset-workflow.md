@@ -127,6 +127,12 @@ discovery replay depends on the saved manifest, not a saved index page.
 
 ## 4. Download, archive and replay
 
+Raw storage and verification now delegate to [the shared archive helper](../cronjobs/raw_archive.py),
+also used by Mayo. Existing NHS archive filenames and version-1 metadata remain compatible.
+New HTTP archives additionally record `acquisition: http` and `content_scope: full_document`;
+replay verifies the recorded byte length as well as the checksum. The high-level cross-source
+process is documented in [the guide-data workflow](guide-data-workflow.md).
+
 Implementation: [downloader.py](../cronjobs/nhs_dataset/downloader.py).
 
 The guide downloader loads/validates the manifest, checks robots.txt, and visits each source
