@@ -26,7 +26,7 @@ class GuideDocument(BaseModel):
     etag: str | None = None
     last_modified: str | None = None
     content_sha256: str
-    parser_version: str = "1"
+    parser_version: str
     licence: str = "Open Government Licence v3.0"
     sections: list[GuideSection]
 
@@ -64,12 +64,14 @@ class RetrievedChunk(BaseModel):
 
 class EvidenceStatement(BaseModel):
     text: Annotated[str, Field(min_length=1, max_length=800)]
-    evidence_ids: list[str] = Field(default_factory=list, max_length=4)
+    evidence_ids: list[str] = Field(min_length=1, max_length=4)
 
 
 class AgentDraft(BaseModel):
     summary: Annotated[str, Field(min_length=1, max_length=1_500)]
+    summary_evidence_ids: list[str] = Field(min_length=1, max_length=4)
     help_level: Urgency = "unknown"
+    help_level_evidence_ids: list[str] = Field(default_factory=list, max_length=4)
     next_steps: list[EvidenceStatement] = Field(default_factory=list, max_length=6)
     warning_signs: list[EvidenceStatement] = Field(default_factory=list, max_length=6)
     follow_up_question: Annotated[str | None, Field(max_length=400)] = None
@@ -87,7 +89,9 @@ class SourceCitation(BaseModel):
 class ChatResponse(BaseModel):
     request_id: str
     mode: Literal["codex", "retrieval_only", "emergency"]
-    grounded: bool
+    evidence_status: Literal[
+        "references_checked", "source_extracts", "fixed_guidance", "unavailable"
+    ]
     urgency: Urgency
     summary: str
     next_steps: list[str]

@@ -1,18 +1,23 @@
 from __future__ import annotations
 
 import hashlib
-import json
 from pathlib import Path
 
+from pydantic import ValidationError
 from qdrant_client import QdrantClient
 from qdrant_client.models import Distance, PointStruct, VectorParams
 
+from cronjobs.nhs_dataset.parser import PARSER_VERSION
 from nhs_rag.models import GuideDocument, RetrievedChunk, SourceSummary
 from nhs_rag.retrieval.chunker import chunk_document
 from nhs_rag.retrieval.embedder import Encoder
 
 
 class CorpusUnavailableError(RuntimeError):
+    pass
+
+
+class CorpusInvalidError(RuntimeError):
     pass
 
 
@@ -59,9 +64,12 @@ class RagService:
         documents: list[GuideDocument] = []
         for path in sorted(self.corpus_dir.glob("*.json")):
             try:
-                documents.append(GuideDocument.model_validate_json(path.read_text(encoding="utf-8")))
-            except (OSError, ValueError, json.JSONDecodeError):
-                continue
+                document = GuideDocument.model_validate_json(path.read_text(encoding="utf-8"))
+            except (OSError, ValidationError) as exc:
+                raise CorpusInvalidError(f"Cannot load NHS guide: {path.name}") from exc
+            if document.parser_version != PARSER_VERSION:
+                raise CorpusInvalidError(f"Refresh NHS guide with the current parser: {path.name}")
+            documents.append(document)
         if not documents:
             raise CorpusUnavailableError(
                 "No parsed NHS guides were found. Run the ingestion command first."
@@ -175,16 +183,17 @@ class RagService:
 
         # Dense retrieval can miss the urgent card next to an otherwise relevant section.
         matched_documents = {chunk.document_id for chunk in retrieved[:3]}
-        seen = {chunk.id for chunk in retrieved}
-        safety_chunks = [
-            chunk
-            for chunk in self.chunks
-            if chunk.document_id in matched_documents
-            and chunk.urgency in {"emergency", "urgent"}
-            and chunk.id not in seen
-        ]
-        retrieved.extend(safety_chunks)
-        return retrieved[:maximum]
+        candidates = {chunk.id: chunk for chunk in retrieved}
+        for chunk in self.chunks:
+            if chunk.document_id in matched_documents and chunk.urgency in {"emergency", "urgent"}:
+                candidates.setdefault(chunk.id, chunk)
+        safety_chunks = sorted(
+            (chunk for chunk in candidates.values() if chunk.urgency in {"emergency", "urgent"}),
+            key=lambda chunk: chunk.urgency != "emergency",
+        )
+        general = [chunk for chunk in retrieved if chunk.urgency not in {"emergency", "urgent"}]
+        # The cap is a soft budget: never truncate safety passages, even when they fill it.
+        return safety_chunks + general[: max(0, maximum - len(safety_chunks))]
 
     def source_summaries(self) -> list[SourceSummary]:
         return [

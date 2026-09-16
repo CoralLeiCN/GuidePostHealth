@@ -67,7 +67,7 @@ async def _run() -> int:
         f"{report.archived} raw snapshots archived, "
         f"{report.unchanged} unchanged, {report.failed} failed."
     )
-    for error in report.errors or []:
+    for error in report.errors:
         print(f"- {error}")
     return 1 if report.failed else 0
 

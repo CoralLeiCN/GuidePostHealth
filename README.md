@@ -32,7 +32,7 @@ sentence-transformers query embedding
     │
     ▼
 standalone Qdrant retrieval
-    │  + urgent sections from matched guides
+    │  + urgent sections from the leading matched guides (never truncated)
     ▼
 read-only Codex synthesis ──► evidence-ID validation
     │                                │
@@ -114,7 +114,18 @@ npm run build                         # production frontend build
 npm run lint                          # frontend lint
 ```
 
-Refresh the corpus regularly:
+With Qdrant running and an existing ChatGPT OAuth login, run the opt-in live test:
+
+```bash
+PYTHONPATH=backend:. uv run python scripts/live_oauth_smoke.py --model gpt-5.6-luna
+```
+
+It fetches three NHS pages, uses real embeddings and the requested model, checks an initial
+answer and a follow-up, and verifies the fixed emergency response with the index unavailable.
+It rejects retrieval-only fallbacks, removes its temporary Qdrant collection, and writes the
+result to the ignored `outputs/live-oauth-smoke.json`. All example symptoms are fictional.
+
+Refresh the corpus regularly, and after upgrading from an older parser to version 4:
 
 ```bash
 uv run python -m cronjobs.nhs_dataset.refresh --contact "mailto:you@example.com"
@@ -155,7 +166,7 @@ section) configurations. Exact A-to-Z index labels and medical/everyday aliases 
 on the deduplicated guide record. The generated content is gitignored because its freshness
 and reuse obligations differ from the application source code.
 
-The fetcher uses an explicit allowlist, checks `robots.txt`, sends conditional requests, validates redirects, waits between pages, strips media and navigation, and keeps the previous file if a refresh fails. It does not recursively crawl links.
+The fetcher uses an explicit allowlist, checks `robots.txt`, sends conditional requests, validates redirects, waits between pages, strips media and navigation, and keeps the previous file if a refresh fails. It does not recursively crawl links. Parser upgrades bypass conditional requests. Corrupt or outdated corpus files prevent readiness; the API logs the affected filename. Reparse existing raw archives with `uv run python -m cronjobs.nhs_dataset --from-raw`, rebuild the Qdrant index, and restart the API after this upgrade.
 
 ## Mayo Clinic raw sources
 
@@ -208,15 +219,20 @@ Example request:
 
 Responses distinguish `codex`, `retrieval_only`, and `emergency` modes. Source titles and URLs come from the server-owned corpus; generated links are never trusted.
 
+`evidence_status` replaces the former `grounded` boolean. It reports `references_checked` for generated answers, `source_extracts` for copied passages, `fixed_guidance` for the emergency message, or `unavailable` when retrieval found nothing. Checking references establishes that IDs belong to the retrieved evidence, **not** that generated claims or urgency decisions are factually supported. Generated summaries and non-unknown urgency decisions must now include evidence references, as must every next step and warning sign.
+
+Follow-up retrieval includes recent user turns, excluding assistant-generated advice. `GUIDEPOST_MAXIMUM_EVIDENCE_CHUNKS` is a soft budget: emergency and urgent passages take priority and may exceed it. Fallback responses retain their full warning text and action headings.
+
 ## Safety boundaries
 
 This is deliberately a narrow engineering starter, not a deployable medical service.
 
 - It does not diagnose, rule out conditions, or claim symptoms are harmless.
 - Obvious danger wording is escalated before model generation; the rule never downgrades NHS urgency.
-- Emergency and urgent chunks from matched pages are forced into the evidence bundle.
-- Every generated next step or warning sign must reference a retrieved evidence ID.
-- Invalid agent output, timeouts, missing citations, or unavailable authentication fall back to labelled source extracts.
+- Emergency and urgent chunks from the leading matched pages are retained even when they exceed the evidence budget.
+- Generated summaries, non-unknown urgency decisions, next steps, and warning signs require retrieved evidence references. This does not verify the meaning of generated claims.
+- Invalid agent output, timeouts, missing citations, or SDK failures fall back to labelled source extracts. These failures log a request ID and exception types without model output or symptom text. Unexpected programming errors propagate instead of being converted into successful responses.
+- The deterministic emergency matcher checks every danger-phrase occurrence and only suppresses explicit adjacent negation. It is a limited wording safeguard, not a general language or clinical assessment.
 - Symptom text is not intentionally logged or persisted; chat state stays in browser memory. Codex remains an external processing boundary that must be assessed for the intended deployment.
 - The UI always exposes 999/111 guidance and the original NHS pages.
 

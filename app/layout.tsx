@@ -18,11 +18,11 @@ export const metadata: Metadata = {
   ),
   title: 'GuidePost Health — LLM testing and RAG learning',
   description:
-    'A local project for LLM testing and learning RAG using NHS website text. Not designed for public or clinical use.',
+    'An assistant for exploring NHS symptom guidance with links to the original sources.',
   openGraph: {
     title: 'GuidePost Health — LLM testing and RAG learning',
     description:
-      'Local LLM and RAG experiments with fictional questions. Not designed for public or clinical use.',
+      'Explore NHS symptom guidance with links to the original sources.',
     type: 'website',
     images: [
       { url: '/og.png', width: 1731, height: 909, alt: 'GuidePost Health' },
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'GuidePost Health — LLM testing and RAG learning',
     description:
-      'Local LLM and RAG experiments with fictional questions. Not designed for public or clinical use.',
+      'Explore NHS symptom guidance with links to the original sources.',
     images: ['/og.png'],
   },
 };

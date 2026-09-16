@@ -13,7 +13,9 @@ Do not use tools, the filesystem, shell commands, or the network.
 Preserve age, pregnancy, duration, and urgency qualifiers from the evidence.
 Do not give medicine doses. Do not say that symptoms are harmless.
 If evidence is insufficient, say so and recommend the appropriate official NHS route.
-Attach at least one valid evidence ID to every next step and warning sign.
+Attach valid evidence IDs to the summary, every next step, and every warning sign.
+For any help_level other than unknown, cite evidence supporting that urgency decision.
+An urgent passage describes conditional advice; do not assume its conditions apply to the user.
 Never invent links or source titles; the server adds those itself.
 Your answer is a GuidePost Health adaptation. Do not describe it as NHS-authored,
 approved or endorsed, or claim that the retrieved snapshot is current.
@@ -40,7 +42,9 @@ def build_prompt(
     ]
     schema = {
         "summary": "brief plain-language synthesis; no diagnosis",
+        "summary_evidence_ids": ["valid id"],
         "help_level": "emergency | urgent | routine | self_care | unknown",
+        "help_level_evidence_ids": ["valid id; may be empty only when help_level is unknown"],
         "next_steps": [{"text": "supported action", "evidence_ids": ["valid id"]}],
         "warning_signs": [
             {"text": "supported warning or escalation sign", "evidence_ids": ["valid id"]}

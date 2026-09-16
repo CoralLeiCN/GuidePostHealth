@@ -1,7 +1,7 @@
 [project]
 name = "guidepost-health-rag"
 version = "0.1.0"
-description = "A local, source-grounded NHS symptom guide navigator"
+description = "A local NHS symptom guide navigator with source references"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [

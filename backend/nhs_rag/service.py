@@ -1,22 +1,24 @@
 from __future__ import annotations
 
 import asyncio
-from typing import Literal
+import logging
 from uuid import uuid4
 
 from pydantic import HttpUrl
 
 from nhs_rag.agent.codex import AnswerAgent
+from nhs_rag.agent.errors import AnswerUnavailableError, InvalidAnswerError
 from nhs_rag.models import (
     AgentDraft,
     ChatRequest,
     ChatResponse,
-    EvidenceStatement,
     RetrievedChunk,
     SourceCitation,
 )
 from nhs_rag.retrieval.service import RagService
 from nhs_rag.safety.urgency import safety_floor
+
+logger = logging.getLogger("nhs_rag")
 
 
 def _excerpt(text: str, limit: int = 360) -> str:
@@ -47,35 +49,45 @@ class ChatService:
         if floor.emergency:
             return self._emergency_response(request_id, floor.reason)
 
+        # User turns retain symptom context without feeding generated advice back into retrieval.
+        query = "\n".join(
+            [request.message]
+            + [
+                message.content
+                for message in reversed(request.history[-6:])
+                if message.role == "user"
+            ]
+        )
         evidence = await asyncio.to_thread(
             self.rag.search,
-            request.message,
+            query,
             top_k=self.top_k,
             maximum=self.maximum_evidence_chunks,
         )
+        if not self.agent.enabled or not evidence:
+            return self._retrieval_response(request_id, evidence)
         try:
             draft = await self.agent.answer(
                 question=request.message,
                 history=request.history,
                 evidence=evidence,
             )
-            mode: Literal["codex", "retrieval_only"] = "codex"
-        except Exception:
-            draft = self._retrieval_fallback(evidence)
-            mode = "retrieval_only"
+            referenced_ids = self._validate_references(draft, evidence)
+        except (AnswerUnavailableError, InvalidAnswerError) as exc:
+            # SDK/validation exceptions can contain symptom text. Log only types and request ID.
+            logger.warning(
+                "Answer fallback: request_id=%s error=%s cause=%s",
+                request_id,
+                type(exc).__name__,
+                type(exc.__cause__).__name__ if exc.__cause__ else "none",
+            )
+            return self._retrieval_response(request_id, evidence)
 
-        referenced_ids = {
-            evidence_id
-            for statement in [*draft.next_steps, *draft.warning_signs]
-            for evidence_id in statement.evidence_ids
-        }
-        sources = self._citations(
-            [chunk for chunk in evidence if not referenced_ids or chunk.id in referenced_ids]
-        )
+        sources = self._citations([chunk for chunk in evidence if chunk.id in referenced_ids])
         return ChatResponse(
             request_id=request_id,
-            mode=mode,
-            grounded=bool(sources),
+            mode="codex",
+            evidence_status="references_checked",
             urgency=draft.help_level,
             summary=draft.summary,
             next_steps=[statement.text for statement in draft.next_steps],
@@ -83,35 +95,57 @@ class ChatService:
             follow_up_question=draft.follow_up_question,
             sources=sources,
             notice=(
-                "AI-generated adaptation by GuidePost Health. "
-                if mode == "codex"
-                else "Shortened extracts selected by GuidePost Health; context may be omitted. "
-            )
-            + (
-                "Not authored or approved by the NHS. This is not a diagnosis. "
-                "Contains public sector information licensed under the "
+                "AI-generated guidance with checked NHS source references. The wording and "
+                "urgency have not been independently verified. "
+                "Not authored or approved by the NHS. "
+                "This is not a diagnosis. Contains public sector information licensed under the "
                 "Open Government Licence v3.0."
             ),
         )
 
     @staticmethod
-    def _retrieval_fallback(evidence: list[RetrievedChunk]) -> AgentDraft:
-        general = [chunk for chunk in evidence if chunk.urgency not in {"emergency", "urgent"}]
-        warnings = [chunk for chunk in evidence if chunk.urgency in {"emergency", "urgent"}]
-        return AgentDraft(
+    def _validate_references(draft: AgentDraft, evidence: list[RetrievedChunk]) -> set[str]:
+        required = [
+            draft.summary_evidence_ids,
+            *(statement.evidence_ids for statement in [*draft.next_steps, *draft.warning_signs]),
+        ]
+        if draft.help_level != "unknown":
+            required.append(draft.help_level_evidence_ids)
+        referenced_ids = {
+            evidence_id
+            for group in [*required, draft.help_level_evidence_ids]
+            for evidence_id in group
+        }
+        if any(not group for group in required) or not referenced_ids <= {c.id for c in evidence}:
+            raise InvalidAnswerError("Missing or unknown evidence references")
+        return referenced_ids
+
+    def _retrieval_response(self, request_id: str, evidence: list[RetrievedChunk]) -> ChatResponse:
+        general = [chunk for chunk in evidence if chunk.urgency not in {"emergency", "urgent"}][:3]
+        warnings = sorted(
+            (chunk for chunk in evidence if chunk.urgency in {"emergency", "urgent"}),
+            key=lambda chunk: chunk.urgency != "emergency",
+        )
+        return ChatResponse(
+            request_id=request_id,
+            mode="retrieval_only",
+            evidence_status="source_extracts" if evidence else "unavailable",
             summary=(
-                "I found NHS guidance that may be relevant, but the answer agent was not "
-                "available, so I am showing source extracts instead of personalised guidance."
+                "I could not produce a validated answer, so I am showing potentially relevant "
+                "NHS source extracts instead of personalised guidance."
+                if evidence
+                else "I could not retrieve guidance for this question. Please use the NHS website."
             ),
-            help_level="unknown",
-            next_steps=[
-                EvidenceStatement(text=_excerpt(chunk.text), evidence_ids=[chunk.id])
-                for chunk in general[:3]
-            ],
-            warning_signs=[
-                EvidenceStatement(text=_excerpt(chunk.text), evidence_ids=[chunk.id])
-                for chunk in warnings[:3]
-            ],
+            urgency="unknown",
+            next_steps=[_excerpt(f"{chunk.heading}: {chunk.text}") for chunk in general],
+            # Keep the action heading and all conditions together in safety extracts.
+            warning_signs=[f"{chunk.heading}: {chunk.text}" for chunk in warnings],
+            sources=self._citations([*general, *warnings]),
+            notice=(
+                "Extracts selected by GuidePost Health. Not authored or approved by the NHS. "
+                "This is not a diagnosis. Contains public sector information licensed under "
+                "the Open Government Licence v3.0."
+            ),
         )
 
     @staticmethod
@@ -133,7 +167,7 @@ class ChatService:
                     excerpt=_excerpt(chunk.text, 220),
                 )
             )
-        return citations[:6]
+        return citations
 
     @staticmethod
     def _emergency_response(request_id: str, reason: str | None) -> ChatResponse:
@@ -141,7 +175,7 @@ class ChatService:
         return ChatResponse(
             request_id=request_id,
             mode="emergency",
-            grounded=True,
+            evidence_status="fixed_guidance",
             urgency="emergency",
             summary=(
                 "This may need emergency help"
