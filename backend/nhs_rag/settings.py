@@ -26,7 +26,12 @@ class Settings(BaseSettings):
     qdrant_timeout_seconds: int = Field(default=5, ge=1, le=60)
     embedding_model: str = "sentence-transformers/all-MiniLM-L6-v2"
     top_k: int = Field(default=6, ge=1, le=20)
-    maximum_evidence_chunks: int = Field(default=9, ge=1, le=20)
+    maximum_evidence_chunks: int = Field(
+        default=9,
+        ge=1,
+        le=20,
+        description="Soft evidence budget; safety passages are never truncated",
+    )
     codex_enabled: bool = True
     codex_model: str = "gpt-5.6-terra"
     codex_base_url: AnyHttpUrl | None = None

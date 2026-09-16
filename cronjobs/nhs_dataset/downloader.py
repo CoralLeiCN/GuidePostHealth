@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import asyncio
 import json
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from datetime import UTC, datetime
 from pathlib import Path
 from urllib.parse import urlparse
@@ -11,12 +11,16 @@ from urllib.robotparser import RobotFileParser
 import httpx
 from nhs_rag.models import GuideDocument
 
-from cronjobs.nhs_dataset.parser import parse_nhs_page
+from cronjobs.nhs_dataset.parser import PARSER_VERSION, parse_nhs_page
 from cronjobs.nhs_dataset.urls import validate_nhs_url as validate_nhs_url
 from cronjobs.raw_archive import RAW_ARCHIVE_VERSION as RAW_ARCHIVE_VERSION
 from cronjobs.raw_archive import archive_http_response, read_archive
 
 ROBOTS_URL = "https://www.nhs.uk/robots.txt"
+
+
+class FetchError(RuntimeError):
+    pass
 
 
 @dataclass(frozen=True)
@@ -33,22 +37,14 @@ class IngestionReport:
     archived: int = 0
     unchanged: int = 0
     failed: int = 0
-    errors: list[str] | None = None
-
-    def __post_init__(self) -> None:
-        if self.errors is None:
-            self.errors = []
+    errors: list[str] = field(default_factory=list)
 
 
 @dataclass
 class ReparseReport:
     reparsed: int = 0
     failed: int = 0
-    errors: list[str] | None = None
-
-    def __post_init__(self) -> None:
-        if self.errors is None:
-            self.errors = []
+    errors: list[str] = field(default_factory=list)
 
 
 def load_sources(path: Path) -> list[SourceSpec]:
@@ -164,9 +160,8 @@ def reparse_sources_from_raw(
             )
             _write_document(document, output_dir / source_filename(source))
             report.reparsed += 1
-        except Exception as exc:
+        except (OSError, ValueError) as exc:
             report.failed += 1
-            assert report.errors is not None
             report.errors.append(f"{source.title}: {exc}")
     return report
 
@@ -204,7 +199,7 @@ async def _request_with_retries(
             last_error = exc
             if attempt + 1 < attempts:
                 await asyncio.sleep(2**attempt)
-    raise RuntimeError(f"Could not fetch {url}") from last_error
+    raise FetchError(f"Could not fetch {url}") from last_error
 
 
 async def ingest_sources(
@@ -236,10 +231,16 @@ async def ingest_sources(
                 existing = _load_existing(destination)
                 raw_exists = _raw_snapshot_exists(source, raw_dir)
                 headers = {"User-Agent": user_agent}
-                if existing and raw_exists and existing.etag and not force:
-                    headers["If-None-Match"] = existing.etag
-                if existing and raw_exists and existing.last_modified and not force:
-                    headers["If-Modified-Since"] = existing.last_modified
+                if (
+                    existing
+                    and raw_exists
+                    and existing.parser_version == PARSER_VERSION
+                    and not force
+                ):
+                    if existing.etag:
+                        headers["If-None-Match"] = existing.etag
+                    if existing.last_modified:
+                        headers["If-Modified-Since"] = existing.last_modified
 
                 response = await _request_with_retries(client, source.url, headers=headers)
                 if response.status_code == 304:
@@ -264,9 +265,8 @@ async def ingest_sources(
                     )
                     _write_document(document, destination)
                     report.fetched += 1
-            except Exception as exc:  # keep refreshing other reviewed sources
+            except (httpx.HTTPError, FetchError, OSError, ValueError) as exc:
                 report.failed += 1
-                assert report.errors is not None
                 report.errors.append(f"{source.title}: {exc}")
             if delay_seconds and index + 1 < len(sources):
                 await asyncio.sleep(delay_seconds)

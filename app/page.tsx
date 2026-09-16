@@ -1,6 +1,12 @@
 'use client';
 
-import { KeyboardEvent, SyntheticEvent, useEffect, useRef, useState } from 'react';
+import {
+  KeyboardEvent,
+  SyntheticEvent,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import {
   ArrowUp,
   BookOpenText,
@@ -42,7 +48,11 @@ type Source = {
 type Guidance = {
   request_id: string;
   mode: 'codex' | 'retrieval_only' | 'emergency';
-  grounded: boolean;
+  evidence_status:
+    | 'references_checked'
+    | 'source_extracts'
+    | 'fixed_guidance'
+    | 'unavailable';
   urgency: 'emergency' | 'urgent' | 'routine' | 'self_care' | 'unknown';
   summary: string;
   next_steps: string[];
@@ -222,7 +232,10 @@ export default function Home() {
               <div className="flex items-center justify-between gap-3 px-2 pb-1 pt-2">
                 <div className="flex items-center gap-2 text-[11px] text-muted-foreground">
                   <LockKeyhole className="size-3.5" />
-                  <span>Messages are sent to this service and, when enabled, its AI provider.</span>
+                  <span>
+                    Messages are sent to this service and, when enabled, its AI
+                    provider.
+                  </span>
                 </div>
                 <Button
                   aria-label="Send message"
@@ -240,10 +253,10 @@ export default function Home() {
               </div>
             </form>
             <p className="mt-3 text-center text-[11px] leading-5 text-muted-foreground">
-              For LLM testing and learning RAG only. Not designed for public or clinical use.
-              Use fictional examples, not real patient information.
-              In England, use NHS 111 if you need
-              help now but it is not an emergency.
+              For LLM testing and learning RAG only. Not designed for public or
+              clinical use. Use fictional examples, not real patient
+              information. In England, use NHS 111 if you need help now but it
+              is not an emergency.
             </p>
           </div>
         </section>
@@ -254,7 +267,11 @@ export default function Home() {
   );
 }
 
-function Welcome({ onSuggestion }: { onSuggestion: (suggestion: string) => void }) {
+function Welcome({
+  onSuggestion,
+}: {
+  onSuggestion: (suggestion: string) => void;
+}) {
   return (
     <div className="flex flex-1 flex-col">
       <div className="mb-8 flex items-start gap-4">
@@ -269,8 +286,9 @@ function Welcome({ onSuggestion }: { onSuggestion: (suggestion: string) => void 
             Try a fictional test question
           </h1>
           <p className="mt-3 max-w-xl text-[15px] leading-7 text-muted-foreground">
-            Explore how an LLM retrieves passages and generates an answer from a saved
-            guidance library. This is a learning project, not a service for personal health advice.
+            Explore how an LLM retrieves passages and generates an answer from a
+            saved guidance library. This is a learning project, not a service
+            for personal health advice.
           </p>
         </div>
       </div>
@@ -306,7 +324,9 @@ function ChatMessage({ message }: { message: ConversationMessage }) {
         <div>
           <p className="font-semibold">The local guide is not connected</p>
           <p className="mt-1 leading-6 text-amber-900/80">{message.content}</p>
-          <p className="mt-2 text-xs">You can still use the links to official NHS services.</p>
+          <p className="mt-2 text-xs">
+            You can still use the links to official NHS services.
+          </p>
         </div>
       </div>
     );
@@ -314,7 +334,8 @@ function ChatMessage({ message }: { message: ConversationMessage }) {
 
   const guidance = message.guidance;
   if (!guidance) return null;
-  const urgent = guidance.urgency === 'emergency' || guidance.urgency === 'urgent';
+  const urgent =
+    guidance.urgency === 'emergency' || guidance.urgency === 'urgent';
   return (
     <article
       className={cn(
@@ -325,13 +346,19 @@ function ChatMessage({ message }: { message: ConversationMessage }) {
       <div className="mb-3 flex flex-wrap items-center gap-2">
         <Badge
           variant={urgent ? 'destructive' : 'secondary'}
-          className={!urgent ? 'bg-[var(--teal-wash)] text-[var(--teal-strong)]' : undefined}
+          className={
+            !urgent
+              ? 'bg-[var(--teal-wash)] text-[var(--teal-strong)]'
+              : undefined
+          }
         >
           {guidance.urgency === 'emergency'
             ? 'Emergency action'
             : guidance.urgency === 'urgent'
               ? 'Get help now'
-              : 'GuidePost Health guidance'}
+              : guidance.evidence_status === 'unavailable'
+                ? 'No matching guidance'
+                : 'GuidePost Health guidance'}
         </Badge>
         {guidance.mode === 'retrieval_only' && (
           <Badge variant="outline">Source extracts</Badge>
@@ -358,7 +385,12 @@ function ChatMessage({ message }: { message: ConversationMessage }) {
       {guidance.sources.length > 0 && <Sources sources={guidance.sources} />}
       <p className="mt-4 border-t pt-3 text-xs leading-5 text-muted-foreground">
         {guidance.notice}{' '}
-        <a className="underline" href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" target="_blank" rel="noreferrer">
+        <a
+          className="underline"
+          href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+          target="_blank"
+          rel="noreferrer"
+        >
           Read the licence
         </a>
       </p>
@@ -377,7 +409,12 @@ function GuidanceList({
 }) {
   return (
     <div className="mt-5">
-      <h2 className={cn('text-xs font-bold uppercase tracking-[0.09em]', warning && 'text-red-700')}>
+      <h2
+        className={cn(
+          'text-xs font-bold uppercase tracking-[0.09em]',
+          warning && 'text-red-700',
+        )}
+      >
         {title}
       </h2>
       <ul className="mt-2 space-y-2 text-sm leading-6 text-foreground/80">
@@ -401,7 +438,8 @@ function Sources({ sources }: { sources: Source[] }) {
   return (
     <div className="mt-5 border-t pt-4">
       <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.09em] text-muted-foreground">
-        Original reference pages · this response is a GuidePost Health adaptation
+        Original reference pages · this response is a GuidePost Health
+        adaptation
       </p>
       <div className="flex flex-wrap gap-2">
         {sources.map((source) => (
@@ -475,12 +513,29 @@ function HowItWorks() {
         </a>
 
         <p className="mt-6 border-t pt-5 text-xs leading-5 text-muted-foreground">
-          Local LLM testing and RAG learning project. Not designed for any public use,
-          personal health advice or clinical decisions. Not affiliated with or endorsed by
-          the NHS. Contains public sector information licensed under the{' '}
-          <a className="underline" href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" target="_blank" rel="noreferrer">Open Government Licence v3.0</a>.
-          {' '}Adapted extracts and generated answers are not NHS-authored or clinically approved.
-          {' '}<a className="underline" href="https://www.nhs.uk/our-policies/terms-and-conditions/" target="_blank" rel="noreferrer">NHS content terms</a> apply to reuse.
+          Local LLM testing and RAG learning project. Not designed for any
+          public use, personal health advice or clinical decisions. Not
+          affiliated with or endorsed by the NHS. Contains public sector
+          information licensed under the{' '}
+          <a
+            className="underline"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Open Government Licence v3.0
+          </a>
+          . Adapted extracts and generated answers are not NHS-authored or
+          clinically approved.{' '}
+          <a
+            className="underline"
+            href="https://www.nhs.uk/our-policies/terms-and-conditions/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            NHS content terms
+          </a>{' '}
+          apply to reuse.
         </p>
       </div>
     </aside>
@@ -504,7 +559,9 @@ function InfoCard({
         </span>
         <h2 className="text-sm font-semibold tracking-[-0.015em]">{title}</h2>
       </div>
-      <p className="pl-[42px] text-xs leading-5 text-muted-foreground">{body}</p>
+      <p className="pl-[42px] text-xs leading-5 text-muted-foreground">
+        {body}
+      </p>
     </div>
   );
 }

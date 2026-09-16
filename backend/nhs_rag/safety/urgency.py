@@ -38,16 +38,20 @@ _EMERGENCY_PATTERNS: tuple[tuple[re.Pattern[str], str], ...] = (
 )
 
 _NEGATION = re.compile(
-    r"\b(?:no|not|without|denies|do not have|don't have)\b(?:\W+\w+){0,3}\W*$",
+    r"\b(?:no(?:\s+longer)?|without|denies(?:\s+having)?|"
+    r"(?:do not|don't|does not|doesn't)\s+(?:have|feel|experience)|"
+    r"not(?:\s+(?:having|feeling|experiencing))?)\s+(?:any\s+)?$",
     re.I,
 )
 
 
 def safety_floor(message: str) -> SafetyFloor:
-    """Escalate obvious danger wording; this rule can never downgrade NHS evidence."""
+    """Escalate matched danger phrases unless they are explicitly negated."""
 
+    message = message.replace("’", "'")
     for pattern, reason in _EMERGENCY_PATTERNS:
-        match = pattern.search(message)
-        if match and not _NEGATION.search(message[max(0, match.start() - 40) : match.start()]):
-            return SafetyFloor(emergency=True, reason=reason)
+        for match in pattern.finditer(message):
+            # Only an adjacent negation suppresses a match; another symptom or clause must not.
+            if not _NEGATION.search(message[: match.start()]):
+                return SafetyFloor(emergency=True, reason=reason)
     return SafetyFloor(emergency=False)

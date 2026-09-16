@@ -14,7 +14,7 @@ from pydantic import HttpUrl
 from cronjobs.nhs_dataset.content import require_main_content
 from cronjobs.nhs_dataset.urls import validate_nhs_url
 
-PARSER_VERSION = "3"
+PARSER_VERSION = "4"
 _SPACE = re.compile(r"\s+")
 _DATE_TEXT = r"(\d{1,2}\s+[A-Za-z]+\s+\d{4})"
 _LAST_REVIEWED = re.compile(rf"Page last reviewed:\s*{_DATE_TEXT}", re.I)
@@ -65,18 +65,21 @@ SectionUrgency = Literal["emergency", "urgent", "routine", "general"]
 def _urgency_for(element: Tag, heading: str) -> SectionUrgency:
     classes: list[str] = []
     current: Tag | None = element
-    for _ in range(4):
-        if current is None:
-            break
+    while current is not None:
         raw_classes = current.attrs.get("class")
         if isinstance(raw_classes, list):
             classes.extend(str(item).lower() for item in raw_classes)
         current = current.parent if isinstance(current.parent, Tag) else None
-    combined = " ".join(classes + [heading.lower()])
+    if "nhsuk-care-card--immediate" in classes:
+        return "emergency"
+    if "nhsuk-care-card--urgent" in classes:
+        return "urgent"
+    if "nhsuk-care-card--non-urgent" in classes:
+        return "routine"
+    combined = heading.lower()
     if any(
         phrase in combined
         for phrase in (
-            "care-card--immediate",
             "immediate action",
             "call 999",
             "go to a&e",
@@ -84,16 +87,12 @@ def _urgency_for(element: Tag, heading: str) -> SectionUrgency:
         )
     ):
         return "emergency"
-    if any(
-        phrase in combined
-        for phrase in ("non-urgent advice", "see a gp", "speak to a gp", "pharmacist")
-    ):
+    if "non-urgent advice" in combined:
         return "routine"
-    if any(
-        phrase in combined
-        for phrase in ("care-card--urgent", "urgent advice", "ask for an urgent", "nhs 111")
-    ):
+    if any(phrase in combined for phrase in ("urgent advice", "ask for an urgent", "nhs 111")):
         return "urgent"
+    if any(phrase in combined for phrase in ("see a gp", "speak to a gp", "pharmacist")):
+        return "routine"
     return "general"
 
 
@@ -197,9 +196,7 @@ def parse_nhs_page(
         description=description,
         fetched_at=fetched_at or datetime.now(UTC),
         date_modified=str(metadata.get("dateModified")) if metadata.get("dateModified") else None,
-        last_reviewed=(
-            _clean_text(last_reviewed_match.group(1)) if last_reviewed_match else None
-        ),
+        last_reviewed=(_clean_text(last_reviewed_match.group(1)) if last_reviewed_match else None),
         next_review_due=_clean_text(next_review_match.group(1)) if next_review_match else None,
         etag=etag,
         last_modified=last_modified,

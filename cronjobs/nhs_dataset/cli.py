@@ -100,7 +100,7 @@ async def _run() -> int:
             f"Offline NHS corpus reparse complete: {reparse.reparsed} reparsed, "
             f"{reparse.failed} failed."
         )
-        for error in reparse.errors or []:
+        for error in reparse.errors:
             print(f"- {error}")
         if reparse.failed:
             return 1
@@ -118,7 +118,7 @@ async def _run() -> int:
             f"{report.archived} raw snapshots archived, "
             f"{report.unchanged} unchanged, {report.failed} failed."
         )
-        for error in report.errors or []:
+        for error in report.errors:
             print(f"- {error}")
         if report.failed:
             return 1

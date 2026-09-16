@@ -5,14 +5,20 @@ import logging
 from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI, HTTPException, Request, status
+from fastapi import FastAPI, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
 from qdrant_client import QdrantClient
+from qdrant_client.http.exceptions import ResponseHandlingException, UnexpectedResponse
 
 from nhs_rag.agent.codex import AnswerAgent, CodexAnswerAgent
 from nhs_rag.models import ChatRequest, ChatResponse, HealthResponse, SourceSummary
 from nhs_rag.retrieval.embedder import SentenceTransformerEncoder
-from nhs_rag.retrieval.service import CorpusUnavailableError, IndexUnavailableError, RagService
+from nhs_rag.retrieval.service import (
+    CorpusInvalidError,
+    CorpusUnavailableError,
+    IndexUnavailableError,
+    RagService,
+)
 from nhs_rag.service import ChatService
 from nhs_rag.settings import Settings, get_settings
 
@@ -73,8 +79,10 @@ def create_app(
                 logger.warning("NHS corpus is absent; readiness will remain false")
             except IndexUnavailableError as error:
                 logger.warning("NHS Qdrant index is unavailable: %s", error)
-            except Exception:
-                logger.exception("NHS Qdrant index validation failed")
+            except CorpusInvalidError as exc:
+                logger.error("NHS corpus validation failed: %s", exc)
+            except (ResponseHandlingException, UnexpectedResponse) as exc:
+                logger.warning("NHS Qdrant connection failed: %s", type(exc).__name__)
         try:
             yield
         finally:
@@ -124,14 +132,14 @@ def create_app(
         return runtime_rag.source_summaries()
 
     @app.post("/api/v1/chat", response_model=ChatResponse)
-    async def chat(payload: ChatRequest, request: Request) -> ChatResponse:
-        del request  # Explicitly avoid logging or retaining symptom text.
-        if not runtime_rag.ready:
+    async def chat(payload: ChatRequest) -> ChatResponse:
+        try:
+            return await chat_service.answer(payload)
+        except CorpusUnavailableError as exc:
             raise HTTPException(
                 status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
                 detail="The standalone Qdrant index is not ready. Re-index and restart the API.",
-            )
-        return await chat_service.answer(payload)
+            ) from exc
 
     return app
 
