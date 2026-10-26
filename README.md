@@ -108,11 +108,20 @@ npm run qdrant:up                     # start Qdrant and wait until it is ready
 npm run qdrant:index                  # explicitly rebuild the persistent collection
 npm run qdrant:down                   # stop Qdrant and retain its named volumes
 uv run pytest                         # Python tests
-uv run ruff check backend cronjobs tests # Python lint
+uv run ruff check backend cronjobs tests scripts # Python lint
 uv run mypy                           # Python types
 npm run build                         # production frontend build
 npm run lint                          # frontend lint
+npm run types:check                   # verify frontend types match backend models
 ```
+
+After changing the chat API models in `backend/nhs_rag/models.py`, run
+`npm run types:generate` and commit the updated `lib/api-types.ts`.
+
+Indexing keeps the most recently fetched document for each canonical NHS URL, so
+copied files and older snapshots do not duplicate embeddings or source listings.
+Different source URLs remain separate even when their guidance text matches.
+Rebuild an existing index with `npm run qdrant:index` if its corpus contains duplicates.
 
 With Qdrant running and an existing ChatGPT OAuth login, run the opt-in live test:
 

@@ -4,6 +4,7 @@
   "printWidth": 80,
   "sortPackageJson": false,
   "ignorePatterns": [
+    "lib/api-types.ts",
     "package-lock.json",
     "pnpm-lock.yaml",
     "yarn.lock",

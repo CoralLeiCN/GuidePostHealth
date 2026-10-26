@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import math
 from collections.abc import Sequence
-from datetime import UTC, datetime
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from types import SimpleNamespace
 from typing import Any, cast
@@ -234,3 +234,71 @@ def test_old_parser_output_requires_a_refresh(tmp_path: Path) -> None:
     with pytest.raises(CorpusInvalidError, match="Refresh NHS guide"):
         service.index_corpus()
     assert not service.ready
+
+
+@pytest.mark.parametrize("newest_filename", ["a.json", "z.json"])
+def test_duplicate_guides_keep_only_the_newest_snapshot(
+    tmp_path: Path, newest_filename: str
+) -> None:
+    old = _document(
+        "Cough",
+        "https://www.nhs.uk/symptoms/cough/",
+        [GuideSection(heading="Overview", text="Old cough advice.")],
+    )
+    latest = old.model_copy(
+        update={
+            "fetched_at": old.fetched_at + timedelta(days=1),
+            "requested_url": HttpUrl("https://www.nhs.uk/conditions/cough/"),
+            "sections": [
+                GuideSection(
+                    heading="Urgent advice",
+                    text="Get urgent help for this cough.",
+                    urgency="urgent",
+                )
+            ],
+        }
+    )
+    _write(tmp_path / newest_filename, latest)
+    _write(tmp_path / ("z.json" if newest_filename == "a.json" else "a.json"), old)
+    _write(tmp_path / "copy.json", latest)
+    service = RagService(
+        corpus_dir=tmp_path,
+        collection_name="deduplicated",
+        encoder=KeywordEncoder(),
+        embedding_model="keyword-v1",
+        client=cast(QdrantClient, FakeQdrantClient()),
+    )
+
+    service.index_corpus()
+
+    assert service.document_count == 1
+    assert service.chunk_count == 1
+    assert service.client.count("deduplicated").count == 1
+    assert len(service.source_summaries()) == 1
+    assert service.source_summaries()[0].fetched_at == latest.fetched_at
+    results = service.search("cough")
+    assert len(results) == 1
+    assert results[0].text == latest.sections[0].text
+    assert results[0].urgency == "urgent"
+
+
+def test_matching_content_on_distinct_source_pages_is_preserved(tmp_path: Path) -> None:
+    sections = [GuideSection(heading="Overview", text="Rest and drink plenty of fluids.")]
+    for slug in ("cough", "sore-throat"):
+        _write(
+            tmp_path / f"{slug}.json",
+            _document(slug, f"https://www.nhs.uk/symptoms/{slug}/", sections),
+        )
+    service = RagService(
+        corpus_dir=tmp_path,
+        collection_name="distinct_sources",
+        encoder=KeywordEncoder(),
+        embedding_model="keyword-v1",
+        client=cast(QdrantClient, FakeQdrantClient()),
+    )
+
+    service.index_corpus()
+
+    assert service.document_count == 2
+    assert service.chunk_count == 2
+    assert len({str(source.url) for source in service.source_summaries()}) == 2
