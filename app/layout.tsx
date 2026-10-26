@@ -12,17 +12,20 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 });
 
+const title = 'GuidePost Health — LLM testing and RAG learning';
+const socialDescription =
+  'Explore NHS symptom guidance with links to the original sources.';
+
 export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000',
   ),
-  title: 'GuidePost Health — LLM testing and RAG learning',
+  title,
   description:
     'An assistant for exploring NHS symptom guidance with links to the original sources.',
   openGraph: {
-    title: 'GuidePost Health — LLM testing and RAG learning',
-    description:
-      'Explore NHS symptom guidance with links to the original sources.',
+    title,
+    description: socialDescription,
     type: 'website',
     images: [
       { url: '/og.png', width: 1731, height: 909, alt: 'GuidePost Health' },
@@ -30,9 +33,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'GuidePost Health — LLM testing and RAG learning',
-    description:
-      'Explore NHS symptom guidance with links to the original sources.',
+    title,
+    description: socialDescription,
     images: ['/og.png'],
   },
 };

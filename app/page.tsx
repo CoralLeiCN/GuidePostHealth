@@ -27,6 +27,11 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { cn } from '@/lib/utils';
+import type {
+  ChatMessage as ApiChatMessage,
+  ChatResponse as Guidance,
+  SourceCitation as Source,
+} from '@/lib/api-types';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8000';
 
@@ -36,36 +41,8 @@ const suggestions = [
   'Fictional test: a child has a high temperature',
 ];
 
-type Source = {
+type ConversationMessage = ApiChatMessage & {
   id: string;
-  title: string;
-  section: string;
-  url: string;
-  fetched_at: string | null;
-  excerpt: string;
-};
-
-type Guidance = {
-  request_id: string;
-  mode: 'codex' | 'retrieval_only' | 'emergency';
-  evidence_status:
-    | 'references_checked'
-    | 'source_extracts'
-    | 'fixed_guidance'
-    | 'unavailable';
-  urgency: 'emergency' | 'urgent' | 'routine' | 'self_care' | 'unknown';
-  summary: string;
-  next_steps: string[];
-  warning_signs: string[];
-  follow_up_question: string | null;
-  sources: Source[];
-  notice: string;
-};
-
-type ConversationMessage = {
-  id: string;
-  role: 'user' | 'assistant';
-  content: string;
   guidance?: Guidance;
   error?: boolean;
 };

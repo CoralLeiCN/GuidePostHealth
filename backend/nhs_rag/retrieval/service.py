@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import hashlib
+from datetime import UTC
 from pathlib import Path
 
 from pydantic import ValidationError
@@ -61,7 +62,7 @@ class RagService:
         return len(self.chunks)
 
     def _read_corpus(self) -> tuple[list[GuideDocument], list[RetrievedChunk]]:
-        documents: list[GuideDocument] = []
+        documents_by_url: dict[str, GuideDocument] = {}
         for path in sorted(self.corpus_dir.glob("*.json")):
             try:
                 document = GuideDocument.model_validate_json(path.read_text(encoding="utf-8"))
@@ -69,7 +70,16 @@ class RagService:
                 raise CorpusInvalidError(f"Cannot load NHS guide: {path.name}") from exc
             if document.parser_version != PARSER_VERSION:
                 raise CorpusInvalidError(f"Refresh NHS guide with the current parser: {path.name}")
-            documents.append(document)
+            # Aliases and copied files can describe the same canonical guide.
+            # Keep its newest snapshot before embedding, counting, or citing it.
+            url = str(document.canonical_url)
+            previous = documents_by_url.get(url)
+            fetched_at = document.fetched_at.replace(tzinfo=document.fetched_at.tzinfo or UTC)
+            if previous is None or fetched_at > previous.fetched_at.replace(
+                tzinfo=previous.fetched_at.tzinfo or UTC
+            ):
+                documents_by_url[url] = document
+        documents = list(documents_by_url.values())
         if not documents:
             raise CorpusUnavailableError(
                 "No parsed NHS guides were found. Run the ingestion command first."
